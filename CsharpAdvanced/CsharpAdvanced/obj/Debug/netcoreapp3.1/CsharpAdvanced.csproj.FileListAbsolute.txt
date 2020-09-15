@@ -1,0 +1,13 @@
+C:\Users\ej319nm\source\repos\CsharpAdvanced\CsharpAdvanced\CsharpAdvanced\bin\Debug\netcoreapp3.1\CsharpAdvanced.exe
+C:\Users\ej319nm\source\repos\CsharpAdvanced\CsharpAdvanced\CsharpAdvanced\bin\Debug\netcoreapp3.1\CsharpAdvanced.deps.json
+C:\Users\ej319nm\source\repos\CsharpAdvanced\CsharpAdvanced\CsharpAdvanced\bin\Debug\netcoreapp3.1\CsharpAdvanced.runtimeconfig.json
+C:\Users\ej319nm\source\repos\CsharpAdvanced\CsharpAdvanced\CsharpAdvanced\bin\Debug\netcoreapp3.1\CsharpAdvanced.runtimeconfig.dev.json
+C:\Users\ej319nm\source\repos\CsharpAdvanced\CsharpAdvanced\CsharpAdvanced\bin\Debug\netcoreapp3.1\CsharpAdvanced.dll
+C:\Users\ej319nm\source\repos\CsharpAdvanced\CsharpAdvanced\CsharpAdvanced\bin\Debug\netcoreapp3.1\CsharpAdvanced.pdb
+C:\Users\ej319nm\source\repos\CsharpAdvanced\CsharpAdvanced\CsharpAdvanced\obj\Debug\netcoreapp3.1\CsharpAdvanced.csprojAssemblyReference.cache
+C:\Users\ej319nm\source\repos\CsharpAdvanced\CsharpAdvanced\CsharpAdvanced\obj\Debug\netcoreapp3.1\CsharpAdvanced.AssemblyInfoInputs.cache
+C:\Users\ej319nm\source\repos\CsharpAdvanced\CsharpAdvanced\CsharpAdvanced\obj\Debug\netcoreapp3.1\CsharpAdvanced.AssemblyInfo.cs
+C:\Users\ej319nm\source\repos\CsharpAdvanced\CsharpAdvanced\CsharpAdvanced\obj\Debug\netcoreapp3.1\CsharpAdvanced.csproj.CoreCompileInputs.cache
+C:\Users\ej319nm\source\repos\CsharpAdvanced\CsharpAdvanced\CsharpAdvanced\obj\Debug\netcoreapp3.1\CsharpAdvanced.dll
+C:\Users\ej319nm\source\repos\CsharpAdvanced\CsharpAdvanced\CsharpAdvanced\obj\Debug\netcoreapp3.1\CsharpAdvanced.pdb
+C:\Users\ej319nm\source\repos\CsharpAdvanced\CsharpAdvanced\CsharpAdvanced\obj\Debug\netcoreapp3.1\CsharpAdvanced.genruntimeconfig.cache
