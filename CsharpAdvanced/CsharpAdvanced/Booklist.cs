@@ -4,7 +4,7 @@ namespace CsharpAdvanced
 {
     public class Booklist
     {
-        public string Isbn { get; set; }
+        //public string Isbn { get; set; }
         public string Title { get; set; }
 
         public void Add(Book book)
@@ -16,10 +16,6 @@ namespace CsharpAdvanced
         {
             get { throw new NotImplementedException(); }
         }
-    }
-
-    public class Book
-    {
     }
 
     public class GenericDictionary<TKey, TValue>
