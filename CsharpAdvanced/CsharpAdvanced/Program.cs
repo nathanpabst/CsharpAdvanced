@@ -6,9 +6,10 @@ namespace CsharpAdvanced
     {
         private static void Main(string[] args)
         {
-            var number = new Nullable<int>(5);
-            Console.WriteLine("Has Value ?" + number.HasValue);
-            Console.WriteLine("Value: " + number.GetValueOrDefault());
+            //____________________GENERICS________________________
+            //var number = new Nullable<int>(5);
+            //Console.WriteLine("Has Value ?" + number.HasValue);
+            //Console.WriteLine("Value: " + number.GetValueOrDefault());
 
             //var book = new Booklist() { Isbn = "1111", Title = "C# Advanced" };
 
@@ -20,6 +21,7 @@ namespace CsharpAdvanced
 
             //var dictionary = new GenericDictionary<string, Book>();
             //dictionary.Add("12345", new Book());
+            //________________END GENERICS_____________________
         }
     }
 }
