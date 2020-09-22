@@ -6,10 +6,7 @@ namespace CsharpAdvanced
 {
     public class PhotoProcessor
     {
-        //EX. of custom delegate
-        public delegate void PhotoFilterHandler(Photo photo);
-
-        public void Process(string path, PhotoFilterHandler filterHandler)
+        public void Process(string path, Action<Photo> filterHandler)
         {
             //EX. of alternate use of delegates...
             //1. System.Action<> - points to a method that returns void

@@ -18,7 +18,8 @@ namespace CsharpAdvanced
             var filters = new PhotoFilters();
 
             //delegate or 'handler' pointing to the ApplyBrightness method...
-            PhotoProcessor.PhotoFilterHandler filterHandler = filters.ApplyBrightness;
+            //...refactored to use an out-of-the-box delegate
+            Action<Photo> filterHandler = filters.ApplyBrightness;
             //adding additional filters...
             filterHandler += filters.ApplyContrast;
 
@@ -29,6 +30,11 @@ namespace CsharpAdvanced
             //&& a reference to a function
             //Why do we need delegates? For designing extensible (does not have to be recompiled for each deployment)
             //...and flexible applications/frameworks
+
+            //Interfaces or Delegates?
+            //Use a delegate when...
+            //1. an eventing design pattern is used
+            //2. the caller doesn't need to access other properties or methods on the object implementing the method
         }
 
         private static void UseGenerics()
