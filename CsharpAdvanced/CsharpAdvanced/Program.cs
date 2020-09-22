@@ -12,14 +12,15 @@ namespace CsharpAdvanced
 
         private static void UseDelegates()
         {
-            //creating an instance of PhotoProcessor
+            //creating an instance of PhotoProcessor...
             var processor = new PhotoProcessor();
-
-            //creating an instance of PhotoFilters
+            //creating an instance of PhotoFilters...
             var filters = new PhotoFilters();
 
             //delegate or 'handler' pointing to the ApplyBrightness method...
             PhotoProcessor.PhotoFilterHandler filterHandler = filters.ApplyBrightness;
+            //adding additional filters...
+            filterHandler += filters.ApplyContrast;
 
             processor.Process("photo.jpg", filterHandler);
 
