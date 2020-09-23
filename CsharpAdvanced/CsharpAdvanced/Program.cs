@@ -13,6 +13,15 @@ namespace CsharpAdvanced
 
         private static void UseLambdaExpression()
         {
+            //EX: creating a method that takes a number and multiplies it by a factor
+            const int factor = 5;
+
+            Func<int, int> multiplier = n => n * factor;
+
+            var result = multiplier(10);
+
+            Console.WriteLine(result); //returns 50 (10*5)
+
             //__________________NOTES________________
             //Lambda Expression (LE): An anonymous method. (no access modifier, no name, no return statement)
             //LE's are convenient and faster to write
@@ -23,17 +32,17 @@ namespace CsharpAdvanced
             //Syntax for a LE that contains multiple arguments... (x,y,z) => ...
 
             //EX: doubling a number using a method...
-            static int Square(int number)
-            {
-                return number * number;
-            }
+            //static int Square(int number)
+            //{
+            //    return number * number;
+            //}
 
-            Console.WriteLine(Square(5));
+            //Console.WriteLine(Square(5));
             //End of Method Ex.
 
             //EX: doubling a number using a LE...
-            Func<int, int> square = number => number * number;
-            Console.WriteLine(square(5));
+            //Func<int, int> square = number => number * number;
+            //Console.WriteLine(square(5));
         }
 
         private static void UseDelegates()
