@@ -6,8 +6,34 @@ namespace CsharpAdvanced
     {
         private static void Main(string[] args)
         {
-            UseDelegates();
+            UseLambdaExpression();
+            //UseDelegates();
             //UseGenerics();
+        }
+
+        private static void UseLambdaExpression()
+        {
+            //__________________NOTES________________
+            //Lambda Expression (LE): An anonymous method. (no access modifier, no name, no return statement)
+            //LE's are convenient and faster to write
+            //LE's use delegates to point to methods
+            //LE syntax: left side contains the arguments 'args', the lambda operator: '=>' is in the middle, the expression is on the right side
+            //Syntax for a LE that doesn't contain arguments... ()=> ...
+            //Syntax for a LE that contains a single argument... x => ...
+            //Syntax for a LE that contains multiple arguments... (x,y,z) => ...
+
+            //EX: doubling a number using a method...
+            static int Square(int number)
+            {
+                return number * number;
+            }
+
+            Console.WriteLine(Square(5));
+            //End of Method Ex.
+
+            //EX: doubling a number using a LE...
+            Func<int, int> square = number => number * number;
+            Console.WriteLine(square(5));
         }
 
         private static void UseDelegates()
