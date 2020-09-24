@@ -6,25 +6,22 @@ namespace CsharpAdvanced
     {
         private static void Main(string[] args)
         {
-            var books = new BookRepository().GetBooks();
-
-            //EX. using a LE...
-            var bargainBooks = books.FindAll(b => b.Price < 10);
-            foreach (var book in bargainBooks)
-            {
-                Console.WriteLine(book.Title);
-            }
-
-            //EX. using the predicate method...
-            //var bargainBooks = books.FindAll(IsLessThan10Dollars);
-            //foreach (var book in bargainBooks)
-            //{
-            //    Console.WriteLine(book.Title);
-            //}
+            UseEvents();
             //UseLambdaExpression();
-
             //UseDelegates();
             //UseGenerics();
+        }
+
+        private static void UseEvents()
+        {
+            //_____________NOTES_____________
+            //Events...
+            //...a mechanism for communication between objects
+            //...used in building Loosely Coupled Applications
+            //...helps extending applications
+            //Delegates...
+            //...agreement/contract between Publisher and Subscriber
+            //...determines the signature of the event handler method in Subscriber
         }
 
         //Predicate method...
@@ -35,14 +32,30 @@ namespace CsharpAdvanced
 
         private static void UseLambdaExpression()
         {
-            //EX: creating a method that takes a number and multiplies it by a factor
-            const int factor = 5;
+            //EX.3 using a LE...
+            var books = new BookRepository().GetBooks();
 
-            Func<int, int> multiplier = n => n * factor;
+            var bargainBooks = books.FindAll(b => b.Price < 10);
+            foreach (var book in bargainBooks)
+            {
+                Console.WriteLine(book.Title);
+            }
 
-            var result = multiplier(10);
+            //EX.2 using the predicate method...
+            //var books = new BookRepository().GetBooks();
+            //var bargainBooks = books.FindAll(IsLessThan10Dollars);
+            //foreach (var book in bargainBooks)
+            //{
+            //    Console.WriteLine(book.Title);
+            //}
+            //EX.1 creating a method that takes a number and multiplies it by a factor
+            //const int factor = 5;
 
-            Console.WriteLine(result); //returns 50 (10*5)
+            //Func<int, int> multiplier = n => n * factor;
+
+            //var result = multiplier(10);
+
+            //Console.WriteLine(result); //returns 50 (10*5)
 
             //__________________NOTES________________
             //Lambda Expression (LE): An anonymous method. (no access modifier, no name, no return statement)
