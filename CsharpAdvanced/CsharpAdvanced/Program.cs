@@ -6,9 +6,22 @@ namespace CsharpAdvanced
     {
         private static void Main(string[] args)
         {
-            UseLambdaExpression();
+            var books = new BookRepository().GetBooks();
+            var bargainBooks = books.FindAll(IsLessThan10Dollars);
+
+            foreach (var book in bargainBooks)
+            {
+                Console.WriteLine(book.Title);
+            }
+            //UseLambdaExpression();
             //UseDelegates();
             //UseGenerics();
+        }
+
+        //Predicate method
+        private static bool IsLessThan10Dollars(Book book)
+        {
+            return book.Price < 10;
         }
 
         private static void UseLambdaExpression()
