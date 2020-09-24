@@ -7,22 +7,31 @@ namespace CsharpAdvanced
         private static void Main(string[] args)
         {
             var books = new BookRepository().GetBooks();
-            var bargainBooks = books.FindAll(IsLessThan10Dollars);
 
+            //EX. using a LE...
+            var bargainBooks = books.FindAll(b => b.Price < 10);
             foreach (var book in bargainBooks)
             {
                 Console.WriteLine(book.Title);
             }
+
+            //EX. using the predicate method...
+            //var bargainBooks = books.FindAll(IsLessThan10Dollars);
+            //foreach (var book in bargainBooks)
+            //{
+            //    Console.WriteLine(book.Title);
+            //}
             //UseLambdaExpression();
+
             //UseDelegates();
             //UseGenerics();
         }
 
-        //Predicate method
-        private static bool IsLessThan10Dollars(Book book)
-        {
-            return book.Price < 10;
-        }
+        //Predicate method...
+        //private static bool IsLessThan10Dollars(Book book)
+        //{
+        //    return book.Price < 10;
+        //}
 
         private static void UseLambdaExpression()
         {
