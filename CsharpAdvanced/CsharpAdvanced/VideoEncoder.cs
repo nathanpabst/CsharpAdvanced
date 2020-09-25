@@ -10,11 +10,8 @@ namespace CsharpAdvanced
     //MailService and MessageService are the 'subscribers' and/or the 'event receivers'
     public class VideoEncoder
     {
-        //define a delegate...
-        public delegate void VideoEncodedEventHandler(object source, VideoEventArgs args);
-
-        //define an event based on the delegate
-        public event VideoEncodedEventHandler VideoEncoded;
+        //refactoring to use .NETs version
+        public event EventHandler<VideoEventArgs> VideoEncoded;
 
         public void Encode(Video video)
         {
