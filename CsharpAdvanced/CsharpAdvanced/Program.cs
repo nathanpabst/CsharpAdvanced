@@ -15,11 +15,13 @@ namespace CsharpAdvanced
         private static void UseEvents()
         {
             var video = new Video() { Title = "video 1" };
-            var videoEncoder = new VideoEncoder(); //publisher
-            var mailService = new MailService(); //subscriber
+            var videoEncoder = new VideoEncoder(); // publisher
+            var mailService = new MailService(); // subscriber
+            var messageService = new MessageService(); // subscriber
 
             //registering a handler (OnVideoEncoded) for the event. 'mailService.OnVideoEncoded' is a reference or pointer to the method
             videoEncoder.VideoEncoded += mailService.OnVideoEncoded;
+            videoEncoder.VideoEncoded += messageService.onVideoEncoded;
 
             videoEncoder.Encode(video);
 
