@@ -25,7 +25,7 @@ namespace CsharpAdvanced
             OnVideoEncoded();
         }
 
-        //raise the event && notify subscribers
+        //the OnVideoEncoded method raises the event && notifies subscribers
         //...EX. typical implementation of a method in the subscriber class
         //...'this' is passing a reference to the VideoEncoder
         protected virtual void OnVideoEncoded()
