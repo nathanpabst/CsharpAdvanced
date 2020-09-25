@@ -14,6 +14,11 @@ namespace CsharpAdvanced
 
         private static void UseEvents()
         {
+            var video = new Video() { Title = "video 1" };
+            var videoEncoder = new VideoEncoder();
+
+            videoEncoder.Encode(video);
+
             //_____________NOTES_____________
             //Events...
             //...a mechanism for communication between objects
