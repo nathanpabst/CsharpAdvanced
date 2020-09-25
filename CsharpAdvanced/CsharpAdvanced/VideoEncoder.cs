@@ -11,7 +11,7 @@ namespace CsharpAdvanced
     public class VideoEncoder
     {
         //define a delegate...
-        public delegate void VideoEncodedEventHandler(object source, EventArgs args);
+        public delegate void VideoEncodedEventHandler(object source, VideoEventArgs args);
 
         //define an event based on the delegate
         public event VideoEncodedEventHandler VideoEncoded;
@@ -22,15 +22,15 @@ namespace CsharpAdvanced
             //Thread.Sleep(3000) simulates an encoding process by delaying the application for 3 seconds
             Thread.Sleep(3000);
 
-            OnVideoEncoded();
+            OnVideoEncoded(video);
         }
 
         //the OnVideoEncoded method raises the event && notifies subscribers
         //...EX. typical implementation of a method in the subscriber class
         //...'this' is passing a reference to the VideoEncoder
-        protected virtual void OnVideoEncoded()
+        protected virtual void OnVideoEncoded(Video video)
         {
-            VideoEncoded?.Invoke(this, EventArgs.Empty);
+            VideoEncoded?.Invoke(this, new VideoEventArgs() { Video = video });
         }
 
         //_____________________NOTES__________________

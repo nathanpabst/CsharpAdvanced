@@ -21,7 +21,7 @@ namespace CsharpAdvanced
 
             //registering a handler (OnVideoEncoded) for the event. 'mailService.OnVideoEncoded' is a reference or pointer to the method
             videoEncoder.VideoEncoded += mailService.OnVideoEncoded;
-            videoEncoder.VideoEncoded += messageService.onVideoEncoded;
+            videoEncoder.VideoEncoded += messageService.OnVideoEncoded;
 
             videoEncoder.Encode(video);
 
