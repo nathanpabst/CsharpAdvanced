@@ -12,6 +12,16 @@ namespace CsharpAdvanced
             //UseGenerics();
         }
 
+        private static void UseExtensionMethods()
+        {
+            string post = "super long, drawn out, and boring blog post...";
+            //var shortenedP
+            //___________NOTES______________
+            // Extension Methods allow us to add methods to an existing class
+            //...without changing its source code or
+            //...creating a new class that inherits from it
+        }
+
         private static void UseEvents()
         {
             var video = new Video() { Title = "video 1" };
