@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Channels;
 
 namespace CsharpAdvanced
 {
@@ -20,9 +23,22 @@ namespace CsharpAdvanced
             var charLength = post.Length;
             var replaceChar = post.Replace("o", "O");
 
-            Console.WriteLine(shortenedPost);
-            Console.WriteLine(charLength);
-            Console.WriteLine(replaceChar);
+            //using extension methods from the IEnumerable interface
+            IEnumerable<int> numbers = new List<int>() { 1, 42, 21, 5 };
+            var max = numbers.Max();
+            var min = numbers.Min();
+            var listCount = numbers.Count();
+            var firstNum = numbers.ToArray().First();
+
+            Console.WriteLine("max: " + max);
+            Console.WriteLine("min: " + min);
+            Console.WriteLine("count: " + listCount);
+            Console.WriteLine("first number: " + firstNum);
+
+            //Console.WriteLine(shortenedPost);
+            //Console.WriteLine(charLength);
+            //Console.WriteLine(replaceChar);
+
             //___________NOTES______________
             // Extension Methods allow us to add methods to an existing class
             //...without changing its source code or
