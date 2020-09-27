@@ -20,7 +20,7 @@ namespace CsharpAdvanced
             if (words.Length <= numberOfWords)
                 return str;
 
-            return string.Join(" ", words.Take(numberOfWords));
+            return string.Join(" ", words.Take(numberOfWords)) + "...";
         }
     }
 }

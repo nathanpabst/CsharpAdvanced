@@ -6,7 +6,8 @@ namespace CsharpAdvanced
     {
         private static void Main(string[] args)
         {
-            UseEvents();
+            UseExtensionMethods();
+            //UseEvents();
             //UseLambdaExpression();
             //UseDelegates();
             //UseGenerics();
@@ -15,7 +16,13 @@ namespace CsharpAdvanced
         private static void UseExtensionMethods()
         {
             string post = "super long, drawn out, and boring blog post...";
-            //var shortenedP
+            var shortenedPost = post.Shorten(5);
+            var charLength = post.Length;
+            var replaceChar = post.Replace("o", "O");
+
+            Console.WriteLine(shortenedPost);
+            Console.WriteLine(charLength);
+            Console.WriteLine(replaceChar);
             //___________NOTES______________
             // Extension Methods allow us to add methods to an existing class
             //...without changing its source code or
