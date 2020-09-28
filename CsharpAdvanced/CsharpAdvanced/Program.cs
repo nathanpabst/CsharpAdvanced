@@ -21,8 +21,8 @@ namespace CsharpAdvanced
         private static void UseLinq()
         {
             var books = new BookRepository().GetBooks();
-            //list books < 10 (using LINQ)...
-            var cheapBooks = books.Where(b => b.Price < 10);
+            //list books > 10 (using LINQ operations and chaining)...
+            var cheapBooks = books.Where(b => b.Price > 10).OrderBy(b => b.Title);
 
             foreach (var book in cheapBooks)
             {
