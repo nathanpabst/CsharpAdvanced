@@ -9,11 +9,40 @@ namespace CsharpAdvanced
     {
         private static void Main(string[] args)
         {
-            UseExtensionMethods();
+            UseLinq();
+            //UseExtensionMethods();
             //UseEvents();
             //UseLambdaExpression();
             //UseDelegates();
             //UseGenerics();
+        }
+
+        private static void UseLinq()
+        {
+            var books = new BookRepository().GetBooks();
+
+            //list books < 10 (not using LINQ)...
+            var cheapBooks = new List<Book>();
+            foreach (var book in books)
+            {
+                if (book.Price < 10)
+                {
+                    cheapBooks.Add(book);
+                }
+            }
+
+            foreach (var book in cheapBooks)
+            {
+                Console.WriteLine(book.Title + " " + book.Price);
+            }
+
+            //____________NOTES________________
+            //LINQ: 'Language Integrated Query' gives the capability to query objects in C# natively
+            //you can query...
+            //...Objects in memory, eg collections (LINQ to Objects)
+            //...Databases (LINQ to Entities)
+            //...XML (LINQ to XML)
+            //...ADO.NET Data Sets (LINQ to Data Sets)
         }
 
         private static void UseExtensionMethods()
@@ -82,13 +111,13 @@ namespace CsharpAdvanced
         private static void UseLambdaExpression()
         {
             //EX.3 using a LE...
-            var books = new BookRepository().GetBooks();
+            //var books = new BookRepository().GetBooks();
 
-            var bargainBooks = books.FindAll(b => b.Price < 10);
-            foreach (var book in bargainBooks)
-            {
-                Console.WriteLine(book.Title);
-            }
+            //var bargainBooks = books.FindAll(b => b.Price < 10);
+            //foreach (var book in bargainBooks)
+            //{
+            //    Console.WriteLine(book.Title);
+            //}
 
             //EX.2 using the predicate method...
             //var books = new BookRepository().GetBooks();
@@ -158,20 +187,20 @@ namespace CsharpAdvanced
 
         private static void UseGenerics()
         {
-            var number = new Nullable<int>(5);
-            Console.WriteLine("Has Value ?" + number.HasValue);
-            Console.WriteLine("Value: " + number.GetValueOrDefault());
+            //var number = new Nullable<int>(5);
+            //Console.WriteLine("Has Value ?" + number.HasValue);
+            //Console.WriteLine("Value: " + number.GetValueOrDefault());
 
-            //var book = new Booklist() { Isbn = "1111", Title = "C# Advanced" };
+            ////var book = new Booklist() { Isbn = "1111", Title = "C# Advanced" };
 
-            var numbers = new GenericList<int>();
-            numbers.Add(10);
+            //var numbers = new GenericList<int>();
+            //numbers.Add(10);
 
-            var books = new GenericList<Book>();
-            books.Add(new Book());
+            //var books = new GenericList<Book>();
+            //books.Add(new Book());
 
-            var dictionary = new GenericDictionary<string, Book>();
-            dictionary.Add("12345", new Book());
+            //var dictionary = new GenericDictionary<string, Book>();
+            //dictionary.Add("12345", new Book());
         }
     }
 }
