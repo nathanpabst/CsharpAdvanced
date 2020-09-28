@@ -18,11 +18,6 @@ namespace CsharpAdvanced
 
         private static void UseExtensionMethods()
         {
-            string post = "super long, drawn out, and boring blog post...";
-            var shortenedPost = post.Shorten(5);
-            var charLength = post.Length;
-            var replaceChar = post.Replace("o", "O");
-
             //using extension methods from the IEnumerable interface
             IEnumerable<int> numbers = new List<int>() { 1, 42, 21, 5 };
             var max = numbers.Max();
@@ -34,6 +29,11 @@ namespace CsharpAdvanced
             Console.WriteLine("min: " + min);
             Console.WriteLine("count: " + listCount);
             Console.WriteLine("first number: " + firstNum);
+
+            //string post = "super long, drawn out, and boring blog post...";
+            //var shortenedPost = post.Shorten(5);
+            //var charLength = post.Length;
+            //var replaceChar = post.Replace("o", "O");
 
             //Console.WriteLine(shortenedPost);
             //Console.WriteLine(charLength);
