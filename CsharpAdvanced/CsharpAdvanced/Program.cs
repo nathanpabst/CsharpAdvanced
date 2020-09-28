@@ -21,13 +21,35 @@ namespace CsharpAdvanced
         private static void UseLinq()
         {
             var books = new BookRepository().GetBooks();
-            //list books > 10 (using LINQ operations and chaining)...
-            var cheapBooks = books.Where(b => b.Price > 10).OrderBy(b => b.Title);
+
+            //EX. using LINQ Query Operators syntax
+            var priceyBooks = from b in books
+                              where b.Price > 10
+                              orderby b.Title
+                              select b.Title;
+
+            foreach (var book in priceyBooks)
+            {
+                Console.WriteLine("pricey books: " + book);
+            }
+            //EX. using LINQ Extension Methods syntax (more powerful than linq query operators syntax)
+            var cheapBooks = books
+                                                .Where(b => b.Price < 10) //filter
+                                                .OrderBy(b => b.Title) //sort
+                                                .Select(b => b.Title); //select a property
 
             foreach (var book in cheapBooks)
             {
-                Console.WriteLine(book.Title + " " + book.Price);
+                Console.WriteLine("cheap books: " + book); // returns the title of each book < $10
             }
+
+            //list books > 10 (using LINQ operations and chaining)...
+            //var cheapBooks = books.Where(b => b.Price > 10).OrderBy(b => b.Title);
+
+            //foreach (var book in cheapBooks)
+            //{
+            //    Console.WriteLine(book.Title + " " + book.Price);
+            //}
 
             //list books < 10 (not using LINQ)...
             //var cheapBooks = new List<Book>();
