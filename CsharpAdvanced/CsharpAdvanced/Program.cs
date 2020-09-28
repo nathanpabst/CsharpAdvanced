@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata;
 using System.Threading.Channels;
 
 namespace CsharpAdvanced
@@ -20,21 +21,28 @@ namespace CsharpAdvanced
         private static void UseLinq()
         {
             var books = new BookRepository().GetBooks();
-
-            //list books < 10 (not using LINQ)...
-            var cheapBooks = new List<Book>();
-            foreach (var book in books)
-            {
-                if (book.Price < 10)
-                {
-                    cheapBooks.Add(book);
-                }
-            }
+            //list books < 10 (using LINQ)...
+            var cheapBooks = books.Where(b => b.Price < 10);
 
             foreach (var book in cheapBooks)
             {
                 Console.WriteLine(book.Title + " " + book.Price);
             }
+
+            //list books < 10 (not using LINQ)...
+            //var cheapBooks = new List<Book>();
+            //foreach (var book in books)
+            //{
+            //    if (book.Price < 10)
+            //    {
+            //        cheapBooks.Add(book);
+            //    }
+            //}
+
+            //foreach (var book in cheapBooks)
+            //{
+            //    Console.WriteLine(book.Title + " " + book.Price);
+            //}
 
             //____________NOTES________________
             //LINQ: 'Language Integrated Query' gives the capability to query objects in C# natively
