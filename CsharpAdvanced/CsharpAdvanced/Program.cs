@@ -22,57 +22,19 @@ namespace CsharpAdvanced
         {
             var books = new BookRepository().GetBooks();
 
-            //EX. using LINQ Query Operators syntax
-            var priceyBooks = from b in books
-                              where b.Price > 10
-                              orderby b.Title
-                              select b.Title;
+            //var book = books.Single(b => b.Title == "Atlas Shrugged");
+            //var book = books.First(b => b.Title == "Atlas Shrugged");
+            //var book = books.FirstOrDefault(b => b.Title == "Atlas Shruged"); // will return a NullReferenceException...title does not exist (mis-spelled)
+            //var book = books.Last(b => b.Title == "Atlas Shrugged");
+            //var book = books.LastOrDefault(b => b.Title == "Atlas Shrugged");
 
-            foreach (var book in priceyBooks)
+            //Console.WriteLine(book.Title + " " + book.Price);
+
+            var pagedBooks = books.Skip(1).Take(2);
+            foreach (var pagedBook in pagedBooks)
             {
-                Console.WriteLine("pricey books: " + book);
+                Console.WriteLine(pagedBook.Title); // will return ADO.NET Step by Step & Atlas Shrugged
             }
-            //EX. using LINQ Extension Methods syntax (more powerful than linq query operators syntax)
-            var cheapBooks = books
-                                                .Where(b => b.Price < 10) //filter
-                                                .OrderBy(b => b.Title) //sort
-                                                .Select(b => b.Title); //select a property
-
-            foreach (var book in cheapBooks)
-            {
-                Console.WriteLine("cheap books: " + book); // returns the title of each book < $10
-            }
-
-            //list books > 10 (using LINQ operations and chaining)...
-            //var cheapBooks = books.Where(b => b.Price > 10).OrderBy(b => b.Title);
-
-            //foreach (var book in cheapBooks)
-            //{
-            //    Console.WriteLine(book.Title + " " + book.Price);
-            //}
-
-            //list books < 10 (not using LINQ)...
-            //var cheapBooks = new List<Book>();
-            //foreach (var book in books)
-            //{
-            //    if (book.Price < 10)
-            //    {
-            //        cheapBooks.Add(book);
-            //    }
-            //}
-
-            //foreach (var book in cheapBooks)
-            //{
-            //    Console.WriteLine(book.Title + " " + book.Price);
-            //}
-
-            //____________NOTES________________
-            //LINQ: 'Language Integrated Query' gives the capability to query objects in C# natively
-            //you can query...
-            //...Objects in memory, eg collections (LINQ to Objects)
-            //...Databases (LINQ to Entities)
-            //...XML (LINQ to XML)
-            //...ADO.NET Data Sets (LINQ to Data Sets)
         }
 
         private static void UseExtensionMethods()
