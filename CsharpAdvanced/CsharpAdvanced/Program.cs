@@ -20,6 +20,7 @@ namespace CsharpAdvanced
 
         private static void UseLinq()
         {
+            //LINQ Extension Methods: translates to a SQL query (instead of writing Stored Procedures)
             var books = new BookRepository().GetBooks();
 
             //var book = books.Single(b => b.Title == "Atlas Shrugged");
@@ -30,11 +31,24 @@ namespace CsharpAdvanced
 
             //Console.WriteLine(book.Title + " " + book.Price);
 
-            var pagedBooks = books.Skip(1).Take(2);
-            foreach (var pagedBook in pagedBooks)
-            {
-                Console.WriteLine(pagedBook.Title); // will return ADO.NET Step by Step & Atlas Shrugged
-            }
+            //var pagedBooks = books.Skip(1).Take(2);
+            //foreach (var pagedBook in pagedBooks)
+            //{
+            //    Console.WriteLine(pagedBook.Title); // will return ADO.NET Step by Step & Atlas Shrugged
+            //}
+
+            //var count = books.Count();
+            //Console.WriteLine(count);
+
+            var maxPrice = books.Max(b => b.Price); // returns the maximum value in a sequence
+            var minPrice = books.Min(b => b.Price); // returns the minimum value in a sequence
+            var inventorySum = books.Sum(b => b.Price); // returns the sum
+            var inventoryAverage = books.Average(b => b.Price);
+
+            Console.WriteLine("maximum price: " + maxPrice);
+            Console.WriteLine("minimum price: " + minPrice);
+            Console.WriteLine("inventory sum: " + inventorySum);
+            Console.WriteLine("inventory average: " + inventoryAverage);
         }
 
         private static void UseExtensionMethods()
