@@ -21,16 +21,30 @@ namespace CsharpAdvanced
 
         private static void UseNullableTypes()
         {
-            //
+            //Null Coalescing Operator: '??'
+
+            DateTime? date = null;
+            DateTime date2;
+
+            if (date != null)
+            {
+                date2 = date.GetValueOrDefault();
+            }
+            else
+            {
+                date2 = DateTime.Today;
+            }
+
+            Console.WriteLine(date2); //returns today's date
 
             //___________NOTES________________
             //Value Types cannot be set to null...solved by using the nullable generic structure in the System namespace
             //1. Nullable<DateTime> date = null;
-            DateTime? date = null;
-            //Members of a nullable type: (type 'date.' to view the full list) GetValueOrDefault, HasValue, & Value are the most used
-            Console.WriteLine("GetValueOrDefault: " + date.GetValueOrDefault()); //returns the default 1/1/0001 12:00:00 AM. *Best practice
-            Console.WriteLine("HasValue: " + date.HasValue); //returns false
-            Console.WriteLine("Value: " + date.Value); //throws an InvalidOperationException
+            //DateTime? date = null;
+            ////Members of a nullable type: (type 'date.' to view the full list) GetValueOrDefault, HasValue, & Value are the most used
+            //Console.WriteLine("GetValueOrDefault: " + date.GetValueOrDefault()); //returns the default 1/1/0001 12:00:00 AM. *Best practice
+            //Console.WriteLine("HasValue: " + date.HasValue); //returns false
+            //Console.WriteLine("Value: " + date.Value); //throws an InvalidOperationException
         }
 
         private static void UseLinq()
