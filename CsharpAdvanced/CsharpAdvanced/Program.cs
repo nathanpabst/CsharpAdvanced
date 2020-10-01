@@ -21,21 +21,34 @@ namespace CsharpAdvanced
 
         private static void UseNullableTypes()
         {
-            //Null Coalescing Operator: '??'
-
+            //_______________EX 3. Using the ternary operator '?:'
+            //This operator evaluates a boolean expression and returns the result of one of the two expressions,
+            //...depending on whether the the expression evaluates to true or false
+            //Explanation of the following code...if 'date' is not null, the GetValueOrDefault() code will execute and set the value to date3...
+            //...if the date variable is null, date3 will be set to DateTime.Today
             DateTime? date = null;
-            DateTime date2;
+            DateTime date3 = (date != null) ? date.GetValueOrDefault() : DateTime.Today;
+            Console.WriteLine("Ternary operator: " + date3); //returns 10/1/2020 12:00:00
+            Console.WriteLine("date: " + date.HasValue); //returns false
 
-            if (date != null)
-            {
-                date2 = date.GetValueOrDefault();
-            }
-            else
-            {
-                date2 = DateTime.Today;
-            }
+            //_______________EX 2. refactoring EX 1 code to use the Null Coalescing Operator: '??'
+            //DateTime? date = null;
+            // if date2 has a value, set it to the date variable. Otherwise, set date2 to DateTime.Today
+            //DateTime date2 = date ?? DateTime.Today;
+            //Console.WriteLine("Null Coalescing Operator: " +date2); //returns 10/1/2020 12:00:00 AM
 
-            Console.WriteLine(date2); //returns today's date
+            //________________EX. 1...using null values
+            //DateTime? date = null;
+            //DateTime date2;
+            //if (date != null)
+            //{
+            //    date2 = date.GetValueOrDefault();
+            //}
+            //else
+            //{
+            //    date2 = DateTime.Today;
+            //}
+            //Console.WriteLine(date2); //returns today's date
 
             //___________NOTES________________
             //Value Types cannot be set to null...solved by using the nullable generic structure in the System namespace
