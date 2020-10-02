@@ -10,13 +10,31 @@ namespace CsharpAdvanced
     {
         private static void Main(string[] args)
         {
-            UseNullableTypes();
+            UseDynamic();
+            //UseNullableTypes();
             //UseLinq();
             //UseExtensionMethods();
             //UseEvents();
             //UseLambdaExpression();
             //UseDelegates();
             //UseGenerics();
+        }
+
+        private static void UseDynamic()
+        {
+            dynamic name = "Nate"; //during debug mode, the type of name will be 'string' and then change to an 'int' as execution continues
+            name = 42;
+
+            //_______________NOTES_______________
+            // Programming Language Types:
+            // 1. statically-typed languages: C#, Java..type resolution at compile-time...offers early feedback (compile time)
+            // 2. dynamically-typed languages: Ruby, Javascript, Python ...type resolution at run-time...offers ease of use and speedier to code
+            // C# History: started as a static language. .NET 4 added the dynamic capability to improve interoperability with...
+            // ...COM (eg writing office applications) & Dynamic languages (IronPython)
+            // Without Dynamic, we have to use Reflection...a way to inspect the metadata of a type and access properties and methods
+            //CLR: common language runtime... .NETs virtual machine that gets compile time code in intermediate language (IL) and converts
+            //...the code into machine code at runtime
+            //DLR: dynamic language runtime. DLR sits on top of CLR and gives dynamic language capability to C#
         }
 
         private static void UseNullableTypes()
