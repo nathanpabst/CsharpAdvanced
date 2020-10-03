@@ -22,8 +22,17 @@ namespace CsharpAdvanced
 
         private static void UseDynamic()
         {
-            dynamic name = "Nate"; //during debug mode, the type of name will be 'string' and then change to an 'int' as execution continues
-            name = 42;
+            //Conversions & Casts...with dynamics you get implicit conversion from and to the target type
+            //EX...
+            int i = 5;
+            dynamic d = i; // runtime type is integer, value: 5
+            //dynamic a = 10; // type: dynamic int, value: 10
+            //dynamic b = 5; // type of dynamic int, value: 5
+            //var c = ""; // c is a string
+            //var c = a + b; // c is now a dynamic with a value of 15
+            //dynamic name = "Nate"; //during debug mode, the type of name will be 'string' and then change to an 'int' as execution continues
+            //name = 42;
+            //NOTE: it's very important to write unit tests when using dynamics to ensure the code is running as expected.
 
             //_______________NOTES_______________
             // Programming Language Types:
