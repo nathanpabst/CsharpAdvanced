@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Reflection.Metadata;
 using System.Threading.Channels;
@@ -23,23 +24,35 @@ namespace CsharpAdvanced
 
         private static void UseExceptionHandling()
         {
+            //Global Exception Handler block...
             try
             {
-                var calculator = new Calculator();
-                var result = calculator.Divide(42, 0);
-            }
-            catch (DivideByZeroException ex)
-            {
-                Console.WriteLine("don't divide by zero, dummy.");
-            }
-            catch (ArithmeticException ex)
-            {
+                using (var streamReader = new StreamReader(@"c:\file.zip"))
+                {
+                    var content = streamReader.ReadToEnd();
+                }
             }
             catch (Exception e)
             {
-                Console.WriteLine("hmmm, something went wrong.");
+                Console.WriteLine("Something went wrong...");
             }
-            finally { }
+
+            //try
+            //{
+            //    var calculator = new Calculator();
+            //    var result = calculator.Divide(42, 0);
+            //}
+            //catch (DivideByZeroException ex)
+            //{
+            //    Console.WriteLine("don't divide by zero, dummy.");
+            //}
+            //catch (ArithmeticException ex)
+            //{
+            //}
+            //catch (Exception e)
+            //{
+            //    Console.WriteLine("hmmm, something went wrong.");
+            //}
         }
 
         private static void UseDynamic()
