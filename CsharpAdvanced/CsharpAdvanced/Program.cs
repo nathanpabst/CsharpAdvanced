@@ -10,7 +10,8 @@ namespace CsharpAdvanced
     {
         private static void Main(string[] args)
         {
-            UseDynamic();
+            UseExceptionHandling();
+            //UseDynamic();
             //UseNullableTypes();
             //UseLinq();
             //UseExtensionMethods();
@@ -20,12 +21,33 @@ namespace CsharpAdvanced
             //UseGenerics();
         }
 
+        private static void UseExceptionHandling()
+        {
+            try
+            {
+                var calculator = new Calculator();
+                var result = calculator.Divide(42, 0);
+            }
+            catch (DivideByZeroException ex)
+            {
+                Console.WriteLine("don't divide by zero, dummy.");
+            }
+            catch (ArithmeticException ex)
+            {
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("hmmm, something went wrong.");
+            }
+            finally { }
+        }
+
         private static void UseDynamic()
         {
             //Conversions & Casts...with dynamics you get implicit conversion from and to the target type
             //EX...
-            int i = 5;
-            dynamic d = i; // runtime type is integer, value: 5
+            //int i = 5;
+            //dynamic d = i; // runtime type is integer, value: 5
             //dynamic a = 10; // type: dynamic int, value: 10
             //dynamic b = 5; // type of dynamic int, value: 5
             //var c = ""; // c is a string
