@@ -24,18 +24,27 @@ namespace CsharpAdvanced
 
         private static void UseExceptionHandling()
         {
-            //Global Exception Handler block...
             try
             {
-                using (var streamReader = new StreamReader(@"c:\file.zip"))
-                {
-                    var content = streamReader.ReadToEnd();
-                }
+                var api = new YoutubeApi();
+                var videos = api.GetVideos("nate");
             }
             catch (Exception e)
             {
-                Console.WriteLine("Something went wrong...");
+                Console.WriteLine(e.Message);
             }
+            //Global Exception Handler block...
+            //try
+            //{
+            //    using (var streamReader = new StreamReader(@"c:\file.zip"))
+            //    {
+            //        var content = streamReader.ReadToEnd();
+            //    }
+            //}
+            //catch (Exception e)
+            //{
+            //    Console.WriteLine("Something went wrong...");
+            //}
 
             //try
             //{
