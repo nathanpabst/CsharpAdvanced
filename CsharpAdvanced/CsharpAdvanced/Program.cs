@@ -11,7 +11,8 @@ namespace CsharpAdvanced
     {
         private static void Main(string[] args)
         {
-            UseExceptionHandling();
+            UseAsyncAwait();
+            //UseExceptionHandling();
             //UseDynamic();
             //UseNullableTypes();
             //UseLinq();
@@ -20,6 +21,10 @@ namespace CsharpAdvanced
             //UseLambdaExpression();
             //UseDelegates();
             //UseGenerics();
+        }
+
+        private static void UseAsyncAwait()
+        {
         }
 
         private static void UseExceptionHandling()
