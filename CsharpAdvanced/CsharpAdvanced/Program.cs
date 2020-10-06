@@ -2,8 +2,11 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Reflection.Metadata;
+using System.Security.Cryptography.X509Certificates;
 using System.Threading.Channels;
+using System.Threading.Tasks;
 
 namespace CsharpAdvanced
 {
@@ -22,6 +25,27 @@ namespace CsharpAdvanced
             //UseDelegates();
             //UseGenerics();
         }
+
+        //private async Task Button_ClickAsync(object sender, RoutedEventArgs e)
+        //{
+        //    var html = await GetHtmlAsync("http://msdn.microsoft.com");
+        //    MessageBox.Show(html.Substring(0, 10));
+        //}
+
+        //public async Task<string> GetHtmlAsync(string url)
+        //{
+        //    var webClient = new WebClient();
+
+        //    return await webClient.DownloadStringTaskAsync(url);
+        //}
+
+        //public string GetHtml(string url)
+        //{
+        //    var webClient = new WebClient();
+
+        //    return webClient.DownloadString(url);
+
+        //}
 
         private static void UseAsyncAwait()
         {
