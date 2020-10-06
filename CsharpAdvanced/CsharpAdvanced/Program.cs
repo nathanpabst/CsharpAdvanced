@@ -14,7 +14,6 @@ namespace CsharpAdvanced
     {
         private static void Main(string[] args)
         {
-            UseAsyncAwait();
             //UseExceptionHandling();
             //UseDynamic();
             //UseNullableTypes();
@@ -24,31 +23,6 @@ namespace CsharpAdvanced
             //UseLambdaExpression();
             //UseDelegates();
             //UseGenerics();
-        }
-
-        //private async Task Button_ClickAsync(object sender, RoutedEventArgs e)
-        //{
-        //    var html = await GetHtmlAsync("http://msdn.microsoft.com");
-        //    MessageBox.Show(html.Substring(0, 10));
-        //}
-
-        //public async Task<string> GetHtmlAsync(string url)
-        //{
-        //    var webClient = new WebClient();
-
-        //    return await webClient.DownloadStringTaskAsync(url);
-        //}
-
-        //public string GetHtml(string url)
-        //{
-        //    var webClient = new WebClient();
-
-        //    return webClient.DownloadString(url);
-
-        //}
-
-        private static void UseAsyncAwait()
-        {
         }
 
         private static void UseExceptionHandling()
