@@ -12,6 +12,12 @@ namespace CsharpAdvanced
 {
     internal class Program
     {
+        // Ninja Coding
+        // Control + right OR left arrow: moves the cursor to the right or left one word at a time
+        // Function + home: moves the cursor to the beginning of the line
+        // Function + end: moves the cursor to the end of the current line
+        // fn + up arrow OR down arrow: scrolls to the next method
+
         private static void Main(string[] args)
         {
             //UseExceptionHandling();
