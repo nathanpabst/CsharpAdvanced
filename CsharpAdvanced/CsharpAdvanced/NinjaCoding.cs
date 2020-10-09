@@ -6,7 +6,8 @@ namespace CsharpAdvanced
 {
     internal class NinjaCoding
     {
-        // Ninja Coding TEXT SELECTION
+        // Ninja Coding
+        // _____________TEXT SELECTION_________________
         // Control + right OR left arrow: moves the cursor to the right or left one word at a time
         // Function + home: moves the cursor to the beginning of the line
         // Function + end: moves the cursor to the end of the current line
@@ -19,5 +20,16 @@ namespace CsharpAdvanced
         // control + c: copies the current line
         // control + v: pastes the line below
         // control + x: removes the current line
+        // _____________DELETING TEXT______________________
+        // control + delete : removes one word at a time. i.e. the word to the right of the cursor
+        // control + backspace : removes one word at a time. i.e. the word to the left of the cursor
+
+        public void Method()
+        {
+            for (int i = 0; i < 10; i++)
+            {
+                Console.WriteLine("method looping.");
+            }
+        }
     }
 }
