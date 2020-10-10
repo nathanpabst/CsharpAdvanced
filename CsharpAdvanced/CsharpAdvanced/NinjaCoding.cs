@@ -23,7 +23,13 @@ namespace CsharpAdvanced
         // _____________DELETING TEXT______________________
         // control + delete : removes one word at a time. i.e. the word to the right of the cursor
         // control + backspace : removes one word at a time. i.e. the word to the left of the cursor
-
+        // control + L : deletes the current line
+        // _____________COMMENTING CODE______________
+        // Select the text, + Control + K, and Control + C
+        // De-select comments...Select the text, + control K + control U
+        // _____________BOOKMARKING____________________
+        // to bookmark a spot: control + K + K
+        // to view all bookmarks: control + w + b ...mayyyyyybe??
         public void Method()
         {
             for (int i = 0; i < 10; i++)
