@@ -29,6 +29,17 @@ namespace CsharpAdvanced
         // to bookmark a spot && to remove a bookmark from a line: control + K + K
         // to view all bookmarks: control + w + b ...mayyyyyybe??
         // Expanding/Collapsing Code: control + M, control + M
+        //_____________WORKING WITH TABS_______________
+        // control + T: resharper search hotkey. displays a list of files in the solution
+        // control + tab : to cycle through open tabs
+        // control + Shift + tab : to reverse the cycle
+        // control + tab, tab, etc. allows you to cycle through the list of open tabs
+        // control + F6 : navigates to the next open tab
+        // control + shift + F6 : navigates back to the previously opened tab
+        // control + F4 : to close the current tab
+        // to close all open tabs : Alt + W + L
+        // control + , : opens the 'navigate to' list of recent files
+        // shift + Alt + Enter: to toggle the full screen view.
 
         public void Method()
         {
