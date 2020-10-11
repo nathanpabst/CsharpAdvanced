@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace CsharpAdvanced
 {
@@ -28,8 +26,10 @@ namespace CsharpAdvanced
         // Select the text, + Control + K, and Control + C
         // De-select comments...Select the text, + control K + control U
         // _____________BOOKMARKING____________________
-        // to bookmark a spot: control + K + K
+        // to bookmark a spot && to remove a bookmark from a line: control + K + K
         // to view all bookmarks: control + w + b ...mayyyyyybe??
+        // Expanding/Collapsing Code: control + M, control + M
+
         public void Method()
         {
             for (int i = 0; i < 10; i++)
