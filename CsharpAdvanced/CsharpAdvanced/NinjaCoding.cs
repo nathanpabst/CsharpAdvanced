@@ -36,7 +36,7 @@ namespace CsharpAdvanced
         // Control + tab, tab, etc. allows you to cycle through the list of open tabs
         // Control + F6 : navigates to the next open tab
         // Control + Shift  + F6 : navigates back to the previously opened tab
-        // Control +F4 : to close the current tab
+        // Control + F4 : to close the current tab
         // Alt + W + L : to close all open tabs
         // Control + , : opens the 'navigate to' list of recent files
         // Shift  + Alt + Enter: to toggle the full screen view.
@@ -48,6 +48,7 @@ namespace CsharpAdvanced
         // Alt + A : to replace all occurrences of the search text
         // Alt + R : to replace the currently selected occurrence
         // Control + Shift + F : search for all instances of a word in a document, project, or solution
+        //_____________RUNNING & DEBUGGING__________________
 
         public void Method()
         {
