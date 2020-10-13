@@ -61,6 +61,11 @@ namespace CsharpAdvanced
         // Shift + F5 : stop the debugging session
         // Control + Shift + F5 : Stops the debug session and starts a new sesh
         // Shift + F11 : Step Out of a method (getting out of a method that you accidentally stepped into)
+        //_____________COMPILING THE APPLICATION_______________
+        // Alt + tab, tab, etc. : view a list of open applications and switch screens
+        // Control + Shift + B : Build the application without running/opening a new window
+        // Control + R : Refresh the window
+        // F8 : To cycle through the errors. F8 will Navigate to the location of each error in the list. Pressing F8 again will navigate to the next location
 
         public void Method()
         {
