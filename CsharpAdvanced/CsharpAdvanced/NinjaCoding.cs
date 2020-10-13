@@ -6,22 +6,24 @@ namespace CsharpAdvanced
     {
         // Ninja Coding
         // _____________TEXT SELECTION_________________
-        //  Control + right OR left arrow: moves the cursor to the right or left one word at a time
+        // Control + right OR left arrow: moves the cursor to the right or left one word at a time
         // Fn  + home: moves the cursor to the beginning of the line
         // Fn  + end: moves the cursor to the end of the current line
         // fn + up arrow OR down arrow: scrolls to the next method
-        //  Control + Fn  + end: jump to the end of the file
-        //  Control + Fn  + home: jump to the beginning of the file
+        // Control + Fn  + end: jump to the end of the file
+        // Control + Fn  + home: jump to the beginning of the file
         // Shift  key: to activate selection
         // Shift  + Fn  + right arrow: select from where the cursor is to the end of the line
         // Shift  + Fn  + left arrow: select from where the cursor is to the beginning of the line
-        //  Control + c: copies the current line
-        //  Control + v: pastes the line below
-        //  Control + x: removes the current line
+        // Control + c: copies the current line
+        // Control + v: pastes the line below
+        // Control + x: removes the current line
+        // Shift + Alt + Down arrow: To select and manipulate text and lines
+        // Shift + Windows Key + Home : moves the current program to the upper or lower monitor
         // _____________DELETING TEXT______________________
-        //  Control + delete : removes one word at a time. i.e. the word to the right of the cursor
-        //  Control + backspace : removes one word at a time. i.e. the word to the left of the cursor
-        //  Control + L : deletes the current line
+        // Control + delete : removes one word at a time. i.e. the word to the right of the cursor
+        // Control + backspace : removes one word at a time. i.e. the word to the left of the cursor
+        // Control + L : deletes the current line
         // _____________COMMENTING CODE______________
         // Select the text, +  Control + K, and  Control + C
         // De-select comments...Select the text, + ControlK + ControlU
@@ -49,6 +51,16 @@ namespace CsharpAdvanced
         // Alt + R : to replace the currently selected occurrence
         // Control + Shift + F : search for all instances of a word in a document, project, or solution
         //_____________RUNNING & DEBUGGING__________________
+        // Control + F5 : compiles and runs the application. Faster and more responsive than using dubug mode i.e. 'green start button'
+        // F5 : Runs the application in Debug Mode (equivalent to pressing the start button on the toolbar)
+        // The green 'start' button runs the application in Debug Mode. i.e. VS will load additional information in memory to allow for debugging activities
+        // ...using the green start button will also slow down the PC
+        // F9 : inserts, or removes, a breakpoint on the current line
+        // F10 : Step Over a method while in debug mode
+        // F11 : Step Into a method while in debug mode
+        // Shift + F5 : stop the debugging session
+        // Control + Shift + F5 : Stops the debug session and starts a new sesh
+        // Shift + F11 : Step Out of a method (getting out of a method that you accidentally stepped into)
 
         public void Method()
         {

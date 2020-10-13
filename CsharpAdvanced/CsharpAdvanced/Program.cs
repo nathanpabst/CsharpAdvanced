@@ -15,16 +15,6 @@ namespace CsharpAdvanced
     {
         private static void Main(string[] args)
         {
-            // Control + F5 : compiles and runs the application. Faster and more responsive than the dubug mode i.e. 'green start button'
-            // F5 : Run the application in Debug Mode. equivalent to pressing the start button on the toolbar
-            // The green 'start' button runs the application in Debug Mode. i.e. VS will load additional information in memory to allow for debugging activities
-            // ...using the green start button will also slow down the PC
-            // F9 : inserts, or removes, a breakpoint on the current line
-            // F10 : Step Over a method while in debug mode
-            // F11 : Step Into a method while in debug mode
-            // Control + Shift + F5 : Stops the debug session and starts a new sesh
-            // Shift + F11 : Step Out of a method (getting out of a method that you accidentally stepped into) 
-
             var calculator = new Calculator();
             var result = calculator.Divide(42, 2);
             Console.WriteLine("the result is " + result);
