@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reflection.Metadata;
 
 namespace CsharpAdvanced
 {
@@ -65,10 +66,26 @@ namespace CsharpAdvanced
         // Alt + tab, tab, etc. : view a list of open applications and switch screens
         // Control + Shift + B : Build the application without running/opening a new window
         // Control + R : Refresh the window
-        // F8 : To cycle through the errors. F8 will Navigate to the location of each error in the list. Pressing F8 again will navigate to the next location
+        // F8 : To cycle through the errors and warnings. F8 will Navigate to the location of each error in the list. Pressing F8 again will navigate to the next location
+        //_____________CODE SNIPPETS_______________
+        // ctor + Tab : generates a constructor
+        // prop + Tab : generates a property. Press Tab to move to the next parameter.
+        // propfull : creates a private field and a public property with full get & set methods
+        // cw + Tab : generates 'Console.WriteLine();'
+        // equals + Tab : implements the Equals & GetHashCode Methods
+        // try + Tab : generates a Try/Catch block
+        // tryf + Tab : generates a Try/Finally block
+        // for + Tab : generates for loop that increments
+        // forr + Tab : generates a for loop that decrements
 
         public void Method()
         {
+            for (int i = length - 1; i >= 0; i--)
+            {
+            }
+            for (int i = 0; i < 0; i++)
+            {
+            }
             for (int i = 0; i < 10; i++)
             {
                 Console.WriteLine("method looping.");
