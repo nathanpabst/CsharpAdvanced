@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Reflection.Metadata;
 
 namespace CsharpAdvanced
@@ -72,24 +73,22 @@ namespace CsharpAdvanced
         // prop + Tab : generates a property. Press Tab to move to the next parameter.
         // propfull : creates a private field and a public property with full get & set methods
         // cw + Tab : generates 'Console.WriteLine();'
-        // equals + Tab : implements the Equals & GetHashCode Methods
+        // equals + Tab : to override the equals method of the object class. Implements the Equals & GetHashCode Methods
         // try + Tab : generates a Try/Catch block
         // tryf + Tab : generates a Try/Finally block
         // for + Tab : generates for loop that increments
         // forr + Tab : generates a for loop that decrements
+        // foreach + Tab : when placing the foreach block near the variable,
+        // ...VS will detect/suggest the collection so you don't have to manually specify the loop variable
+        // while + tab : to create a while loop
+        // do + tab : to create a do loop
+        //___________COMMITTING CHANGES______________________
+        // Control + Q : activates the search window
+        //...type & select Team Explorer
+        //...tab to get to the Changes menu
 
         public void Method()
         {
-            for (int i = length - 1; i >= 0; i--)
-            {
-            }
-            for (int i = 0; i < 0; i++)
-            {
-            }
-            for (int i = 0; i < 10; i++)
-            {
-                Console.WriteLine("method looping.");
-            }
         }
     }
 }
