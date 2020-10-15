@@ -80,7 +80,7 @@ namespace CsharpAdvanced
         // tryf + Tab : generates a Try/Finally block
         // for + Tab : generates for loop that increments
         // forr + Tab : generates a for loop that decrements
-        // foreach + Tab : when placing the foreach block near the variable,
+        // foreach + Tab : when placing the foreach block near the variable...
         // ...VS will detect/suggest the collection so you don't have to manually specify the loop variable
         // while + tab : to create a while loop
         // do + tab : to create a do loop
@@ -91,7 +91,7 @@ namespace CsharpAdvanced
         //___________FORMATTING CODE______________________
         // select the code using Shift + direction arrow, press the Tab key to move/indent the code one Tab stop to the right
         // select the code using Shift + direction arrow, press Shift + Tab key to move/indent the code one Tab stop to the left
-        // Control + A, Control K + Control F : to format the entire file
+        // Control + A to select the entire file then Control K + Control F : to format the entire file
         // GET VISUAL STUDIO EXTENSION: PRODUCTIVITY POWER TOOLS (VIA GOOGLE)
         //https://marketplace.visualstudio.com/items?itemName=VisualStudioPlatformTeam.ProductivityPowerPack2017
 
