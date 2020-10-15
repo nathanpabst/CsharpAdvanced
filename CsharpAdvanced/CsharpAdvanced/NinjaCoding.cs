@@ -27,21 +27,22 @@ namespace CsharpAdvanced
         // Control + backspace : removes one word at a time. i.e. the word to the left of the cursor
         // Control + L : deletes the current line
         // _____________COMMENTING CODE______________
-        // Select the text, +  Control + K, and  Control + C
-        // De-select comments...Select the text, + ControlK + ControlU
+        // Select the text, then Control K, and Control C
+        // De-select comments...Select the text + Control K and Control U
         // _____________BOOKMARKING____________________
         // to bookmark a spot && to remove a bookmark from a line: Control + K + K
-        // to view all bookmarks: Control + w + b ...mayyyyyybe??
-        // Expanding/Collapsing Code: Control + M, Control + M
+        // to view all bookmarks: Control + w + b ...mayyyyyybe?? mmm, no
+        // Expanding/Collapsing Code blocks: Control + M, Control + M
         //_____________WORKING WITH TABS_______________
         // Control + T: resharper search hotkey. displays a list of files in the solution
-        // Control + tab : to cycle through open tabs
-        // Control + Shift + tab : to reverse the cycle
-        // Control + tab, tab, etc. allows you to cycle through the list of open tabs
-        // Control + F6 : navigates to the next open tab
-        // Control + Shift  + F6 : navigates back to the previously opened tab
-        // Control + F4 : to close the current tab
-        // Alt + W + L : to close all open tabs
+        // Control + Tab : to cycle through open Tabs
+        // Control + Shift + Tab : to reverse the cycle
+        // Control + Tab, Tab, etc. allows you to cycle through the list of open Tabs
+        // Control + Tab + left arrow: go to additional project options (like Team Explorer, Error List, etc.)
+        // Control + F6 : navigates to the next open Tab
+        // Control + Shift  + F6 : navigates back to the previously opened Tab
+        // Control + F4 : to close the current Tab
+        // Alt + W + L : to close all open Tabs
         // Control + , : opens the 'navigate to' list of recent files
         // Shift  + Alt + Enter: to toggle the full screen view.
         // _____________FIND & REPLACE____________________
@@ -63,8 +64,9 @@ namespace CsharpAdvanced
         // Shift + F5 : stop the debugging session
         // Control + Shift + F5 : Stops the debug session and starts a new sesh
         // Shift + F11 : Step Out of a method (getting out of a method that you accidentally stepped into)
+        // Shift + Esc : closes the Error List, Task List, etc
         //_____________COMPILING THE APPLICATION_______________
-        // Alt + tab, tab, etc. : view a list of open applications and switch screens
+        // Alt + Tab, Tab, etc. : view a list of open applications and switch screens
         // Control + Shift + B : Build the application without running/opening a new window
         // Control + R : Refresh the window
         // F8 : To cycle through the errors and warnings. F8 will Navigate to the location of each error in the list. Pressing F8 again will navigate to the next location
@@ -85,7 +87,13 @@ namespace CsharpAdvanced
         //___________COMMITTING CHANGES______________________
         // Control + Q : activates the search window
         //...type & select Team Explorer
-        //...tab to get to the Changes menu
+        //...Tab to get to the Changes menu
+        //___________FORMATTING CODE______________________
+        // select the code using Shift + direction arrow, press the Tab key to move/indent the code one Tab stop to the right
+        // select the code using Shift + direction arrow, press Shift + Tab key to move/indent the code one Tab stop to the left
+        // Control + A, Control K + Control F : to format the entire file
+        // GET VISUAL STUDIO EXTENSION: PRODUCTIVITY POWER TOOLS (VIA GOOGLE)
+        //https://marketplace.visualstudio.com/items?itemName=VisualStudioPlatformTeam.ProductivityPowerPack2017
 
         public void Method()
         {
