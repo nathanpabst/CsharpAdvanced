@@ -25,7 +25,8 @@ namespace CsharpAdvanced
         // _____________DELETING TEXT______________________
         // Control + delete : removes one word at a time. i.e. the word to the right of the cursor
         // Control + backspace : removes one word at a time. i.e. the word to the left of the cursor
-        // Control + L : deletes the current line
+        // Control + L OR Shift + Delete: deletes the current line
+        // Control + Z : undoes the last command
         // _____________COMMENTING CODE______________
         // Select the text, then Control K, and Control C
         // De-select comments...Select the text + Control K and Control U
@@ -94,6 +95,12 @@ namespace CsharpAdvanced
         // Control + A to select the entire file then Control K + Control F : to format the entire file
         // GET VISUAL STUDIO EXTENSION: PRODUCTIVITY POWER TOOLS (VIA GOOGLE)
         //https://marketplace.visualstudio.com/items?itemName=VisualStudioPlatformTeam.ProductivityPowerPack2017
+        //___________RESHARPER_____________________________
+        // www.jetbrains.com/resharper --free for non-commercial use
+        // Keyboard Schemes: select the Visual Studio Shortcuts Scheme
+        // ...Extensions --> Resharper --> Options : to select a scheme:
+        // ...Alt + R : to quickly navigate to the Resharper menu
+        // Alt + R --> Options --> Environment --> Keyboards & Menus
 
         public void Method()
         {
