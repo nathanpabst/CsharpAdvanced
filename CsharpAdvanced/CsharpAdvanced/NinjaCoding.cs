@@ -101,6 +101,29 @@ namespace CsharpAdvanced
         // ...Extensions --> Resharper --> Options : to select a scheme:
         // ...Alt + R : to quickly navigate to the Resharper menu
         // Alt + R --> Options --> Environment --> Keyboards & Menus
+        //____________Camel Humps__________________________
+        // Adding the LastIndexOf method : start typing the name of the variable, select the variable, add a period, type 'lio' and select/press enter
+        // Adding the ArgumentNullException : type 'throw new + ANE'
+        // Control + Spacebar : Suggesting names for Properties or Fields. The first two options are properties. The second two options are field name suggestions
+        //...or type Shift + _ (underscore) to see suggested field names
+
+        public class CodingAssistance
+        {
+            //type 'private CodeInspector', then Control + Spacebar
+            private CodeInspector _inspector;
+        }
+
+        public class CodeInspector
+        {
+        }
+
+        public void Sample()
+        {
+            //Code completion using camelhumps
+            //var name = "Natz Pagst";
+            //name.LastIndexOf();
+            //throw new ArgumentNullException();
+        }
 
         public void Method()
         {
