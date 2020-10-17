@@ -104,25 +104,30 @@ namespace CsharpAdvanced
         //____________Camel Humps__________________________
         // Adding the LastIndexOf method : start typing the name of the variable, select the variable, add a period, type 'lio' and select/press enter
         // Adding the ArgumentNullException : type 'throw new + ANE'
+        // _____________SUGGESTING NAMES________________
         // Control + Spacebar : Suggesting names for Properties or Fields. The first two options are properties. The second two options are field name suggestions
         //...or type Shift + _ (underscore) to see suggested field names
+        // _____________INITIALIZING PRIVATE FIELDS________________
+        // Alt + Enter : To activate Resharpers commands/suggestions
+        //Steps to initialize a private field from the constructor...
+        //1. ctor + Tab
+        //2. CI (this represents an existing class)+ Enter in the parens : Defining an argument for the constructor using camel humps
+        //3. Control + Spacebar to get a list of suggested names for the argument
+        //4. highlight the selected name #squigglybois then press Alt + Enter
+        //5. select the 'Introduce and initialize field 'blahblah' + enter
 
         public class CodingAssistance
         {
-            //type 'private CodeInspector', then Control + Spacebar
-            private CodeInspector _inspector;
+            private readonly CodeInspector _codeInspector;
+
+            public CodingAssistance(CodeInspector codeInspector)
+            {
+                _codeInspector = codeInspector;
+            }
         }
 
         public class CodeInspector
         {
-        }
-
-        public void Sample()
-        {
-            //Code completion using camelhumps
-            //var name = "Natz Pagst";
-            //name.LastIndexOf();
-            //throw new ArgumentNullException();
         }
 
         public void Method()
