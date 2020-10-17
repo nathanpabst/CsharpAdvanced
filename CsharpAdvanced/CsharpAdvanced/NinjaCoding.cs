@@ -14,8 +14,8 @@ namespace CsharpAdvanced
         // fn + up arrow OR down arrow: scrolls to the next method
         // Control + Fn  + end: jump to the end of the file
         // Control + Fn  + home: jump to the beginning of the file
-        // Shift  key: to activate selection
-        // Shift  + Fn  + right arrow: select from where the cursor is to the end of the line
+        // Shift key: to activate selection
+        // Shift + Fn  + right arrow: select from where the cursor is to the end of the line
         // Shift  + Fn  + left arrow: select from where the cursor is to the beginning of the line
         // Control + c: copies the current line
         // Control + v: pastes the line below
@@ -26,9 +26,9 @@ namespace CsharpAdvanced
         // Control + delete : removes one word at a time. i.e. the word to the right of the cursor
         // Control + backspace : removes one word at a time. i.e. the word to the left of the cursor
         // Control + L OR Shift + Delete: deletes the current line
-        // Control + Z : undoes the last command
+        // Control + Z : undo the previous command
         // _____________COMMENTING CODE______________
-        // Select the text, then Control K, and Control C
+        // Select the text OR anywhere on the line, then Control K, and Control C
         // De-select comments...Select the text + Control K and Control U
         // _____________BOOKMARKING____________________
         // to bookmark a spot && to remove a bookmark from a line: Control + K + K
