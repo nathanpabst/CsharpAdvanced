@@ -115,20 +115,16 @@ namespace CsharpAdvanced
         //3. Control + Spacebar to get a list of suggested names for the argument
         //4. highlight the selected name #squigglybois then press Alt + Enter
         //5. select the 'Introduce and initialize field 'blahblah' + enter
-
-        public class CodingAssistance
-        {
-            private readonly CodeInspector _codeInspector;
-
-            public CodingAssistance(CodeInspector codeInspector)
-            {
-                _codeInspector = codeInspector;
-            }
-        }
-
-        public class CodeInspector
-        {
-        }
+        //_____________AUTO-IMPORTING NAMESPACES___________________
+        // Control + Spacebar : activates auto-completion
+        // Alt + Enter
+        //_____________NAVIGATION___________________
+        // Control + Shift + T : opens the Go-To File window to search for a specific file or folder name
+        // Shift + Alt + L : opens the Solution Explorer. use up/down arrows to browse and press Enter to select
+        // Control + T : to search by type. for example the Divide Method in the Calculator class.
+        // Alt + down arrow : navigates to the next member/method
+        // Alt + up arrow : navigates to the previous member/method
+        // Alt + backslash key (above the Enter Key) : to search all the members (methods and properties) in a file. use arrows to navigate and Enter to select
 
         public void Method()
         {
