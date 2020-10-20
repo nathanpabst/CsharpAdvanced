@@ -127,6 +127,14 @@ namespace CsharpAdvanced
         // Alt + backslash key (above the Enter Key) : to search all the members (methods and properties) in a file. use arrows to navigate and Enter to select
         //____________CODE SELECTION________________
         // Control + W : hotkey for selecting code. to continue selecting code, press and hold the Control button and press W until you have everything you want.
+        //____________CREATING LIVE TEMPLATES aka CODE SNIPPETS_________
+        //1. Control + W : to select the block of code you wish to duplicate
+        //2. Alt + R : to navigate to the Resharper menu
+        //3. Select Tools --> Create Live Template from Selection --> Create & Edit
+        //4. Modify the snippet as needed
+        //5. Define the name of the shortcut
+        //6. Control + S to save
+        //7. Type the name of the shortcut anywhere in the project to use the snippet
 
         public void Method()
         {
