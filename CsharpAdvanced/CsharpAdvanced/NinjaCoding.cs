@@ -68,7 +68,7 @@ namespace CsharpAdvanced
         // Shift + Esc : closes the Error List, Task List, etc
         //_____________COMPILING THE APPLICATION_______________
         // Alt + Tab, Tab, etc. : view a list of open applications and switch screens
-        // Control + Shift + B : Build the application without running/opening a new window
+        // Control + Shift + B : Builds the application without running/opening a new window
         // Control + R : Refresh the window
         // F8 : To cycle through the errors and warnings. F8 will Navigate to the location of each error in the list. Pressing F8 again will navigate to the next location
         //_____________CODE SNIPPETS_______________
@@ -96,7 +96,7 @@ namespace CsharpAdvanced
         // GET VISUAL STUDIO EXTENSION: PRODUCTIVITY POWER TOOLS (VIA GOOGLE)
         //https://marketplace.visualstudio.com/items?itemName=VisualStudioPlatformTeam.ProductivityPowerPack2017
         //___________RESHARPER_____________________________
-        // www.jetbrains.com/resharper --free for non-commercial use
+        //  www.jetbrains.com/resharper --free for non-commercial use
         // Keyboard Schemes: select the Visual Studio Shortcuts Scheme
         // ...Extensions --> Resharper --> Options : to select a scheme:
         // ...Alt + R : to quickly navigate to the Resharper menu
@@ -121,7 +121,7 @@ namespace CsharpAdvanced
         //_____________NAVIGATION___________________
         // Control + Shift + T : opens the Go-To File window to search for a specific file or folder name
         // Shift + Alt + L : opens the Solution Explorer. use up/down arrows to browse and press Enter to select
-        // Control + T : to search by type. for example the Divide Method in the Calculator class.
+        // Control + T : to bring up the Go to File window & search by type. for example the Divide Method in the Calculator class.
         // Alt + down arrow : navigates to the next member/method
         // Alt + up arrow : navigates to the previous member/method
         // Alt + backslash key (above the Enter Key) : to search all the members (methods and properties) in a file. use arrows to navigate and Enter to select
