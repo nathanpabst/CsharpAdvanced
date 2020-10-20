@@ -125,6 +125,8 @@ namespace CsharpAdvanced
         // Alt + down arrow : navigates to the next member/method
         // Alt + up arrow : navigates to the previous member/method
         // Alt + backslash key (above the Enter Key) : to search all the members (methods and properties) in a file. use arrows to navigate and Enter to select
+        //____________CODE SELECTION________________
+        // Control + W : hotkey for selecting code. to continue selecting code, press and hold the Control button and press W until you have everything you want.
 
         public void Method()
         {
