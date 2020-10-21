@@ -135,6 +135,17 @@ namespace CsharpAdvanced
         //5. Define the name of the shortcut
         //6. Control + S to save
         //7. Type the name of the shortcut anywhere in the project to use the snippet
+        // ___To view a list of all templates/code snippets...
+        //1. Alt + R : to navigate to the Resharper menu
+        //2. Select Tools --> Templates Explorer + Enter key
+        //3. Code snippets will likely be under C# in the Scopes menu
+        // ___To Edit a template...
+        //1. Alt + R : to navigate to the Resharper menu
+        //2. Select Tools --> Templates Explorer + Enter key
+        //3. Select the Code snippet & click on the pencil icon
+        //4. Make the snippet dynamic by surrounding each part or parameter (method name, condition, expectation) with the '$' key
+        //5. Example: public async Task $MethodName$_$ConditionToBeTested$_$Expectation$
+        //6. Control + S to save and then close
 
         public void Method()
         {
