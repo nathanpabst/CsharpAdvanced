@@ -38,5 +38,27 @@ namespace CsharpAdvanced
         //      ELSE
         //          SELECT 0.00;
         //END
+        // command to execute the SP...
+        // EXEC dbo.upsCalculateTime 5.0, 15.0
+        // ______Challenge 1__________
+        //CREATE PROCEDURE dbo.uspAddNumber
+        //-- Add the parameters for the stored procedure here
+
+        //@a float,
+        //@b float
+        //    AS
+        //BEGIN
+        //-- SET NOCOUNT ON added to prevent extra result sets from
+        //-- interfering with SELECT statements.
+        //    SET NOCOUNT ON;
+
+        //    -- Insert statements for procedure here
+
+        //SELECT @a + @b;
+        //END
+        // Executing the SP...
+        // 1. in SSMS, click create new query
+        // 2. EXEC dbo.uspAddNumber 5.0, 15.0
+        // 3. F5 to run the query
     }
 }
