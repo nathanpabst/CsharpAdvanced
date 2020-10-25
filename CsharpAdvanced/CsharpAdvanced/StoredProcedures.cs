@@ -60,5 +60,19 @@ namespace CsharpAdvanced
         // 1. in SSMS, click create new query
         // 2. EXEC dbo.uspAddNumber 5.0, 15.0
         // 3. F5 to run the query
+        //__________PARTS OF A SP section 3_____________
+        // Parameters...
+        // SPs can accept parameter values as inputs
+        // modified values can be passed back to the calling program
+        // Execution...
+        // SPs can execute SQL statement, utilize conditional logic such as IF THEN or CASE statements
+        // ...and looping constructs to perform tasks like WHILE loops
+        // a SP is able to call another SP
+        // use Cursors
+        // Outputs...
+        // a SP can return:
+        // 1. a single value such as number or text value
+        // 2. a set or rows as a result set
+        // 3. OUTPUT Parameters
     }
 }
