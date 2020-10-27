@@ -95,6 +95,23 @@ namespace CsharpAdvanced
         //INNER JOIN Sales.SalesOrderHeader SOH ON CC.CreditCardID = SOH.CreditCardID
         //    AND SOH.SalesOrderID = 73823
         //--result = ccId: 11978, CardType: Distinguish, CardNumber, ExpMonth, ExpYear
-        //    END
+        //END
+        // 4. Refactor to include variables...
+        //DECLARE @salesOrderID Int;
+        //DECLARE @creditInfo Varchar(200);
+
+        //SELECT TOP 1 @salesOrderID = SOH.SalesOrderID
+        //    FROM Sales.SalesOrderHeader SOH
+        //INNER JOIN Sales.Customer C ON SOH.CustomerID = C.CustomerID
+        //    INNER JOIN Person.Person P ON P.BusinessEntityID = C.CustomerID
+        //    WHERE P.FirstName LIKE 'Kristina' AND P.LastName LIKE 'Garcia'
+        //ORDER BY SOH.OrderDate DESC
+        //--result = 73823
+        //--2. get credit card number
+        //SELECT CC.CreditCardId, CC.CardType, CC.CardNumber, CC.ExpMonth, CC.ExpYear
+        //    FROM Sales.CreditCard CC
+        //INNER JOIN Sales.SalesOrderHeader SOH ON CC.CreditCardID = SOH.CreditCardID
+        //    AND SOH.SalesOrderID = @creditInfo
+        //--result = ccId: 11978, CardType: Distinguish, CardNumber, ExpMonth, ExpYear
     }
 }
