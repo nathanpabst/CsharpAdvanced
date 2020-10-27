@@ -8,6 +8,7 @@ namespace CsharpAdvanced
     {
         // Ninja Coding
         // _____________TEXT SELECTION_________________
+        // Windows key + right arrow : moves the current application to the right side of the screen
         // Control + right OR left arrow: moves the cursor to the right or left one word at a time
         // Fn  + home: moves the cursor to the beginning of the line
         // Fn  + end: moves the cursor to the end of the current line
