@@ -74,5 +74,27 @@ namespace CsharpAdvanced
         // 1. a single value such as number or text value
         // 2. a set or rows as a result set
         // 3. OUTPUT Parameters
+        //____________Defining a SP coding example: provide the biz with a way of verifying CCs_____________
+        // 1. define the SP...
+        // CREATE PROCEDURE uspGetCreditInfoForCustomer
+        //    AS
+        //BEGIN
+        //  PRINT 'Display CC Information Here'
+        //END
+        // 2. create query to get SalesOrderID / get the latest sales order header...
+        //SELECT TOP 1 SOH.SalesOrderID
+        //    FROM Sales.SalesOrderHeader SOH
+        //INNER JOIN Sales.Customer C ON SOH.CustomerID = C.CustomerID
+        //    INNER JOIN Person.Person P ON P.BusinessEntityID = C.CustomerID
+        //    WHERE P.FirstName LIKE 'Kristina' AND P.LastName LIKE 'Garcia'
+        //ORDER BY SOH.OrderDate DESC
+        //--result = 73823
+        // 3. Get credit card number/create query to get Credit Card
+        //SELECT CC.CreditCardId, CC.CardType, CC.CardNumber, CC.ExpMonth, CC.ExpYear
+        //    FROM Sales.CreditCard CC
+        //INNER JOIN Sales.SalesOrderHeader SOH ON CC.CreditCardID = SOH.CreditCardID
+        //    AND SOH.SalesOrderID = 73823
+        //--result = ccId: 11978, CardType: Distinguish, CardNumber, ExpMonth, ExpYear
+        //    END
     }
 }
