@@ -8,7 +8,6 @@ namespace CsharpAdvanced
     {
         // Ninja Coding
         // _____________TEXT SELECTION_________________
-        // Windows key + right arrow : moves the current application to the right side of the screen
         // Control + right OR left arrow: moves the cursor to the right or left one word at a time
         // Fn  + home: moves the cursor to the beginning of the line
         // Fn  + end: moves the cursor to the end of the current line
@@ -18,11 +17,13 @@ namespace CsharpAdvanced
         // Shift key: to activate selection
         // Shift + Fn  + right arrow: select from where the cursor is to the end of the line
         // Shift  + Fn  + left arrow: select from where the cursor is to the beginning of the line
-        // Control + c: copies the current line
+        // Control + c (anywhere within the line): copies the current line
         // Control + v: pastes the line below
         // Control + x: removes the current line
         // Shift + Alt + Down arrow: To select and manipulate text and lines
         // Shift + Windows Key + Home : moves the current program to the upper or lower monitor
+        // Windows key + right arrow : moves the current application to the right side of the screen
+        // Windows key + up arrow : expands the application/program to full size
         // _____________DELETING TEXT______________________
         // Control + delete : removes one word at a time. i.e. the word to the right of the cursor
         // Control + backspace : removes one word at a time. i.e. the word to the left of the cursor
