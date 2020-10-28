@@ -120,6 +120,7 @@ namespace CsharpAdvanced
         //_____________AUTO-IMPORTING NAMESPACES___________________
         // Control + Spacebar : activates auto-completion
         // Alt + Enter
+        // Alt + Spacebar : opens windows options for...restoring, minimizing, maximizing, closing, etc.
         //_____________NAVIGATION___________________
         // Control + Shift + T : opens the Go-To File window to search for a specific file or folder name
         // Shift + Alt + L : opens the Solution Explorer. use up/down arrows to browse and press Enter to select
