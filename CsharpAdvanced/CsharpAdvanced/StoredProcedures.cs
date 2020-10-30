@@ -97,41 +97,51 @@ namespace CsharpAdvanced
         //--result = ccId: 11978, CardType: Distinguish, CardNumber, ExpMonth, ExpYear
         //END
         // 4. Refactor to include variables...
-        //DECLARE @salesOrderID Int;
-        //DECLARE @creditInfo Varchar(200);
-
         //ALTER PROCEDURE uspGetCreditInfoForCustomer
         //--ADD PARAMETERS
-
         //@first Varchar(40),
-        //@last Varchar(40)
-        //AS
-        //    BEGIN
-
+        //@last Varchar(40),
+        //@CreditInfo Varchar(200) OUTPUT
+        //    AS
+        //BEGIN
+        //--Declare variables
         //DECLARE @salesOrderID Int;
-        //DECLARE @creditInfo Varchar(200);
 
+        //--Get the latest sales order header
         //SELECT TOP 1 @salesOrderID = SOH.SalesOrderID
         //    FROM Sales.SalesOrderHeader SOH
-
         //INNER JOIN Sales.Customer C ON SOH.CustomerID = C.CustomerID
         //    INNER JOIN Person.Person P ON P.BusinessEntityID = C.CustomerID
         //    WHERE P.FirstName LIKE @first AND P.LastName LIKE @last
         //    ORDER BY SOH.OrderDate DESC;
         //--result = 73823
 
-        //--2. get credit card number
-        //SELECT @creditInfo = 'Card: ' + CC.CardType + ' - ' +
-        //                     Replicate('*', LEN(CC.CardNumber) - 4) + RIGHT(CC.CardNumber, 4) +
-        //                     ' Exp: ' + CAST(CC.ExpMonth as varchar(2))
+        //--Get credit card number
+        //IF @@ROWCOUNT > 0
+        //BEGIN
+        //    SELECT @CreditInfo = 'Card: ' + CC.CardType + ' - ' +
+        //Replicate('*', LEN(CC.CardNumber) - 4) + RIGHT(CC.CardNumber, 4) +
+        //    ' Exp: ' + CAST(CC.ExpMonth as varchar(2))
         //FROM Sales.CreditCard CC
         //    INNER JOIN Sales.SalesOrderHeader SOH ON CC.CreditCardID = SOH.CreditCardID
-
-        //    AND SOH.SalesOrderID = @creditInfo
-
-        //    PRINT @creditInfo
-
-        //--result = ccId: 11978, CardType: Distinguish, CardNumber, ExpMonth, ExpYear
         //    END
+        //ELSE
+        //    BEGIN
+        //SET @CreditInfo = 'Customer not found.';
+        //    --result = ccId: 11978, CardType: Distinguish, CardNumber, ExpMonth, ExpYear
+        //    END
+        //END
+        //____________EXECUTING SP________________
+        //---------------------------------
+        //DECLARE @first Varchar(40);
+        //DECLARE @last Varchar(40);
+        //DECLARE @CreditInfo Varchar(200);
+        //---------------------------------
+        //--Test 1
+        //SET @first = 'Kristina'
+        //SET @last = 'Garcia'
+        //exec[dbo].[uspGetCreditInfoForCustomer] @first, @last, @CreditInfo OUTPUT
+        //SELECT @CreditInfo
+        //________OUTPUT: Card: Distinguish - **********5324 Exp: 12
     }
 }
