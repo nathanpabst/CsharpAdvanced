@@ -144,5 +144,63 @@ namespace CsharpAdvanced
         //exec[dbo].[uspGetCreditInfoForCustomer] @first, @last, @CreditInfo OUTPUT
         //SELECT 'Test2: ' +@CreditInfo
         //________OUTPUT: Customer Not Found
+        //_____________________SECTION 4: DEBUGGING__________________
+        // 1. Create or Alter the SP
+        // 2. add 'PRINT' statements at each level of execution
+        //EXAMPLE SP....
+        //CREATE PROCEDURE uspGetOrderTrackingForCustomer
+        //--ADD PARAMETERS
+
+        //@first Varchar(40),
+        //@last Varchar(40),
+        //@cardNumber Varchar(200) OUTPUT
+        //    AS
+        //BEGIN
+        //    PRINT 'Begin Execution'
+
+        //--Declare variables
+        //DECLARE @creditCardID Int;
+
+        //--Get the latest sales order header
+        //SELECT TOP 1 @creditCardID = SOH.CreditCardID
+        //    FROM Sales.SalesOrderHeader SOH
+
+        //INNER JOIN Sales.Customer C ON SOH.CustomerID = C.CustomerID
+        //    INNER JOIN Person.Person P ON P.BusinessEntityID = C.CustomerID
+        //    WHERE P.FirstName LIKE @first AND P.LastName LIKE @last
+        //    ORDER BY SOH.OrderDate DESC;
+
+        //DECLARE @rowCount INT = @@ROWCOUNT
+        //    PRINT '@rowCount: ' + CAST(@rowCount as varchar(10))
+        //IF @@ROWCOUNT< 0
+        //BEGIN
+
+        //    PRINT 'Get Credit Card Number'
+        //SELECT @cardNumber= 'CardNumber: ' + CardNumber
+
+        //FROM Sales.CreditCard CC
+
+        //    WHERE CreditCardId = @creditCardID
+        //    END
+        //ELSE
+        //    BEGIN
+
+        //PRINT 'Card not found'
+
+        //SET @cardNumber = 'CardNumber: *** Not Found ***';
+        //    --result = ccId: 11978, CardType: Distinguish, CardNumber, ExpMonth, ExpYear
+        //    END
+        //END
+        // 3. Open a new window and execute the SP
+        // EX. execute statement...
+        //DECLARE @creditCard VARCHAR(200)
+        //EXEC[dbo].[uspGetOrderTrackingForCustomer] 'Kristina', 'Garcia', @creditCard OUTPUT
+        //SELECT @creditCard
+        // 4. open the messages tab (next to the results tab) in SSMS
+        // 5. look through each print statements to determine which section did not print
+        // 6. Solution... 'get credit card number' statement did not execute
+        //...the query broke on the 'If' statement. one row was found, but the if statement was checking for a row count of less than zero
+        // 7. alter the procedure to 'IF @@ROWCOUNT > 0'
+        // 8. Re-run the execute query
     }
 }
