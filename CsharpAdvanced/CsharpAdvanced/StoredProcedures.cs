@@ -132,16 +132,17 @@ namespace CsharpAdvanced
         //    END
         //END
         //____________EXECUTING SP________________
-        //---------------------------------
-        //DECLARE @first Varchar(40);
-        //DECLARE @last Varchar(40);
-        //DECLARE @CreditInfo Varchar(200);
-        //---------------------------------
         //--Test 1
         //SET @first = 'Kristina'
         //SET @last = 'Garcia'
         //exec[dbo].[uspGetCreditInfoForCustomer] @first, @last, @CreditInfo OUTPUT
-        //SELECT @CreditInfo
+        //SELECT 'Test1: ' + @CreditInfo
         //________OUTPUT: Card: Distinguish - **********5324 Exp: 12
+        //--Test 2
+        //SET @first = 'Kristina'
+        //SET @last = 'Garcia Lopez'
+        //exec[dbo].[uspGetCreditInfoForCustomer] @first, @last, @CreditInfo OUTPUT
+        //SELECT 'Test2: ' +@CreditInfo
+        //________OUTPUT: Customer Not Found
     }
 }
