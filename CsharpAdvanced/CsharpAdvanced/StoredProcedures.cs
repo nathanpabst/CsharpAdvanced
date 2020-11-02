@@ -154,18 +154,17 @@ namespace CsharpAdvanced
         //@first Varchar(40),
         //@last Varchar(40),
         //@cardNumber Varchar(200) OUTPUT
-        //    AS
+        //AS
         //BEGIN
-        //    PRINT 'Begin Execution'
-
+        //  DECLARE @debug bit = 1;
+        //    IF @debug PRINT 'Begin Execution' --?? vid cut off
         //--Declare variables
         //DECLARE @creditCardID Int;
 
-        //--Get the latest sales order header
+        //--Get the latest sales order header using customer name
         //SELECT TOP 1 @creditCardID = SOH.CreditCardID
         //    FROM Sales.SalesOrderHeader SOH
-
-        //INNER JOIN Sales.Customer C ON SOH.CustomerID = C.CustomerID
+        //  INNER JOIN Sales.Customer C ON SOH.CustomerID = C.CustomerID
         //    INNER JOIN Person.Person P ON P.BusinessEntityID = C.CustomerID
         //    WHERE P.FirstName LIKE @first AND P.LastName LIKE @last
         //    ORDER BY SOH.OrderDate DESC;
