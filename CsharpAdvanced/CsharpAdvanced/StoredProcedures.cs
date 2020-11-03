@@ -229,5 +229,13 @@ namespace CsharpAdvanced
         //FROM Person.Person
         //WHERE BusinessEntityID = @personID
         //PRINT @firstName; --> returns: Julio
+        //________________PRINT COMMAND_________________
+        // EX. 1: PRINT 'oh hey, hi' --> returns: oh hey, hi
+        // EX. 2...
+        //DECLARE @myVar VARCHAR(40) = 'oh hey, hi';
+        //PRINT @myVar --> returns: oh hey, hi
+        // EX. 3 as an expression...
+        //DECLARE @row INT = 42;
+        //PRINT 'The value of row is ' + CAST(@row as VARCHAR); --> returns: The value of row is 42
     }
 }
