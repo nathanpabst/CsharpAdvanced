@@ -201,5 +201,33 @@ namespace CsharpAdvanced
         //...the query broke on the 'If' statement. one row was found, but the if statement was checking for a row count of less than zero
         // 7. alter the procedure to 'IF @@ROWCOUNT > 0'
         // 8. Re-run the execute query
+        //____WORKING WITH VARIABLES__________
+        // Variables are defined using the 'declare' statement & are prefixed with '@' --> DECLARE @count int; or DECLARE @city varchar(40) = 'KC';
+        // Assigning Values: use 'set' --> SET @count = 42; OR SET @weight = @baseWeight * 1.05
+        // Example 1...
+        //DECLARE @velocity float;
+        //DECLARE @time float;
+        //DECLARE @distance float;
+
+        //SET @velocity = 80;
+        //SET @time = 2.5;
+        //SET @distance = @velocity * @time;
+
+        //PRINT 'Calculated Distance is ' + CAST(@distance as NVARCHAR); --> returns Calculated Distance is 200
+        //note: bc the distance variable is a float, you must cast it as NVARCHAR so it can be included in the expression
+        //...if you don't cast distance in this way you will get the following error: 'error converting data type varchar to float'
+        // Example 2...
+        //DECLARE @name VARCHAR(40) = 'unknown';
+        //PRINT @name;
+        //SET @name = 'Kansas City';
+        //PRINT 'The uppercase value of ' + @name + ' is ' + UPPER(@name); --> returns: The uppercase value of Kansas City is KANSAS CITY
+        // Example 3...
+        //DECLARE @firstName VARCHAR(40);
+        //DECLARE @personID int = 6990;
+
+        //SELECT @firstName = FirstName
+        //FROM Person.Person
+        //WHERE BusinessEntityID = @personID
+        //PRINT @firstName; --> returns: Julio
     }
 }
