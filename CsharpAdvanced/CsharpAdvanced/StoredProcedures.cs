@@ -237,5 +237,19 @@ namespace CsharpAdvanced
         // EX. 3 as an expression...
         //DECLARE @row INT = 42;
         //PRINT 'The value of row is ' + CAST(@row as VARCHAR); --> returns: The value of row is 42
+        //___________________IF/THEN LOGIC____________________
+        // EX. 1
+        //DECLARE @pricePerPound FLOAT;
+        //DECLARE @weight FLOAT;
+        //DECLARE @totalPrice FLOAT;
+        //SET @weight = 0;
+        //SET @totalPrice = 10.98;
+        //IF @weight = 0
+        //BEGIN
+        //    PRINT 'Welllllll shiiiiit Maaaary...the weight is zero. You cannot divide by zero. Let us set the weight at 1, shall we, dummyhead?';
+        //SET @weight = 1;
+        //END
+        //    SET @pricePerPound = @totalPrice / @weight
+        //    PRINT 'Ok, Maaaaary...the price per pund is ' + CAST(@pricePerPound as NVARCHAR)
     }
 }
