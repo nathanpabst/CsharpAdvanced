@@ -238,7 +238,7 @@ namespace CsharpAdvanced
         //DECLARE @row INT = 42;
         //PRINT 'The value of row is ' + CAST(@row as VARCHAR); --> returns: The value of row is 42
         //___________________IF/THEN LOGIC____________________
-        // EX. 1
+        // EX. 1 --weight is set to zero, so the If statement block will run
         //DECLARE @pricePerPound FLOAT;
         //DECLARE @weight FLOAT;
         //DECLARE @totalPrice FLOAT;
@@ -249,6 +249,25 @@ namespace CsharpAdvanced
         //    PRINT 'Welllllll shiiiiit Maaaary...the weight is zero. You cannot divide by zero. Let us set the weight at 1, shall we, dummyhead?';
         //SET @weight = 1;
         //END
+        //    SET @pricePerPound = @totalPrice / @weight
+        //    PRINT 'Ok, Maaaaary...the price per pund is ' + CAST(@pricePerPound as NVARCHAR)
+        // EX. 2 --the weight is set to 2, so the IF block will be skipped and the ELSE block will execute
+        //DECLARE @pricePerPound FLOAT;
+        //DECLARE @weight FLOAT;
+        //DECLARE @totalPrice FLOAT;
+
+        //SET @weight = 2;
+        //SET @totalPrice = 10.98;
+
+        //IF @weight = 0
+        //BEGIN
+        //    PRINT 'Welllllll shiiiiit Maaaary...the weight is zero. You cannot divide by zero. Let us set the weight at 1, shall we, dummyhead?';
+        //SET @weight = 1;
+        //END
+        //    ELSE
+        //BEGIN --this statement is not necessary because the PRINT statement is the only line being executed within the ELSE block
+        //    PRINT 'This is a valid weight, Maaaaaary. I will do all dah sumz now...';
+        //END --this statement is also unnecessary and could be removed...
         //    SET @pricePerPound = @totalPrice / @weight
         //    PRINT 'Ok, Maaaaary...the price per pund is ' + CAST(@pricePerPound as NVARCHAR)
     }
