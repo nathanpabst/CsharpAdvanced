@@ -270,5 +270,38 @@ namespace CsharpAdvanced
         //END --this statement is also unnecessary and could be removed...
         //    SET @pricePerPound = @totalPrice / @weight
         //    PRINT 'Ok, Maaaaary...the price per pund is ' + CAST(@pricePerPound as NVARCHAR)
+        // EX. 3 --using nested IF statements
+        //DECLARE @pricePerPound FLOAT;
+        //DECLARE @weight FLOAT;
+        //DECLARE @totalPrice FLOAT;
+
+        //SET @weight = 0;
+        //SET @totalPrice = 100.98;
+
+        //IF @weight = 0
+        //BEGIN
+        //    PRINT 'Welllllll shiiiiit Maaaary...the weight is zero. You cannot divide by zero. Let us set the weight at 1, shall we, dummyhead?';
+        //SET @weight = 1;
+        //IF @totalPrice > 100
+
+        //BEGIN
+        //    PRINT 'The total price is too large, Maaaaary...setting to 100.';
+        //SET @totalPrice = 100;
+        //END
+        //    END
+        //ELSE
+        //    BEGIN
+
+        //PRINT 'This is a valid weight, Maaaaaary. I will do all dah sumz now...';
+        //IF @totalPrice > 100
+
+        //BEGIN
+        //    PRINT 'The total price is too large, Maaaaary...setting to 100.';
+        //SET @totalPrice = 100;
+        //END
+        //    END
+
+        //SET @pricePerPound = @totalPrice / @weight
+        //PRINT 'Ok, Maaaaary...the price per pound is ' + CAST(@pricePerPound as NVARCHAR)
     }
 }
