@@ -303,5 +303,59 @@ namespace CsharpAdvanced
 
         //SET @pricePerPound = @totalPrice / @weight
         //PRINT 'Ok, Maaaaary...the price per pound is ' + CAST(@pricePerPound as NVARCHAR)
+        //__________________WHILE LOOPS__________________
+        // EX. 1...
+        //DECLARE @i int = 1;
+        //WHILE @i <= 10
+        //BEGIN
+        //    PRINT 'Current Count: ' + CAST(@i AS VARCHAR);
+        //SET @i = @i + 1
+        //END
+        //_____________________
+        // EX. 2...prints the first day of each week for 2018
+        //--Setup Variables
+        //DECLARE @myTable TABLE(WeekNumber int,
+        //DateStarting smalldatetime)
+
+        //DECLARE @n int = 0
+        //DECLARE @firstWeek smalldatetime = '12/31/2017'
+
+        //--loop through weeks
+        //    WHILE @n <= 52
+        //BEGIN
+        //    INSERT INTO @myTable VALUES(@n, DATEADD(wk, @n, @firstWeek));
+        //SELECT @n = @n + 1
+        //END
+
+        //--show results
+        //SELECT WeekNumber, DateStarting
+        //FROM @myTable
+        //________________
+        // DATEADD syntax --> SELECT DATEADD(wk, 1, '12/18/82'); --> returns 12/25/82...aka one week beyond 12/18/1982
+        // using BREAK & CONTINUE to control the behavior of the while loop...
+        //--Setup Variables
+        //SET NOCOUNT ON --removes the '(1 row affected)' messsage
+        //    DECLARE @myTable TABLE(WeekNumber int,
+        //DateStarting smalldatetime)
+
+        //DECLARE @n int = 0
+        //DECLARE @firstWeek smalldatetime = '12/31/2017'
+
+        //--loop through weeks
+        //    WHILE 1 = 1
+        //BEGIN
+        //    INSERT INTO @myTable VALUES(@n, DATEADD(wk, @n, @firstWeek));
+        //SELECT @n = @n + 1
+
+        //IF @n > 52 BREAK; --BREAK ends execution
+        //    ELSE CONTINUE --goes to the top of the while loop and starts again
+
+        //PRINT 'THIS WILL NEVER GET PRINTED.' --unless you remove the ELSE CONTINUE statement
+
+        //    END
+
+        //--show results
+        //SELECT WeekNumber, DateStarting
+        //FROM @myTable
     }
 }
