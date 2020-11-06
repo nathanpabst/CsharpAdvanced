@@ -394,5 +394,24 @@ namespace CsharpAdvanced
         //    PRINT 'Current Count: ' + CAST(@i AS VARCHAR);
         //SET @i = @i + 1
         //END
+        //______________RETURN Command_________________________
+        // the 'return' command unconditionally exits from the SP. similar to 'break', which exits from inner most 'while' loops
+        // EX. 1. --calculating @velocity = @distance / @time  --> returns velocity: 2.66666666666667
+        //DECLARE @velocity FLOAT;
+        //DECLARE @distance FLOAT = 120.0;
+        //DECLARE @time FLOAT = 45;
+
+        //IF @time = 0.0 RETURN -- don't divide by zero dummy
+        //SET @velocity = @distance / @time
+        //SELECT @velocity;
+        //__________
+        // EX. 2. --calculating @velocity = @distance / @time  --> executes command without printing velocity
+        //DECLARE @velocity FLOAT;
+        //DECLARE @distance FLOAT = 120.0;
+        //DECLARE @time FLOAT = 0.0;
+
+        //IF @time = 0.0 RETURN -- don't divide by zero dummy
+        //SET @velocity = @distance / @time
+        //SELECT @velocity;
     }
 }
