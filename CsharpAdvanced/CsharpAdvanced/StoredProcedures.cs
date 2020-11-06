@@ -376,5 +376,23 @@ namespace CsharpAdvanced
         //PRINT 'Row Count: ' + CAST(@ROW AS VARCHAR);
         //SET @i = @i + 1
         //END
+        //________________GOTO & Labels___________________
+        // the GOTO command 'jumps' program execution to the specified label
+        // WARNING: the following may not be suitable for developers...Rated S (for spaghetti code)
+        // ...using GOTO can make maintaining code more difficult. Far mo'bettah to use: IF, THEN, AND WHILE loops,
+        //--EX. 1. using GOTO --prints current count up to 10
+        //DECLARE @i INT = 1;
+        //START:
+        //PRINT 'Current Count: ' + CAST(@i AS VARCHAR);
+        //SET @i = @i + 1
+
+        //IF @i< 11 GOTO START
+        //--EX. 2: mo'bettah way to write the above statement. --prints current count up to 10
+        //DECLARE @i INT = 1;
+        //WHILE @i <= 10
+        //BEGIN
+        //    PRINT 'Current Count: ' + CAST(@i AS VARCHAR);
+        //SET @i = @i + 1
+        //END
     }
 }
