@@ -357,5 +357,24 @@ namespace CsharpAdvanced
         //--show results
         //SELECT WeekNumber, DateStarting
         //FROM @myTable
+        //___________WAITFOR uses_________________
+        // 1. 'waitfor delay'
+        // 2. 'waitfor time'
+        // ...execution is blocked until the waitfor command completes
+        // EX. 1...
+        //PRINT CONVERT(VARCHAR, GETDATE(), 109); --prints the current date and time
+        //WAITFOR DELAY '00:00:05' --HH:MM:SS
+        //PRINT CONVERT(VARCHAR, GETDATE(), 109); --prints the current date and time after a 5 second delay
+        //--EX. 2. monitoring DB log growth...the following statement will loop over the database log every 5 seconds and display the row count
+        //DECLARE @row int = 1;
+        //DECLARE @i INT = 1;
+        //WHILE @i <= 10
+        //BEGIN
+        //    Select @row = COUNT(*) FROM DatabaseLog;
+        //WAITFOR DELAY '00:00:05'; --5 second delay
+
+        //PRINT 'Row Count: ' + CAST(@ROW AS VARCHAR);
+        //SET @i = @i + 1
+        //END
     }
 }
