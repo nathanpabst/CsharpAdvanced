@@ -439,5 +439,27 @@ namespace CsharpAdvanced
         //    WAITFOR DELAY '00:00:01';
         //SET @i = @i + 2
         //END
+        //_________________________________
+        //________ERROR SYSTEM FUNCTION [@@ERROR]____________
+        // returns the error number for the last statement executed
+        // zero is returned if there is no error
+        // the value is reset each time a statement is executed
+        // because it is reset, check immediately after executing the statement or save to a variable to check later
+        // to view a list of error messages...
+        // SELECT* FROM sys.messages
+        // EX. 1...
+        //--unstructured error handling using @@ERROR
+        //    DECLARE @a FLOAT = 10.0;
+        //DECLARE @b FLOAT = 2.0;
+        //DECLARE @c FLOAT;
+
+        //SET @c = @a / @b;
+        //IF @@ERROR<> 0 PRINT 'Result: Division Error';
+        //ELSE PRINT 'Result: ' + CAST(@c as VARCHAR); --returns Result: 5
+
+        //SET @b = 0;
+        //SET @c = @a / @b;
+        //IF @@ERROR<> 0 PRINT 'Result: Division Error'; --returns 'Divide by zero error encountered.' && Result: Division Error
+        //ELSE PRINT 'Result: ' + CAST(@c as VARCHAR);
     }
 }
