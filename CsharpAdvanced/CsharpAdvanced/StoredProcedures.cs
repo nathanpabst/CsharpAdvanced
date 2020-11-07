@@ -413,5 +413,31 @@ namespace CsharpAdvanced
         //IF @time = 0.0 RETURN -- don't divide by zero dummy
         //SET @velocity = @distance / @time
         //SELECT @velocity;
+        //_________SECTION 5 PRACTICE ASSIGNMENT___________
+        //--write T-SQL script that prints even numbers 2-20.
+        //DECLARE @i INT = 2;
+        //WHILE @i <= 20
+        //BEGIN
+        //--Within each loop delay execution 1 second.
+        //    WAITFOR DELAY '00:00:01';
+        //PRINT 'Current Count: ' + CAST(@i as VARCHAR);
+        //SET @i = @i + 2
+        //IF @i = 10
+        //    --If the number is 10, also print halfway there!
+        //PRINT 'halfway there!'
+        //END
+        //_______REFACTORED_____
+        //--write T-SQL script that prints even numbers 2-20.
+        //DECLARE @i INT = 2;
+        //WHILE @i <= 20
+        //BEGIN
+        //    PRINT @i;
+        //--If the number is 10, also print halfway there!
+
+        //IF @i = 10 PRINT 'halfway there!'
+        //--Within each loop delay execution 1 second.
+        //    WAITFOR DELAY '00:00:01';
+        //SET @i = @i + 2
+        //END
     }
 }
