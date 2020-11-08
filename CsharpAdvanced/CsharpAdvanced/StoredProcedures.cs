@@ -461,5 +461,78 @@ namespace CsharpAdvanced
         //SET @c = @a / @b;
         //IF @@ERROR<> 0 PRINT 'Result: Division Error'; --returns 'Divide by zero error encountered.' && Result: Division Error
         //ELSE PRINT 'Result: ' + CAST(@c as VARCHAR);
+        //_________________________________
+        //____________TRY/CATCH____________
+        // try catch blocks are a way to run code and trap errors
+        //..when an error occurs, execution jumps to the catch block
+        //..i.e. when an error is thrown, it is caught by the catch block
+        // EX.1 ...
+        //--Try/Catch Block: generate divide-by-zero error.
+        //BEGIN TRY
+        //SELECT 1/0;
+        //END TRY
+        //BEGIN CATCH
+        //SELECT
+        //    ERROR_NUMBER() AS ErrorNumber --returns 8134
+        //    , ERROR_SEVERITY() AS ErrorSeverity --returns 16
+        //, ERROR_STATE() AS ErrorState --returns 1
+        //    , ERROR_PROCEDURE() AS ErrorProcedure --returns null
+        //, ERROR_LINE() AS ErrorLine --returns 3
+        //    , ERROR_MESSAGE() AS ErrorMessage; --returns 'divide by zero error encountered
+        //END CATCH
+        //____________
+        // EX. 2
+        //DECLARE @TotalHours FLOAT,
+        //        @TotalEmployees FLOAT,
+        //        @AVGHours FLOAT
+        //BEGIN TRY
+        //    SELECT @TotalHours = SUM(VacationHours)
+        //    FROM HumanResources.Employee;
+
+        //SELECT @TOTALEmployees = COUNT(*)
+        //FROM HumanResources.Employee
+
+        //SET @AVGHours = @TotalHours / @TotalEmployees;
+        //PRINT 'Average Vacation Hours for Employees: ' + CAST(@AVGHours as VARCHAR); --returns 50.6138
+        //END TRY
+        //BEGIN CATCH
+        //PRINT N'Error Procedure = ' + ERROR_PROCEDURE()
+        //PRINT N'Error State = ' + CAST(ERROR_STATE() AS VARCHAR)
+        //PRINT N'Error Severity = ' + CAST(ERROR_SEVERITY() AS VARCHAR)
+        //PRINT N'Error Message = ' + ERROR_MESSAGE()
+        //PRINT N'Error Number = ' + CAST(ERROR_NUMBER() AS VARCHAR)
+        //PRINT N'Eror Line = ' + CAST(ERROR_LINE() AS VARCHAR)
+        //END CATCH;
+        //_________________
+        //--Ex. 2...FORCING AN ERROR...
+        //DECLARE @TotalHours FLOAT,
+        //@TotalEmployees FLOAT,
+        //    @AVGHours FLOAT
+
+        //    BEGIN TRY
+        //    SELECT @TotalHours = SUM(VacationHours)
+
+        //FROM HumanResources.Employee;
+
+        //SELECT @TOTALEmployees = COUNT(*)
+
+        //FROM HumanResources.Employee
+
+        //WHERE 1 = 0; --FORCING AN ERROR
+
+        //    SET @AVGHours = @TotalHours / @TotalEmployees;
+        //PRINT 'Average Vacation Hours for Employees: ' + CAST(@AVGHours as VARCHAR); --returns 50.6138
+        //END TRY
+        //BEGIN CATCH
+
+        //PRINT N'Error Procedure = ' + ERROR_PROCEDURE()
+
+        //PRINT N'Error State = ' + CAST(ERROR_STATE() AS VARCHAR) --RETURNS 1
+        //PRINT N'Error Severity = ' + CAST(ERROR_SEVERITY() AS VARCHAR) --RETURNS 16
+        //PRINT N'Error Message = ' + ERROR_MESSAGE() --RETURNS DIVIDE BY ZERO ERROR ENCOUNTERED
+
+        //PRINT N'Error Number = ' + CAST(ERROR_NUMBER() AS VARCHAR) --RETURNS 8134
+        //PRINT N'Eror Line = ' + CAST(ERROR_LINE() AS VARCHAR) --RETURNS 14
+        //END CATCH;
     }
 }
