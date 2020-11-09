@@ -549,6 +549,23 @@ namespace CsharpAdvanced
         //    IF @@ERROR<> 0 PRINT 'Result: Division Error';
         //ELSE PRINT 'Result: ' + CAST(@c as VARCHAR);
         //___________________________________________
+        //______________ASSIGNMENT 2 UNSTRUCTURED ERROR HANDLING REFACTORED__________________________
+        //--Write a script to detect a divide by zero error.
+        //--1. Declare three variables, @a, @b, @c as float.
+        //--2. initialize @a and @b to any number.
+        //    DECLARE @a FLOAT = 42;
+        //DECLARE @b FLOAT = 0;
+        //DECLARE @c FLOAT;
+        //--3. Set @c to @a divided by @b.
+        //    SET @c = @a / @b;
+        //IF @@ERROR = 0 GOTO PrintResults
+        //SET @b = 2
+        //SET @c = @a / @b
+        //PrintResults:
+        //PRINT '@a = ' + CAST(@a as VARCHAR);
+        //PRINT '@b = ' + CAST(@b as VARCHAR);
+        //PRINT '@a / @b = ' + CAST(@c as VARCHAR);
+        //___________________________________________
         //______________ASSIGNMENT 2 STRUCTURED ERROR HANDLING__________________________
         //--Write a script to detect a divide by zero error.
 
@@ -574,5 +591,24 @@ namespace CsharpAdvanced
         //PRINT N'Eror Line = ' + CAST(ERROR_LINE() AS VARCHAR)
         //END CATCH;
         //___________________________________________
+        //______________ASSIGNMENT 2 STRUCTURED ERROR HANDLING REFACTORED__________________________
+        //--Write a script to detect a divide by zero error.
+        //--1. Declare three variables, @a, @b, @c as float.
+        //--2. initialize @a and @b to any number.
+        //    DECLARE @a FLOAT = 42,
+        //@b FLOAT = 0,
+        //    @c FLOAT
+        //--3. Set @c to @a divided by @b.
+        //    BEGIN TRY
+        //SET @c = @a / @b;
+        //END TRY
+        //BEGIN CATCH
+        //--4. If an error occurs, such as a divide by zero because @b = 0, then set @b to 2 and recalculate @c.
+        //    SET @b = 2
+        //SET @c = @a / @b;
+        //END CATCH
+        //PRINT '@a = ' + CAST(@a as VARCHAR);
+        //PRINT '@b = ' + CAST(@b as VARCHAR);
+        //PRINT '@c = ' + CAST(@c as VARCHAR);
     }
 }
