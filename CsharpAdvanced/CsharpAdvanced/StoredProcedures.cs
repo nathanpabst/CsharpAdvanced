@@ -534,5 +534,45 @@ namespace CsharpAdvanced
         //PRINT N'Error Number = ' + CAST(ERROR_NUMBER() AS VARCHAR) --RETURNS 8134
         //PRINT N'Eror Line = ' + CAST(ERROR_LINE() AS VARCHAR) --RETURNS 14
         //END CATCH;
+        //______________ASSIGNMENT 2 UNSTRUCTURED ERROR HANDLING__________________________
+        //--Write a script to detect a divide by zero error.
+        //--1. Declare three variables, @a, @b, @c as float.
+        //--2. initialize @a and @b to any number.
+        //    DECLARE @a FLOAT = 42,
+        //@b FLOAT = 0,
+        //    @c FLOAT
+        //--3. Set @c to @a divided by @b.
+        //    IF @b = 0
+        //SET @b = 2;
+        //SET @c = @a / @b;
+        //    --4. If an error occurs, such as a divide by zero because @b = 0, then set @b to 2 and recalculate @c.
+        //    IF @@ERROR<> 0 PRINT 'Result: Division Error';
+        //ELSE PRINT 'Result: ' + CAST(@c as VARCHAR);
+        //___________________________________________
+        //______________ASSIGNMENT 2 STRUCTURED ERROR HANDLING__________________________
+        //--Write a script to detect a divide by zero error.
+
+        //--1. Declare three variables, @a, @b, @c as float.
+        //--2. initialize @a and @b to any number.
+        //    DECLARE @a FLOAT = 42,
+        //@b FLOAT = 0,
+        //    @c FLOAT
+        //--3. Set @c to @a divided by @b.
+        //    BEGIN TRY
+        //IF @b = 0
+        //    --SET @b = 2;
+        //SET @c = @a / @b;
+        //    --4. If an error occurs, such as a divide by zero because @b = 0, then set @b to 2 and recalculate @c.
+        //    PRINT 'C = ' + CAST(@c as VARCHAR);
+        //END TRY
+        //BEGIN CATCH
+        //PRINT N'Error Procedure = ' + ERROR_PROCEDURE()
+        //PRINT N'Error State = ' + CAST(ERROR_STATE() AS VARCHAR)
+        //PRINT N'Error Severity = ' + CAST(ERROR_SEVERITY() AS VARCHAR)
+        //PRINT N'Error Message = ' + ERROR_MESSAGE()
+        //PRINT N'Error Number = ' + CAST(ERROR_NUMBER() AS VARCHAR)
+        //PRINT N'Eror Line = ' + CAST(ERROR_LINE() AS VARCHAR)
+        //END CATCH;
+        //___________________________________________
     }
 }
