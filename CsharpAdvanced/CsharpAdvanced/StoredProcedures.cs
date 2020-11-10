@@ -669,5 +669,26 @@ namespace CsharpAdvanced
         //--Prove results are in the table
         //SELECT COUNT(1) as Proof FROM @Country
         //    SELECT* FROM @Country --returns CountryName = Chile / LatestRecordedPopulation = 16601707
+        //_____________USING OUTPUT IN PARAMETERS________________
+        // 1. Define parameter with the 'OUTPUT' keyword
+        // 2. The calling program must also use the 'OUTPUT' keyword
+        // EX. EXECUTE uspMyProcedure @a, @b, @c OUTPUT
+        //// EX. 1______________
+        //--Calculate Area
+        //CREATE PROCEDURE uspCalcArea
+        //    @height FLOAT,
+        //@width FLOAT,
+        //    @area FLOAT OUTPUT
+        //AS
+        //    BEGIN
+        //--Set NOCOUNT to ON to no longer display the count message
+        //    SET NOCOUNT ON;
+        //SET @area = @height * @width;
+        //END
+        // EX 2. EXECUTE STATEMENT_______________
+        //--Execute statement
+        //DECLARE @result FLOAT;
+        //EXECUTE uspCalcArea 11.0, 20.0, @result OUTPUT;
+        //PRINT 'The area is ' + CAST(@result AS VARCHAR);
     }
 }
