@@ -657,5 +657,17 @@ namespace CsharpAdvanced
 
         //--Run the SP and see results in the results window
         //    EXECUTE Application.uspFindCountry 45 --returns CountryName = Chile / LatestRecordedPopulation = 16601707
+        //___________FACT CHECKING THE QUERY ABOVE______________
+        //--setting up a temp table
+        //    DECLARE @Country TABLE(
+        //    CountryName NVARCHAR(60),
+        //LatestRecordedPopulation BIGINT
+        //)
+        //--Add results to the temp table
+        //INSERT @Country(CountryName, LatestRecordedPopulation)
+        //EXECUTE Application.uspFindCountry 45
+        //--Prove results are in the table
+        //SELECT COUNT(1) as Proof FROM @Country
+        //    SELECT* FROM @Country --returns CountryName = Chile / LatestRecordedPopulation = 16601707
     }
 }
