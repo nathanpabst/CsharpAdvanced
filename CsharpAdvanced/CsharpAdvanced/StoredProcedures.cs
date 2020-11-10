@@ -610,5 +610,31 @@ namespace CsharpAdvanced
         //PRINT '@a = ' + CAST(@a as VARCHAR);
         //PRINT '@b = ' + CAST(@b as VARCHAR);
         //PRINT '@c = ' + CAST(@c as VARCHAR);
+        //____________SECTION 7____________
+        // Parts of a SP...
+        // INPUTS: SP Name & Parameters
+        // EXECUTION: Commands--for example. SET NOCOUNT ON, Select Statement, From Statement, Parameter used as criteria
+        // OUTPUT: Where Clause & result set returned
+        // Notes: use CREATE PROCEDURE to create, ALTER PROCEDURE to modify, preface SP names with 'usp' -user stored procedure
+        //...as opposed to those SPs that have been defined by the system.
+        // PARAMETERS: used to provide values to the procedure. naming convention for parameters... '@parameterName'
+        //_________DEFINING A SP WITH PARAMETERS________________________
+        //--find a person and display their first & last name using a parameter
+        //CREATE PROCEDURE dbo.uspGetPerson --sp name
+        //@businessEntityID INT --parameter
+        //    AS
+        //BEGIN
+        //--variables...accepts one parameter & prints full name
+        //    DECLARE @first VARCHAR(40)
+        //DECLARE @last VARCHAR(40)
+        //SELECT @first = FirstName
+        //    , @last = LastName
+        //FROM Person.Person --table
+        //    WHERE Person.BusinessEntityID = @businessEntityID--BusinessEntityID is the primary key of the Person table & will return one record upon match
+        //PRINT 'me llama ' + @first + ' ' + @last
+        //    END --F5 to execute/create the SP
+
+        //EXECUTE uspGetPerson 42 --returns 'me llama James Kramer
+        //__________RETURN RESULTS WITH SELECT_____________________
     }
 }
