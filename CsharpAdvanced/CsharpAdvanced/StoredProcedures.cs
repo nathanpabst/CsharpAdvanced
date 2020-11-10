@@ -636,5 +636,26 @@ namespace CsharpAdvanced
 
         //EXECUTE uspGetPerson 42 --returns 'me llama James Kramer
         //__________RETURN RESULTS WITH SELECT_____________________
+        //NOTES: results of SELECT statements are sent directly to the client. You can have more than one SELECT statement
+        //--EX. return a value using select
+        //    USE WideWorldImporters;
+        //GO
+
+        //    CREATE PROCEDURE Application.uspFindCountry --sp name
+
+        //@CountryID[INT] --parameter
+        //    AS
+        //BEGIN
+        //    SET NOCOUNT ON;
+        //SELECT CountryName,
+        //    LatestRecordedPopulation
+
+        //FROM Application.Countries --table
+        //    WHERE CountryID = @CountryID--BusinessEntityID is the primary key of the Person table & will return one record upon match
+
+        //END --F5 to run the SP
+
+        //--Run the SP and see results in the results window
+        //    EXECUTE Application.uspFindCountry 45 --returns CountryName = Chile / LatestRecordedPopulation = 16601707
     }
 }
