@@ -690,5 +690,36 @@ namespace CsharpAdvanced
         //DECLARE @result FLOAT;
         //EXECUTE uspCalcArea 11.0, 20.0, @result OUTPUT;
         //PRINT 'The area is ' + CAST(@result AS VARCHAR);
+        // EX. 3_________________________________
+        //--Create Full Name
+        //CREATE PROCEDURE uspFullName
+        //@first NVARCHAR(40),
+        //@last NVARCHAR(40),
+        //@full NVARCHAR(80) OUTPUT,
+        //@initials NVARCHAR(4) OUTPUT
+        //AS
+        //BEGIN
+        //--Set NOCOUNT to ON to no longer display the count message
+        //    SET NOCOUNT ON;
+        //IF LEN(@first) > 0
+        //BEGIN
+        //    SET @full = @first + ' ' + @last;
+        //SET @initials = LEFT(@first, 1) + LEFT(@last, 1);
+        //END;
+        //ELSE
+        //    BEGIN
+        //SET @full = @last;
+        //SET @initials = LEFT(@last, 1);
+        //END;
+        //END --F5 to run the SP
+        //_______________
+        //--execute statement for uspFullName____________
+        //DECLARE @name NVARCHAR(80)
+        //DECLARE @full NVARCHAR(80)
+        //DECLARE @initials NVARCHAR(10)
+        //EXECUTE uspFullName 'Slider', 'theFish', @full OUTPUT, @initials OUTPUT
+        //    PRINT 'Full Name: ' + @full; --returns Slider theFish
+        //    PRINT 'Initials: ' + @initials --returns St
+        //________________
     }
 }
