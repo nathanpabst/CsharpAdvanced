@@ -720,6 +720,47 @@ namespace CsharpAdvanced
         //EXECUTE uspFullName 'Slider', 'theFish', @full OUTPUT, @initials OUTPUT
         //    PRINT 'Full Name: ' + @full; --returns Slider theFish
         //    PRINT 'Initials: ' + @initials --returns St
-        //________________
+        //________________RETURN CODES____________________
+        // Return Codes:
+        // should be used to indicate the execution status of a procedure
+        // Can be saved in a variable
+        // are a form of legacy error handling
+        // use TRY/CATCH/THROW error handling
+        // should not be used to return application data
+        //// EX.
+        //--Calculate speed...
+        //CREATE PROCEDURE uspCalcSpeed
+        //    @distance float,
+        //@time float,
+        //@speed float OUTPUT
+
+        //AS
+        //    BEGIN TRY
+        //    SET @speed = @distance / @time;
+        //RETURN 0
+        //END TRY
+        //BEGIN CATCH
+
+        //RETURN 1 --represents a failure
+        //    END CATCH;
+
+        //--Execute the Calculate speed SP...
+        //DECLARE @speed float;
+        //DECLARE @returnValue int;
+        //EXECUTE @returnValue = uspCalcSpeed 120, 60, @speed OUTPUT
+        //SELECT @speed as Speed, @returnValue AS ReturnValue --returns Speed = 2, ReturnValue = 0
+        //    --Execute the Calculate speed SP to produce an error...
+        //DECLARE @speed float;
+        //DECLARE @returnValue int;
+        //EXECUTE @returnValue = uspCalcSpeed 120, 0, @speed OUTPUT
+        //SELECT @speed as Speed, @returnValue AS ReturnValue --returns Speed = NULL, ReturnValue = 1
+        //    --refactored to print an error message...
+        //DECLARE @speed float;
+        //DECLARE @returnValue int;
+        //EXECUTE @returnValue = uspCalcSpeed 120, 4, @speed OUTPUT
+        //IF @returnValue<> 0 PRINT 'Unable to calculate speed'
+        //ELSE PRINT 'Speed = ' + CAST(@speed AS VARCHAR);
+
+        //SELECT @speed as Speed, @returnValue AS ReturnValue --returns Speed = NULL, ReturnValue = 1
     }
 }
