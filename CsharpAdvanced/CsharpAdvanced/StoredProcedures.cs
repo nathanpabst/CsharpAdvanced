@@ -861,5 +861,14 @@ namespace CsharpAdvanced
         //CLOSE @personCursor;
         //    --6. De-allocate Cursor
         //DEALLOCATE @personCursor; --results will be seen in the Messages section and include the biz id, first name and last name of every employee in the db
+        //______________FETCH______________________
+        // Keywords: NEXT, PRIOR, LAST , FIRST, ABSOLUTE n, RELATIVE n
+        // EX. 1: FETCH RELATIVE 2 FROM @contact_cursor INTO @LastName, @FirstName; --skips two records
+        // EX. 2: FETCH ABSOLUTE 2 FROM @contact_cursor INTO @LastName, @FirstName; --returns the second row
+        // Statuses...
+        // 0 = FETCH statement was successful
+        // -1 = statement failed or the row was beyond the result set
+        // -2 = the row fetched is missing
+        // -9 = the cursor is not performing a fetch operation
     }
 }
