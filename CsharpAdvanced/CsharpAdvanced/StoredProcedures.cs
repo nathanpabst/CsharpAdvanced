@@ -762,5 +762,42 @@ namespace CsharpAdvanced
         //ELSE PRINT 'Speed = ' + CAST(@speed AS VARCHAR);
 
         //SELECT @speed as Speed, @returnValue AS ReturnValue --returns Speed = NULL, ReturnValue = 1
+        //____________SECTION QUIZ________________
+        //--Write a stored procedure to query the Person.Person table, and return the person's fullname as an output parameter.
+        //--The stored procedure should accept the BusinessEntityID as a parameter, so it can be use to match against the Person.Person's primary key.
+        //--If the stored procedure runs successfully return a value of 0; otherwise return a value of -1.
+        //ALTER PROCEDURE uspGetFullName
+        //    @businessEntityId INT,
+        //@fullName VARCHAR(100) OUTPUT
+        //    AS
+        //BEGIN
+        //    DECLARE @returnCode int = 0;
+        //BEGIN TRY
+        //DECLARE @firstName VARCHAR(40);
+        //DECLARE @lastName VARCHAR(40);
+        //SET NOCOUNT ON;
+        //SELECT @firstName = FirstName,
+        //    @lastName = LastName
+        //FROM Person.Person P
+        //    WHERE P.BusinessEntityID = @businessEntityId;
+        //SET @fullName = @lastName;
+        //IF LEN(@firstName) > 0
+        //SET @fullName = @firstName + ' ' + @lastName;
+        //END TRY
+        //BEGIN CATCH
+        //SET @returnCode = -1;
+        //END CATCH
+        //RETURN @returnCode
+        //END
+        ////_______EXECUTE STATEMENT________
+        //DECLARE @name NVARCHAR(80)
+        //DECLARE @full NVARCHAR(80)
+        //DECLARE @retCode int
+        //    EXECUTE @retCode = uspGetFullName 1, @full OUTPUT
+        //IF @retCode = 0
+
+        //PRINT 'Full Name: ' + @full;
+        //ELSE
+        //    PRINT 'Nobody here by that name...go fish!'; --returns Ken Sanchez
     }
 }
