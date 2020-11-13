@@ -870,5 +870,53 @@ namespace CsharpAdvanced
         // -1 = statement failed or the row was beyond the result set
         // -2 = the row fetched is missing
         // -9 = the cursor is not performing a fetch operation
+        // ____________CASE STUDY___________________
+        // randomly select every five employees and print the employee number and name for a survey
+        //CREATE PROCEDURE dbo.uspEmployeeSurvey
+        //    AS
+        //BEGIN
+        //    SET NOCOUNT ON;
+
+        //DECLARE @recordsToSkip int = 1;
+        //--1. Declare Variables
+        //DECLARE @businessEntityID INT,
+        //@firstName as NVARCHAR(50),
+        //@lastName as NVARCHAR(50);
+        //    --2. Declare Cursor
+        //DECLARE employee_cursor SCROLL CURSOR FOR
+        //    SELECT P.BusinessEntityID,
+        //P.FirstName,
+        //P.LastName
+        //    FROM HumanResources.Employee E
+
+        //INNER JOIN Person.Person P on E.BusinessEntityID = P.BusinessEntityID
+        //    WHERE E.CurrentFlag = 1
+
+        //OPEN employee_cursor
+
+        //SET @recordsToSkip = ROUND(((RAND() * 4) + 1), 0)
+
+        //    --3. Fetch Values into Cursor
+        //FETCH RELATIVE @recordsToSkip FROM employee_cursor
+        //    INTO @BusinessEntityID, @FirstName, @LastName
+        //    WHILE @@FETCH_STATUS = 0
+        //BEGIN
+        //    PRINT ' skipped ' + CAST(@recordsToSkip as NVARCHAR) + ' - ' +@LastName + ', ' + @FirstName + ' '
+        //+ ' - ' + @firstName
+        //+ ' ' +	  @lastName;
+        //SET @recordsToSkip = ROUND(((RAND() * 4) + 1), 0)
+
+        //FETCH RELATIVE @recordsToSkip FROM employee_cursor
+        //    INTO @BusinessEntityID, @FirstName, @LastName
+
+        //    END
+
+        //CLOSE employee_cursor
+        //--6. De-allocate Cursor
+        //DEALLOCATE employee_cursor; --results will be seen in the Messages section and include the biz id, first name and last name of every employee in the db
+        //END
+
+        //--EXECUTE SP
+        //EXECUTE dbo.uspEmployeeSurvey;
     }
 }
