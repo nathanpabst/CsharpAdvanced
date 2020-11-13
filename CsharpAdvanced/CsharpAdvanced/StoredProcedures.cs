@@ -799,5 +799,16 @@ namespace CsharpAdvanced
         //PRINT 'Full Name: ' + @full;
         //ELSE
         //    PRINT 'Nobody here by that name...go fish!'; --returns Ken Sanchez
+        //_____________TRANSACTIONS__________________
+        // A transaction is a single unit of work.
+        // completed transaction changes become a permanent part of the db. the changes are committed.
+        // cancelled transaction changes are erased. the changes are rolled back
+        // transactions are used to logically group db operations (for example: money transfers)
+        // ___3 key commands and one function to implement a transaction...
+        // BEGIN TRANSACTION / COMMIT TRANSACTION / ROLLBACK / @@TRANCOUNT
+        // key points...
+        // transactions can be nested
+        // transactions can span stored procedure calls
+        // you can name transactions...helpful when a transaction is nested
     }
 }
