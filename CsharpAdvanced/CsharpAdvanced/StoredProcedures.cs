@@ -810,5 +810,56 @@ namespace CsharpAdvanced
         // transactions can be nested
         // transactions can span stored procedure calls
         // you can name transactions...helpful when a transaction is nested
+        //______________CURSORS________________________
+        // A db cursor can be thought of as a pointer to a specific row within a query result
+        // the pointer can be moved from one row to the next
+        // depending on the type of cursor you may be able to move it to the previous row.
+        //____WHY USE CURSORS____________________
+        // sql is a set-based languagge, meaning operations are completed on all or rows of the result.
+        // there are times when you want to do operations on a row by row basis--enter cursors..
+        //____STEPS TO DEFINE A CURSOR_____________
+        // Declare variables-->declare cursor-->fetch values into variables--> test status and loop--> close cursor--> deallocate cursor
+        //____TYPES OF CURSOR SYNTAX_________________________
+        // ISO
+        // Extended T-SQL
+        //____EXAMPLE
+        //SELECT BusinessEntityID,
+        //    FirstName,
+        //    LastName
+        //FROM Person.Person
+
+        //--Setup Cursor
+
+        //--1. Declare Variables
+        //DECLARE @businessEntityID as INT;
+        //DECLARE @firstName as NVARCHAR(50),
+        //@lastName as NVARCHAR(50);
+        //    --2. Declare Cursor
+        //DECLARE @personCursor as CURSOR;
+        //SET @personCursor = CURSOR FOR
+        //    SELECT BusinessEntityID,
+        //FirstName,
+        //LastName
+        //    FROM Person.Person
+        //    OPEN @personCursor
+        //--3. Fetch Values into Cursor
+        //FETCH NEXT FROM @personCursor INTO @businessEntityID,
+        //    @firstName,
+        //    @lastName
+        //        --4. Test Fetch Status & Loop
+        //    WHILE @@FETCH_STATUS = 0
+        //BEGIN
+        //    PRINT CAST(@BusinessEntityID as VARCHAR(50))
+        //    + ' - ' + @firstName
+        //+ ' ' +	  @lastName;
+        //-- Try another fetch
+        //    FETCH NEXT FROM @personCursor INTO @businessEntityID,
+        //@firstName,
+        //@lastName
+        //    END
+        //--5. Close Cursor
+        //CLOSE @personCursor;
+        //    --6. De-allocate Cursor
+        //DEALLOCATE @personCursor; --results will be seen in the Messages section and include the biz id, first name and last name of every employee in the db
     }
 }
