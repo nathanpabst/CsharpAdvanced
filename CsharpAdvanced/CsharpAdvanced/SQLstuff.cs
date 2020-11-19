@@ -41,5 +41,6 @@ namespace CsharpAdvanced
         // EX..select * from Individual
         // order by LastName, FirstName;
         //https://www.quackit.com/sql/tutorial/sql_top.cfm
+        // https://www.quackit.com/sql_server/tutorial/
     }
 }
