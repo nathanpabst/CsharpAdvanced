@@ -40,6 +40,38 @@ namespace CsharpAdvanced
         //...and separating each column name with a comma. SQL will first order the results by the first column, then second, third, etc.
         // EX..select * from Individual
         // order by LastName, FirstName;
+        //____________TOP_________________________
+        // the 'top' clause is Transact-SQL and not part of the ANSI SQL...
+        // ...depending on your db system, this clause may not be available
+        // EX.. select top 3 * Individual;
+        //____________PERCENT_________________________
+        // EX.. select top 42 percent * Individual;
+        // EX 2.. select top 42 percent * Individual order by LastName desc;
+        //____________DISTINCT________________________
+        // the distinct keyword allows you to find unique values in a column
+        // ..once a table starts getting a lot of data in it, some columns will contain duplicate values.
+        //..many indiduals share first names and surnames. to find out how many unique values there are in a column, you can use the distinct keyword
+        // EX..select distinct(FirstName) from Individual; NOTE: in this example, all customers with the same first name
+        //..will be treated as one. this results in only one entry per first name
+        //____________IN________________________
+        //the IN operator assists in providing multiple values in the 'where' clause
+        // i.e. when you need to compare your value to a list of values. this list could be the result of a query from another table
+        // EX.. select * from Individual where LastName IN ('Andrews', 'Pabst', 'Flintstone');
+        // the IN operator is similar, but more concise than using the 'or' operator
+        // EX.. select * from Individual
+        // ..where LastName = 'Andrews',
+        // or LastName = 'Pabst',
+        // or LastName = 'Flintstone');
+        // NOTES: the 'in' operator is especially useful when you need to compare a value against the result of another query.
+        //..example, lets say we have two tables (Individual and Publisher--which contains read/write permissions)...All users in the publisher table are also in the Individual table,
+        //..but not all users in the Individual table are also in the Publisher table
+        // EX...
+        // select UserName from Individual
+        // where IndividualId in
+        // (select IndividualId
+        // from Publisher
+        // where AccessLevel = 'contributor);
+
         //https://www.quackit.com/sql/tutorial/sql_top.cfm
         // https://www.quackit.com/sql_server/tutorial/
     }
