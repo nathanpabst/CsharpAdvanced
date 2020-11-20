@@ -71,7 +71,40 @@ namespace CsharpAdvanced
         // (select IndividualId
         // from Publisher
         // where AccessLevel = 'contributor);
-
+        //______________SQL ALIAS___________________
+        // an alias is a name that you give a table
+        // use cases: when you need to reference the same table name over and over again
+        // ie when working with multiple tables and column
+        // or when working with multiple instances of the same table
+        // EX.. select o.JobTitle from Individual as i, Occupation as o
+        // where i.FirstName = 'Natz'
+        // order by o.JobTitle;
+        //________________JOIN________________________
+        // use 'join' to query data from two or more tables.
+        // INNER JOIN : returns rows when there is at least one row in each table that match the join condition.
+        // LEFT OUTER JOIN or LEFT JOIN : returns rows that have data in the left table, even if there's no matching rows in the table on the right
+        // RIGHT OUTER JOIN or RIGHT JOIN : returns rows that have data in the right table, even if there's no matching rows in the left table.
+        // FULL OUTER JOIN or FULL JOIN : returns all rows, as long as there's matching data in one of the tables.
+        // ______INNER JOIN SYNTAX...
+        // SELECT * FROM table_name1
+        // INNER JOIN table_name2
+        // ON table_name1.column_name = table_name2.column_name;
+        // ______LEFT JOIN SYNTAX...
+        // SELECT * FROM table_name1
+        // LEFT JOIN table_name2
+        // ON table_name1.column_name = table_name2.column_name;
+        // ______RIGHT JOIN SYNTAX...
+        // SELECT * FROM table_name1
+        // RIGHT JOIN table_name2
+        // ON table_name1.column_name = table_name2.column_name;
+        // ______FULL JOIN SYNTAX...
+        // SELECT * FROM table_name1
+        // FULL JOIN table_name2
+        // ON table_name1.column_name = table_name2.column_name;
+        //________________INNER JOIN STATEMENT EX...
+        // SELECT * FROM Individual AS i
+        // INNER JOIN Publisher AS p
+        // ON i.IndividualId = p.IndividualId;
         //https://www.quackit.com/sql/tutorial/sql_top.cfm
         // https://www.quackit.com/sql_server/tutorial/
     }
