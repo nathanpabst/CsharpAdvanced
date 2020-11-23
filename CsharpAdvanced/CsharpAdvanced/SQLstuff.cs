@@ -105,6 +105,34 @@ namespace CsharpAdvanced
         // SELECT * FROM Individual AS i
         // INNER JOIN Publisher AS p
         // ON i.IndividualId = p.IndividualId;
+        //____________
+        // EX..
+        //--INNER JOIN
+        //select* from[dbo].[User] as u
+        //    inner join[dbo].[Role] as r
+        //    on u.RoleId = r.Id
+        //    where u.RoleId = 1; --returns data for all users with the role of admin.data = all columns from the user & role tables
+        //_________________
+        // EX..
+        //--INNER JOIN & TOP
+        //select top 1 * from[dbo].[User] as u
+        //    inner join[dbo].[Role] as r
+        //    on u.RoleId = r.Id
+        //    where u.RoleId = 1; --returns data for the first user with the role of admin.data = all columns from the user & role tables
+        //_______________
+        // EX..
+        //--INNER JOIN & TOP 1 w/ custom column names
+        //select top 1 u.FirstName as First_Name, u.LastName as Last_Name from[dbo].[User] as u
+        //    inner join[dbo].[Role] as r
+        //    on u.RoleId = r.Id
+        //    where u.RoleId = 1; --returns columns for first name, last name, and role.
+        //_______________
+        // EX..
+        //--INNER JOIN & TOP 10% w/ custom column names
+        //select top 10 percent u.FirstName as First_Name, u.LastName as Last_Name, r.Name as Role from [dbo].[User] as u
+        //    inner join[dbo].[Role] as r
+        //    on u.RoleId = r.Id
+        //    where u.RoleId = 1; --returns a column for the first name, last name, and role name with data for the top 10 percent of users
         //https://www.quackit.com/sql/tutorial/sql_top.cfm
         // https://www.quackit.com/sql_server/tutorial/
     }
