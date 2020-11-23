@@ -17,7 +17,12 @@ namespace CsharpAdvanced
         // where Individual.FirstName = 'Homer'
         // and Individual.IndividualId = Occupation.IndividualId;
         //____________
-        //return only the data you need...the more columns your program has to return the more it will impact performance
+        // EX 2..
+        //select * from [dbo].[User] u, Role r
+        //where u.FirstName = 'Nathan' and r.Name = 'Admin';
+        //--returns all columns from the User and Role tables where the user's first name is 'Nathan' and the role is 'Admin' for the first name, last name, and role name
+        //__________________________
+        // NOTE: return only the data you need...the more columns your program has to return the more it will impact performance
         //EX...
         // select IndividualId, LastName, UserName
         // from Individual
