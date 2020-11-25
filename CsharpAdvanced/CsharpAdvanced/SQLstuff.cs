@@ -84,24 +84,42 @@ namespace CsharpAdvanced
         // EX.. select o.JobTitle from Individual as i, Occupation as o
         // where i.FirstName = 'Natz'
         // order by o.JobTitle;
-        //________________JOIN________________________
+        //___________________________JOIN________________________
         // use 'join' to query data from two or more tables.
         // INNER JOIN : returns rows when there is at least one row in each table that match the join condition.
         // LEFT OUTER JOIN or LEFT JOIN : returns rows that have data in the left table, even if there's no matching rows in the table on the right
         // RIGHT OUTER JOIN or RIGHT JOIN : returns rows that have data in the right table, even if there's no matching rows in the left table.
         // FULL OUTER JOIN or FULL JOIN : returns all rows, as long as there's matching data in one of the tables.
-        // ______INNER JOIN SYNTAX...
+        // __________________________INNER JOIN SYNTAX...
+        // EX. 1...
         // SELECT * FROM table_name1
         // INNER JOIN table_name2
         // ON table_name1.column_name = table_name2.column_name;
-        // ______LEFT JOIN SYNTAX...
+        // EX. 2...
+        // select u.UserName, r.Name as 'roleName' from[dbo].[User] u
+        //    inner join[dbo].[Role] r
+        //    on u.RoleId = r.Id
+        //    where u.RoleId = 4; --returns a list of userNames and the roleName where the role id is 4 (Viewer)
+        // ___________________________LEFT JOIN SYNTAX...
+        // EX. 1...
         // SELECT * FROM table_name1
         // LEFT JOIN table_name2
         // ON table_name1.column_name = table_name2.column_name;
-        // ______RIGHT JOIN SYNTAX...
+        // EX. 2...
+        // select * from [dbo].[User] u
+        //    left join[dbo].[Role] r
+        //    on u.RoleId = r.Id
+        //    where u.RoleId = 4; --returns all data from the user and role tables where the role id is 4 (Viewer)
+        // EX. 3...
+        //select u.UserName, r.Name as 'roleName' from[dbo].[User] u
+        //    left join[dbo].[Role] r
+        //    on u.RoleId = r.Id
+        //    order by u.UserName desc; --returns a list of userNames in desc order and each users roleName
+        // ___________________________RIGHT JOIN SYNTAX...
         // SELECT * FROM table_name1
         // RIGHT JOIN table_name2
         // ON table_name1.column_name = table_name2.column_name;
+
         // ______FULL JOIN SYNTAX...
         // SELECT * FROM table_name1
         // FULL JOIN table_name2
@@ -138,6 +156,7 @@ namespace CsharpAdvanced
         //    inner join[dbo].[Role] as r
         //    on u.RoleId = r.Id
         //    where u.RoleId = 1; --returns a column for the first name, last name, and role name with data for the top 10 percent of users
+
         //https://www.quackit.com/sql/tutorial/sql_top.cfm
         // https://www.quackit.com/sql_server/tutorial/
     }
