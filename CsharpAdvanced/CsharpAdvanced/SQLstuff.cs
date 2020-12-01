@@ -86,10 +86,9 @@ namespace CsharpAdvanced
         // order by o.JobTitle;
         //___________________________JOIN________________________
         // use 'join' to query data from two or more tables.
+
+        //_________________________________________________________________
         // INNER JOIN : returns rows when there is at least one row in each table that match the join condition.
-        // LEFT OUTER JOIN or LEFT JOIN : returns rows that have data in the left table, even if there's no matching rows in the table on the right
-        // RIGHT OUTER JOIN or RIGHT JOIN : returns rows that have data in the right table, even if there's no matching rows in the left table.
-        // FULL OUTER JOIN or FULL JOIN : returns all rows, as long as there's matching data in one of the tables.
         // __________________________INNER JOIN SYNTAX...
         // EX. 1...
         // SELECT * FROM table_name1
@@ -100,6 +99,9 @@ namespace CsharpAdvanced
         //    inner join[dbo].[Role] r
         //    on u.RoleId = r.Id
         //    where u.RoleId = 4; --returns a list of userNames and the roleName where the role id is 4 (Viewer)
+        //____________________________________________________________________
+
+        // LEFT OUTER JOIN or LEFT JOIN : returns rows that have data in the left table, even if there's no matching rows in the table on the right
         // ___________________________LEFT JOIN SYNTAX...
         // EX. 1...
         // SELECT * FROM table_name1
@@ -115,15 +117,22 @@ namespace CsharpAdvanced
         //    left join[dbo].[Role] r
         //    on u.RoleId = r.Id
         //    order by u.UserName desc; --returns a list of userNames in desc order and each users roleName
+        //____________________________________________________________________
+
+        // RIGHT OUTER JOIN or RIGHT JOIN : returns rows that have data in the right table, even if there's no matching rows in the left table.
         // ___________________________RIGHT JOIN SYNTAX...
         // SELECT * FROM table_name1
         // RIGHT JOIN table_name2
         // ON table_name1.column_name = table_name2.column_name;
+        //____________________________________________________________________
 
-        // ______FULL JOIN SYNTAX...
+        // FULL OUTER JOIN or FULL JOIN : returns all rows, as long as there's matching data in one of the tables.
+        // ___________________________FULL JOIN SYNTAX...
         // SELECT * FROM table_name1
         // FULL JOIN table_name2
         // ON table_name1.column_name = table_name2.column_name;
+        // EX. 2...
+
         //________________INNER JOIN STATEMENT EX...
         // SELECT * FROM Individual AS i
         // INNER JOIN Publisher AS p
@@ -156,6 +165,26 @@ namespace CsharpAdvanced
         //    inner join[dbo].[Role] as r
         //    on u.RoleId = r.Id
         //    where u.RoleId = 1; --returns a column for the first name, last name, and role name with data for the top 10 percent of users
+        //______________________________________________________________
+
+        // _________________UPDATE COMMAND
+        // NOTE: The update command uses a where clause. if you don't use a where clause, all rows will be updated.
+        // EX. 1...
+        //UPDATE[dbo].[User]
+        //SET UserName = 'bob.loblaw@lawblogs.com'
+        //where Id = 1;
+
+        // EX. 2... TO UPDATE MULTIPLE FIELDS, SEPARATE EACH FIELD ASSIGNMENT WITH A COMMA
+        //UPDATE[dbo].[User]
+        //SET FirstName = 'bob', LastName = 'loblaw'
+        //where Id = 1;
+
+        //____________________DELETE COMMAND
+        // NOTE: The DELETE command uses a WHERE clause. if you don't use the where clause, all rows will be deleted.
+        // SYNTAX EX. 1...
+        // DELETE FROM[dbo].[User] WHERE Id = 99;
+
+        // __________________SQL FUNCTIONS___________________________
 
         //https://www.quackit.com/sql/tutorial/sql_top.cfm
         // https://www.quackit.com/sql_server/tutorial/
