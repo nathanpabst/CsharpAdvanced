@@ -185,6 +185,48 @@ namespace CsharpAdvanced
         // DELETE FROM[dbo].[User] WHERE Id = 99;
 
         // __________________SQL FUNCTIONS___________________________
+        // Functions are a self contained script/program built for a specific purpose. Generally, the value returned by a function will depend
+        // on the context in which it is being used. Often, a SQL function will be used within a query and this is what provides it with context.
+        // Transact-SQL Functions
+        // 1. Rowset Functions: return an object that can be used in place of a table reference in a sql statement.
+        // 2. Aggregate Functions: perform a calc on a set of values and return a single value.
+        // Can be used in the following: Select, Compute, Compute By, Having
+        // Ranking Functions: returns a value for each row in a partition
+        // Scaler Functions: Returns a single value from a single value. Types: Configuration, cursor, DateTime, Mathematical, etc.
+        // NOTE: DB vendors have their own built-in functions and allow programmers to write their own defined functions. see the DB vendor's documentation
+        //
+        // COUNT: returns the number of rows that match the given criteria
+        // EX: select COUNT(*) from [dbo].[User] --returns the number of records in a table including null values and duplicates
+        // COUNT(column name): --returns the number of non-null values in a given column
+        // EX: select COUNT(FirstName) from [dbo].[User]
+        // COUNT & DISTINCT: returns the number of unique values/names in the table
+        // EX: select COUNT(Distinct(RoleId)) from [dbo].[User] --returns 4 (number of unique values...1,2,3,4)
+        //
+        // CREATE COMMANDS: https://www.quackit.com/sql/tutorial/sql_create.cfm
+        // Keywords...
+        // USE master: specifies the location of the db's data file and transaction log
+        // SIZE & MAXSIZE: specifies the initial size of the files & the max size it can grow to
+        // FILEGROWTH: specifies the growth increment of each file
+        // GO: indicates the end of a batch (specific to MSSM)
+
+        // Create Table Syntax...
+        // CREATE TABLE table_name
+        // (column_name_1 datatype,
+        // column_name_2 datatype
+        // ...
+        // );
+        // EX:
+        // CREATE TABLE Individual
+        // (IndividualId int,
+        //  FirstName Varchar(255),
+        //  LastName Varchar(255),
+        //  UserName Char(10)
+        // );
+        // DB Data Types...
+        // char: fixed length strings
+        // varchar: variable length strings
+        // other types: datetime, bigint, int, smallint, tinyint, numeric
+        // ..
 
         //https://www.quackit.com/sql/tutorial/sql_top.cfm
         // https://www.quackit.com/sql_server/tutorial/
