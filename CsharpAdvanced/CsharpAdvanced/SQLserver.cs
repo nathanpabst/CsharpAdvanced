@@ -22,5 +22,9 @@ namespace CsharpAdvanced
         // SQL SERVER MANAGEMENT TOOLS: gui tools, azure data studio, ssms, dbeaver + several Command Line Tools
 
         // CONNECTING TO SQL SERVER INSTRUCTIONS : https://www.quackit.com/sql_server/sql_server_2017/tutorial/create_a_database_in_sql_server_2017.cfm
+
+        // current location: https://www.quackit.com/sql_server/sql_server_2017/tutorial/create_a_table_in_sql_server_2017.cfm
+
+        //https://www.quackit.com/sql_server/sql_server_2017/tutorial/
     }
 }
