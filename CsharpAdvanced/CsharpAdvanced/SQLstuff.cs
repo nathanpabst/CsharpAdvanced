@@ -226,9 +226,38 @@ namespace CsharpAdvanced
         // char: fixed length strings
         // varchar: variable length strings
         // other types: datetime, bigint, int, smallint, tinyint, numeric
-        // ..
+        //
+        // CREATE INDEX
+        // Indexes can be created against a table to make searches more efficient. A database index is similar to an index of a book
+        // — a book index allows you to find information without having to read through the whole book.
+        // A database index enables the database application to find data quickly without having to scan the whole table.
+        // Indexes can have a slight impact on performance so you should only create indexes against tables and columns that will be frequently searched against.
+        // For example, if users of your application often search against the LastName field then that field is a great candidate for an index.
+        // SYNTAX: CREATE INDEX index_name ON table_name (column_name);
+        // EX: CREATE INDEX UserIndex ON User (UserName);
+        //
+        // ________________ALTERING TABLES_______________________
+        // Adding a Column to a table...
+        // SYNTAX: ALTER TABLE table_name ADD column_name datatype;
+        // EX: ..ALTER TABLE [dbo].[User] ADD MiddleName varchar;
 
-        //https://www.quackit.com/sql/tutorial/sql_top.cfm
+        // Changing Datatypethe
+        // SYNTAX...
+        // ALTER TABLE table_name
+        // ALTER COLUMN column_name datatype;
+        // EX:
+        // ALTER TABLE Individual
+        // ALTER COLUMN age numeric;
+
+        // Dropping a Column--removing or deleting a column
+        // SYNTAX...
+        // ALTER TABLE table_name
+        // DROP COLUMN column_name;
+        // EX:
+        // ALTER TABLE Individual
+        // DROP COLUMN age;
+        //_________________________________________________
+        // https://www.quackit.com/sql/tutorial/sql_top.cfm
         // https://www.quackit.com/sql_server/tutorial/
     }
 }
