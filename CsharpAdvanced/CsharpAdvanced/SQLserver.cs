@@ -76,6 +76,12 @@ namespace CsharpAdvanced
         //   ON UPDATE NO ACTION
         // ;
 
+        // ___________INSERTING DATA INTO A TABLE__________
+        // Code Example...
+        // INSERT INTO Artists(ArtistName, ActiveFrom)
+        // VALUES
+        //    ('Iron Maiden','1975-12-25');
+
         // current location: https://www.quackit.com/sql_server/sql_server_2017/tutorial/create_a_table_in_sql_server_2017.cfm
 
         //https://www.quackit.com/sql_server/sql_server_2017/tutorial/
