@@ -37,8 +37,25 @@ namespace CsharpAdvanced
         // (1,1) : means that the value starts at 1 and increments by 1
         // NOT NULL : means that the field cannot contain null values
         // PRIMARY KEY : sets the column as the primary key for the table. PK is a column that has been configured as the unique identifier for the table
+        // NVARCHAR(255) : accepts variable-length Unicode string data, with a max length of 255 characters
 
-        // _________CREATING A RELATIONSHIP BETWEEN TWO TABLES
+        // _______________Retrieving Table information__________________ :
+        // use Music;
+        // select column_name, data_type, character_maximum_length, is_nullable
+        // from information_schema.columns;
+
+        // _________CREATING A RELATIONSHIP BETWEEN TWO TABLES__________
+        // In relational db design, a relationship is where two or more tables are linked together because they contain related data.
+        // This enables users to run queries for related data across multiple tables.
+        // Code Example to create a relationship between the Albums and Artist tables...
+        // CONSTRAINT FK_Albums_Artists FOREIGN KEY (ArtistId)
+        //  REFERENCES[dbo].Artists(ArtistId)
+        //  ON DELETE NO ACTION
+        //  ON UPDATE NO ACTION
+        // NOTES: this code creates a relationship between the Albums table and the Artists table, by setting the ArtistId column of the Albums
+        // to reference the ArtistId column of the Artists table.
+        // i.e. Albums.ArtistId becomes a foreign key of Artists.ArtistId--which itself is the primary key of that table.
+        // ..
         //
         // ..
         // current location: https://www.quackit.com/sql_server/sql_server_2017/tutorial/create_a_table_in_sql_server_2017.cfm
