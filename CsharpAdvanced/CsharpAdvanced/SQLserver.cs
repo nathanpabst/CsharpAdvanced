@@ -82,6 +82,19 @@ namespace CsharpAdvanced
         // VALUES
         //    ('Iron Maiden','1975-12-25');
 
+        // ___________JOINING TABLES & RETURNING DATA_______
+        // Code example...
+        // SELECT AlbumId, AlbumName, ArtistName
+        // FROM Albums
+        //   INNER JOIN Artists
+        //   ON Albums.ArtistId = Artists.ArtistId
+        // WHERE ReleaseDate< '1980-01-01';
+
+        // ____________FORMATTING THE DATE____________
+        // Code example using the YEAR() function...
+        // SELECT AlbumName, YEAR(ReleaseDate) AS Year --assigns an alias of 'year' to the release date column. The YEAR() function takes 'ReleaseDate' as a parameter
+        //    FROM Albums; --returns the album name and year (Vulgar Display of Power, 1997)
+
         // current location: https://www.quackit.com/sql_server/sql_server_2017/tutorial/create_a_table_in_sql_server_2017.cfm
 
         //https://www.quackit.com/sql_server/sql_server_2017/tutorial/
