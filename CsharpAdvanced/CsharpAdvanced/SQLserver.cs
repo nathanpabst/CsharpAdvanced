@@ -88,12 +88,57 @@ namespace CsharpAdvanced
         // FROM Albums
         //   INNER JOIN Artists
         //   ON Albums.ArtistId = Artists.ArtistId
-        // WHERE ReleaseDate< '1980-01-01';
+        // WHERE ReleaseDate < '1980-01-01';
 
         // ____________FORMATTING THE DATE____________
         // Code example using the YEAR() function...
         // SELECT AlbumName, YEAR(ReleaseDate) AS Year --assigns an alias of 'year' to the release date column. The YEAR() function takes 'ReleaseDate' as a parameter
         //    FROM Albums; --returns the album name and year (Vulgar Display of Power, 1997)
+
+        // ABOUT TRANSACT-SQL
+        // SQL Server uses Transact-SQL (sometimes shortened to T-SQL), which is Microsoft's and Sybase's proprietary extension to SQL.
+        // SQL is the standard query language used on most relational database management systems.
+        // It's a standard of the American National Standards Institute (ANSI), and of the International Organization for Standardization (ISO).
+        // Transact-SQL reference : https://docs.microsoft.com/en-us/sql/t-sql/language-reference?view=sql-server-ver15
+
+        // ____________VIEWS___________________
+        // in SQL Server, you can save a query as a view. Views are beneficial for
+        // ...many reasons, including security, usability, and convenience.
+        // A view is a virtual table whose contents are defined by a query. It is basically a pre-written query that is stored on the db.
+        // Views consist of a select statement and are referred to as virtual tables because they can pull together data from multiple tables
+        // ..as well as aggregate data, and present it as though it is a single table.
+        // Benefits of Views...
+        // Views are useful when there are multiple users with different levels of access, who all need to see portions of the data in the db (but not all the data)
+        // Views can do the following:
+        // 1) Restrict access to specific rows in a table
+        // 2) Restrict access to specific columns in a table
+        // 3) Join columns from multiple tables and present them as though they are part of a single table
+        // 4) Present aggregate information (such as the results of the COUNT() function)
+        //
+        // ___________Creating a view Code Example:_____________
+        // CREATE VIEW RockAlbums
+        // AS
+        // SELECT AlbumName, ArtistName
+        // FROM Albums
+        //    INNER JOIN Artists
+        //    ON Albums.ArtistId = Artists.ArtistId
+        //    INNER JOIN Genres
+        //    ON Albums.GenreId = Genres.GenreId
+        //    WHERE Genres.Genre = 'Rock';
+
+        // ___________Altering a view Code Example:____________
+        // ALTER VIEW RockAlbums
+        // AS
+        // SELECT AlbumName, ArtistName, ReleaseDate
+        // FROM Albums
+        //    INNER JOIN Artists ON Albums.ArtistId = Artists.ArtistId
+        //    INNER JOIN Genres ON Albums.GenreId = Genres.GenreId
+        //    WHERE Genres.Genre = 'Rock';
+
+        // __________Running the View Code Example:__________
+        // SELECT *
+        // FROM RockAlbums
+        // WHERE ReleaseDate > '1985-01-01';
 
         // current location: https://www.quackit.com/sql_server/sql_server_2017/tutorial/create_a_table_in_sql_server_2017.cfm
 
