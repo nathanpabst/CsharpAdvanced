@@ -140,6 +140,38 @@ namespace CsharpAdvanced
         // FROM RockAlbums
         // WHERE ReleaseDate > '1985-01-01';
 
+        // _____________STORED PROCEDURES______________________
+        // A SP is a group of SQL statements compiled into one.
+        // SPs can include business logic and other programming constructs.
+        // In SQL Server, a SP is a group of one or more Transact-SQL statements or
+        // reference to a microsoft.NET framework common runtime language (CLR) method
+        //
+        // Programmability: SP's can
+        // 1) Accept input parameters (and return multiple values in the form of output parameters to the calling program)
+        // 2) Contain programming statements
+        // 3) Return a status value to a calling program to indicate success or failure and the reason
+
+        // SPs often contain business logic. For example, a stored procedure can accept parameters that are passed to it and
+        // test against those parameters using IF statements. Eg, if the parameter is one value, do this, if it's another value, do that.
+        // Stored procedures can improve performance in an application, because the stored procedure is parsed and optimized as soon as it's created,
+        // and then stored in memory. Running a conditional query via stored procedure can be extremely quick - compared to an application that sends
+        // a query across the network, to the SQL Server, then has all the data returned to it across the network so it can filter through it, and pick
+        // out only the records it's interested in.
+
+        // Benefits of using SPs:
+        // 1) Modular programming--write a SP once then call it as many times as needed, from different parts of an application (and even from multiple applications)
+        // 2) Performance--SPs provide faster code execution and reduce network traffic
+        // Faster Execution: Stored procedures are parsed and optimized as soon as they are created and the stored procedure is stored in memory.
+        // This means that it will execute a lot faster than sending many lines of SQL code from your application to the SQL Server.
+        // Doing that requires SQL Server to compile and optimze your SQL code every time it runs.
+        // Reduced network traffic: If you send many lines of SQL code over the network to your SQL Server, this will impact on network performance.
+        // This is especially true if you have hundreds of lines of SQL code and/or you have lots of activity on your application.
+        // Running the code on the SQL Server (as a stored procedure) eliminates the need to send this code over the network.
+        // The only network traffic will be the parameters supplied and the results of any query.
+        // 3) Security--Users can execute a stored procedure without needing to execute any of the statements directly.
+        // Therefore, a stored procedure can provide advanced database functionality for users who wouldn't normally have access to these tasks,
+        // but this functionality is made available in a tightly controlled way.
+
         // current location: https://www.quackit.com/sql_server/sql_server_2017/tutorial/create_a_table_in_sql_server_2017.cfm
 
         //https://www.quackit.com/sql_server/sql_server_2017/tutorial/
