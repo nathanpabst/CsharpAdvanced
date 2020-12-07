@@ -50,14 +50,32 @@ namespace CsharpAdvanced
         // Code Example to create a relationship between the Albums and Artist tables...
         // CONSTRAINT FK_Albums_Artists FOREIGN KEY (ArtistId)
         //  REFERENCES[dbo].Artists(ArtistId)
-        //  ON DELETE NO ACTION
-        //  ON UPDATE NO ACTION
+        //  ON DELETE NO ACTION --specifies what SQL Server should do if someone tries to delete or update a parent record that is being referenced in the child table
+        //  ON UPDATE NO ACTION --...user will receive an error and the table will not be updated or deleted.
         // NOTES: this code creates a relationship between the Albums table and the Artists table, by setting the ArtistId column of the Albums
         // to reference the ArtistId column of the Artists table.
         // i.e. Albums.ArtistId becomes a foreign key of Artists.ArtistId--which itself is the primary key of that table.
-        // ..
-        //
-        // ..
+        // ON DELETE CASCADE command will delete the parent and child
+        // ON UPDATE CASCADE command will update the parent and child
+        // NO ACTION is the default value
+
+        // ABOUT FOREIGN KEY CONSTRAINTS...
+        // A foreign key constraint defines a relationship between two tables. When you create a FK constraint, you create it against a specific column
+        // in the child table, to reference a specific column in the parent table. This makes the column in the child table a foreign key. The constraint
+        // ensures that any value that goes into the FK column corresponds with a value in the PK column of the parent table. If someone tries to enter
+        // a value that doesn't correspond with a value in the parent table's PK column, SQL Server will throw an error. This helps enforce referential integrity
+        // and prevents us from having orphaned records (child records that have no parent. For example..Albums that are not associated with any artist.)
+
+        // ADDING A RELATIONSHIP TO AN EXISTING TABLE...
+        // Code example...
+        // USE Music;
+        // ALTER TABLE Albums
+        // ADD CONSTRAINT FK_Albums_Genres FOREIGN KEY(GenreId)
+        //   REFERENCES dbo.Genres(GenreId)
+        //   ON DELETE NO ACTION
+        //   ON UPDATE NO ACTION
+        // ;
+
         // current location: https://www.quackit.com/sql_server/sql_server_2017/tutorial/create_a_table_in_sql_server_2017.cfm
 
         //https://www.quackit.com/sql_server/sql_server_2017/tutorial/
