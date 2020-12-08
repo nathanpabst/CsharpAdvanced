@@ -6,6 +6,7 @@ namespace CsharpAdvanced
 {
     internal class SQLserver
     {
+        // https://www.quackit.com/sql_server/sql_server_2017/tutorial/
         // WHAT: SQL Server is a relational database management system(RDBMS) developed by Microsoft.
         // SQL Server is extremely versatile and it can be used at all ends of the spectrum — from storing the content for an individual's blog, to storing customer data and providing analytics for small to medium enterprises, to being an integral part of the enterprise systems of some of the world's largest companies.
 
@@ -141,6 +142,7 @@ namespace CsharpAdvanced
         // WHERE ReleaseDate > '1985-01-01';
 
         // _____________STORED PROCEDURES______________________
+        // Tutorial Link: https://www.quackit.com/sql_server/sql_server_2017/tutorial/create_a_stored_procedure_in_sql_server_2017.cfm
         // A SP is a group of SQL statements compiled into one.
         // SPs can include business logic and other programming constructs.
         // In SQL Server, a SP is a group of one or more Transact-SQL statements or
@@ -223,8 +225,22 @@ namespace CsharpAdvanced
         //     WHERE ar.ArtistName = @ArtistName;
         // GO
 
-        // current location: https://www.quackit.com/sql_server/sql_server_2017/tutorial/create_a_stored_procedure_in_sql_server_2017.cfm
+        //_____________BACKING UP A DATABASE____________________
+        // LINK: https://www.quackit.com/sql_server/sql_server_2017/tutorial/backup_a_database_in_sql_server_2017.cfm
+        // Backups can be done using Transact-SQL, PowerShell, or via the GUI.
+        // NOTES: use a unique filename (include date within the filename) for each backup to ensure each backup will be a separate file
 
-        //https://www.quackit.com/sql_server/sql_server_2017/tutorial/
+        // Using SSMS to backup a DB...
+        // 1) in the Object Explorer, right-click on the DB you'd like to backup
+        // 2) select 'Tasks > Back Up Options' from the contextual menu
+        // 3) review settings
+        // 4) click 'OK' --you may have to modify user settings, etc. if an error occurs.
+
+        // Using Transact-SQL...
+        // BACKUP DATABASE Music
+        // TO DISK = 'C:\Backups\Music.bak'; --after running this code, the backup file will be located at the specified location
+
+        //____________RESTORING A DATABASE___________________________
+        // LINK: https://www.quackit.com/sql_server/sql_server_2017/tutorial/restore_a_database_in_sql_server_2017.cfm
     }
 }
