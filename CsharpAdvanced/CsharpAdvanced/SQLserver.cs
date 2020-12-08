@@ -172,7 +172,26 @@ namespace CsharpAdvanced
         // Therefore, a stored procedure can provide advanced database functionality for users who wouldn't normally have access to these tasks,
         // but this functionality is made available in a tightly controlled way.
 
-        // current location: https://www.quackit.com/sql_server/sql_server_2017/tutorial/create_a_table_in_sql_server_2017.cfm
+        // Practice Queries...
+        //--return all albums by a given artist
+        // select ar.ArtistName, al.AlbumName, al.ReleaseDate
+        // from Albums al
+        // inner join Artists ar on al.ArtistId = ar.ArtistId
+        // where ar.ArtistId = 2;
+
+        //--return all albums within a given genre
+        // select g.Genre, ar.ArtistName, al.AlbumName
+        // from Genres g
+        // inner join Albums al on g.GenreId = al.GenreId
+        // inner join Artists ar on al.ArtistId = ar.ArtistId
+        // where g.Genre = 'Pop'
+        // order by ar.ArtistName;
+
+        //--return a count of albums by a given artist
+        // select COUNT(*) from Albums
+        // where ArtistId = 5;
+
+        // current location: https://www.quackit.com/sql_server/sql_server_2017/tutorial/create_a_stored_procedure_in_sql_server_2017.cfm
 
         //https://www.quackit.com/sql_server/sql_server_2017/tutorial/
     }
