@@ -188,8 +188,40 @@ namespace CsharpAdvanced
         // order by ar.ArtistName;
 
         //--return a count of albums by a given artist
-        // select COUNT(*) from Albums
+        // select COUNT(*) as NumOfAlbums from Albums
         // where ArtistId = 5;
+
+        // ____________CREATING A STORED PROCEDURE________________
+        // Code example...
+        // CREATE PROCEDURE spAlbumsFromArtist
+        //     @ArtistName varchar(255)
+        // AS
+        //     SELECT AlbumName, ReleaseDate
+        //     FROM Albums
+        //     INNER JOIN Artists
+
+        // ON Albums.ArtistId = Artists.ArtistId
+        //     WHERE Artists.ArtistName = @ArtistName; --creates a SP that, when called, selects all albums from an artist
+        // GO
+
+        //___________EXECUTING A STORED PROCEDURE_________________
+        // EXECUTE spAlbumsFromArtist @ArtistName = "Iron Maiden"; --returns a list of album names and release date for a given artist
+
+        //___________ALTERING A STORED PROCEDURE__________________
+        // ALTER PROCEDURE spAlbumsFromArtist
+        //     @ArtistName varchar(255)
+        // AS
+        //     SELECT
+        //          al.AlbumName,
+        //          al.ReleaseDate,
+        //          g.Genre
+        //     FROM Albums al
+        //          INNER JOIN Artists ar
+        //          ON al.ArtistId = ar.ArtistId
+        //          INNER JOIN Genres g
+        //          ON g.GenreId = al.GenreId
+        //     WHERE ar.ArtistName = @ArtistName;
+        // GO
 
         // current location: https://www.quackit.com/sql_server/sql_server_2017/tutorial/create_a_stored_procedure_in_sql_server_2017.cfm
 
