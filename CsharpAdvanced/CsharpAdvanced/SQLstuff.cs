@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Net.Sockets;
 using System.Text;
 
 namespace CsharpAdvanced
@@ -76,6 +77,39 @@ namespace CsharpAdvanced
         //..but not all users in the Individual table are also in the Publisher table
         // EX...select UserName from Individual where IndividualId in (select IndividualId from Publisher where AccessLevel = 'contributor);
         // EX...select u.UserName from[dbo].[User] u where u.RoleId IN (select Id from Role where Name = 'viewer'); --returns the username of any user assigned the viewer role
+
+        //______________GROUP BY____________________
+        // https://www.youtube.com/watch?v=FKSSOpQe5Jc&list=PL08903FB7ACA1C2FB&index=12
+        // syntax:
+        // SELECT COUNT(CustomerID) AS customer_count, Country FROM Customers GROUP BY Country ORDER BY COUNT(CustomerID) DESC;
+        // --returns two columns: customer_count and country. countries are grouped together and ordered (high to low) by the number of customers it has
+        // The GROUP BY statement groups rows that have the same value into summary rows. EX. 'find the number of customers in each country.'
+        // The GROUP BY clause is used to group a selected set of rows into a set of summary rows y the values of one or more columns or expressions.
+        // GROUP BY is always used in conjunction with one or more aggregate functions (COUNT, MAX, MIN, SUM, AVG)
+        // you can only apply aggregate functions on columns containing numerical values (not text, etc.)--
+        // ___EX. 1. SELECT City, SUM(Salary) AS TotalSalary FROM tblEmployee GROUP BY City;
+        // NOTE: if you omit the GROUP BY clause and try to execute the query, you will receive the following error...
+        // "Column 'tblEmployee.City' is invalid in the select list because it is not contained in either an aggregate function or the GROUP BY clause."
+        // ___EX. 2 Grouping by multiple columns
+        // SELECT City, Gender, SUM(Salary) AS TotalSalary FROM tblEmployee GROUP BY City, Gender ORDER BY City;
+        // __EX. 3 Using multiple aggregate functions
+        // SELECT City, Gender, SUM(Salary) AS TotalSalary, COUNT(Id) AS [Total Employees] FROM tblEmployee GROUP BY City, Gender ORDER BY City;
+        // ________Filtering Groups__________________
+        // The following queries produce the same result...
+        // SELECT City, SUM(Salary) AS TotalSalary FROM tblEmployee WHERE City = 'London' GROUP BY City;
+        // SELECT City, SUM(Salary) AS TotalSalary FROM tblEmployee GROUP BY City HAVING City = 'London';
+        // NOTE: performance is about the same on both queries. SQL Server optimizer analyzes each statement and selects an efficient way of executing it.
+        // As a best practice, use the syntax that clearly describes the desired result. and try to eliminate the rows that you do not need as early as possible.
+        // _________Difference between WHERE & HAVING____________
+        // The WHERE clause is used to filter rows before aggregation (grouping). NOTE: the WHERE clause can be used with SELECT, INSERT, & UPDATE statements
+        // The HAVING clause is used to filter groups after aggregations are performed. The HAVING clause must come after the GROUP BY clause
+        // Aggregate functions cannot be used in the WHERE clause, unless it is in a sub query contained in a HAVING clause,
+        // whereas, aggregate functions can be used in the HAVING clause.
+        // __EX.
+        // SELECT City, Gender, SUM(Salary) AS TotalSalary, COUNT(ID) AS TotalEmployees FROM tblEmployee GROUP BY City, Gender HAVING SUM(Salary) > 5000;
+
+        //
+
         //______________SQL ALIAS___________________
         // an alias is a name that you give a table
         // use cases: when you need to reference the same table name over and over again
@@ -236,12 +270,91 @@ namespace CsharpAdvanced
         // SYNTAX: CREATE INDEX index_name ON table_name (column_name);
         // EX: CREATE INDEX UserIndex ON User (UserName);
         //
+        // CREATING & WORKING WITH TABLES
+        // https://www.youtube.com/watch?v=JLeaM8pK8dE&list=PL08903FB7ACA1C2FB&index=4
+        // The purpose of a Primary Key is to identify, uniquely, each record within the table
+        // Creating a table graphically using SSMS...
+        // 1. Select the appropriate database, mofo!!
+        // 2. Right click on the Tables folder and select 'New Table' option ...
+        // 3. Populate each field within the Table Designer Window (i.e.: Column Name, Data Type, Allow Nulls, right click on the arrow, to the left of the column name, to establish the column as the primary key)
+        // 4. Right click on the tab that you are working in, Select 'Save Table', enter a name for the table
+        // 5. Open the table, via Object Explorer, expand the Columns folder, check to ensure all fields (i.e. column names, data types, etc.) are present.
+        //
+        // Creating a Foreign Key relationship graphically using SSMS...
+        // 1. Right click on the table, select Design
+        // 2. Right click the column that will be a FK and select 'Relationships'
+        // 3. Click 'Add' in the pop-up box
+        // 4. Click the ellipsis icon in the 'Tables And Columns Specifications'
+        // 5. Specify the relationship (primary key table and foreign key table)
+        // 6. Close and Save
+        // ________________________________________
+        // Creating a table by writing a query...
+        // **IMPORTANT** make sure you are creating the table in the correct DB OR preface the query with the USE statement
+        // USE [DatabaseName]
+        // GO--
+        // Create Table tblGender
+        // (
+        //      ID int NOT NULL Primary Key,
+        //      Gender nvarchar(50) NOT NULL
+        // )
+        // Then...Execute (F5), Refresh the Tables folder, ensure that the table was created
+        //
+        // Foreign keys are used to enforce database integrity. in layman's terms, a FK in one table points to a primary key in another table
+        // the FK constraint prevents invalid data from being inserted into the FK column. The values that you enter into the FK column, must
+        // be one of the values contained within the table it points to.
+        // ________________ADDING A DEFAULT CONSTRAINT_______________________
+        // https://www.youtube.com/watch?v=dwSqHhMl32Y&list=PL08903FB7ACA1C2FB&index=5
+        // The DEFAULT constraint is used to insert a default value into a column. The default value will be added to all new records,
+        // if no other value is specified, including NULL.
+        // Inserting a record via query...
+        // Insert into tblPerson (Id, Name, Email) Values (7, 'Nate', n@n.com)
+        // ___F5 to execute
+        // Adding a default constraint to an existing record...
+        // ALTER TABLE tblPerson
+        // ADD CONSTRAINT DF_tblPerson_GenderId
+        // DEFAULT 3 FOR GENDERID
+        // F5 to execute, refresh the Constraints folder, and double check the work
+        // NOTE: if you supply a value, for example NULL, to the record, that value will override the default constraint value.
+        // ...Rather, the value supplied will be inserted into the table.
+        // __________________DROPPING A CONSTRAINT SYNTAX______________________
+        // ALTER TABLE tblPerson
+        // DROP CONSTRAINT DF_tblPerson_GenderId
+        // __F5 to execute, refresh the Constraint folder, check to ensure the constraint was removed
+        //
+        //_________________CASCADING REFERENTIAL INTEGRITY CONSTRAINT___________
+        // https://www.youtube.com/watch?v=ETepOVi7Xk8&list=PL08903FB7ACA1C2FB&index=6--
+        // The cascading referential integrity constraint allows us to define the actions MS SQL Server
+        // should take when a user attempts to delete or update a key to which an existing FK points.
+        // For example, if you delete row with Id = 1 from the tblGender table, then row with an Id of 3
+        // from the tblPerson table becomes an orphan record. (You won't be able to tell the Gender for this row)
+        // Cascading referential integrity constraint can be used to define actions SQL Server should take
+        // when this happens. By default, we will get an error the DELETE or UPDATE statement is rolled back.
+        // Options when setting up cascading referential integrity constraints...
+        // NOTE: these options can be set by navigating to SSMS, opening the appropriate table, opening the 'Keys' folder,
+        //      right-clicking on the FK, selecting the Modify option. Within the FK Relationships pop-up box,
+        //      click the dropdown arrow to the left of 'INSERT And UPDATE Specifications',
+        //      click in the box next to the rule that needs to be updated or modified.
+        // 1. No Action: default behavior. No action specifies that if an attempt is made to delete or update a row with a
+        //      key referenced by foreign keys in existing rows in other tables, an error is raised and the DELETE or UPDATE
+        //      will be rolled back.
+        // 2. Cascade: specifies that if an attempt is made to delete or update a row with a key referenced by foreign keys
+        //      in existing rows in other tables, all rows containing those FK are also deleted or updated.
+        // 3. Set NULL: specifies that if an attempt is made to delete or update a row with a key referenced by foreign keys
+        //      in existing rows in other tables, all rows containing those FK are set to NULL.
+        // 4. Set Default: specifies that if an attempt is made to delete or update a row with a key referenced by foreign keys
+        //      in existing rows in other tables, all rows containing those FK are set to default values.
+        //
         // ________________ALTERING TABLES_______________________
+        // Creating a Foreign Key relationship by writing a query...
+        // Alter Table tblPerson add constraint tblPerson_GenderId_FK
+        // Foreign Key (GenderId) references tblGender (Id)
+        // --F5 to execute, refresh the Person table and check for the FK constraint within the Keys folder
+        // --
         // Adding a Column to a table...
         // SYNTAX: ALTER TABLE table_name ADD column_name datatype;
         // EX: ..ALTER TABLE [dbo].[User] ADD MiddleName varchar;
 
-        // Changing Datatypethe
+        // Changing Data type
         // SYNTAX...
         // ALTER TABLE table_name
         // ALTER COLUMN column_name datatype;

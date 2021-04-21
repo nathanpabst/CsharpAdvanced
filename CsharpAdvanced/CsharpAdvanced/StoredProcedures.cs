@@ -48,28 +48,26 @@ namespace CsharpAdvanced
         //@b float
         //    AS
         //BEGIN
-        //-- SET NOCOUNT ON added to prevent extra result sets from
-        //-- interfering with SELECT statements.
-        //    SET NOCOUNT ON;
+        //    SET NOCOUNT ON; -- this will prevent extra result sets from interfering with SELECT statements.
 
-        //    -- Insert statements for procedure here
-
+        //-- Insert statements for procedure here
         //SELECT @a + @b;
         //END
-        // Executing the SP...
+
+        //__________STEPS TO EXECUTE A SP_______________
         // 1. in SSMS, click create new query
         // 2. EXEC dbo.uspAddNumber 5.0, 15.0
         // 3. F5 to run the query
         //__________PARTS OF A SP section 3_____________
-        // Parameters...
+        // PARAMETERS...
         // SPs can accept parameter values as inputs
         // modified values can be passed back to the calling program
-        // Execution...
+        // EXECUTION...
         // SPs can execute SQL statement, utilize conditional logic such as IF THEN or CASE statements
         // ...and looping constructs to perform tasks like WHILE loops
         // a SP is able to call another SP
         // use Cursors
-        // Outputs...
+        // OUTPUTS...
         // a SP can return:
         // 1. a single value such as number or text value
         // 2. a set or rows as a result set
@@ -81,19 +79,19 @@ namespace CsharpAdvanced
         //BEGIN
         //  PRINT 'Display CC Information Here'
         //END
-        // 2. create query to get SalesOrderID / get the latest sales order header...
+        // 2. create a query to get SalesOrderID / get the latest sales order header...
         //SELECT TOP 1 SOH.SalesOrderID
         //    FROM Sales.SalesOrderHeader SOH
-        //INNER JOIN Sales.Customer C ON SOH.CustomerID = C.CustomerID
-        //    INNER JOIN Person.Person P ON P.BusinessEntityID = C.CustomerID
+        //      INNER JOIN Sales.Customer C ON SOH.CustomerID = C.CustomerID
+        //      INNER JOIN Person.Person P ON P.BusinessEntityID = C.CustomerID
         //    WHERE P.FirstName LIKE 'Kristina' AND P.LastName LIKE 'Garcia'
-        //ORDER BY SOH.OrderDate DESC
+        //      ORDER BY SOH.OrderDate DESC;
         //--result = 73823
-        // 3. Get credit card number/create query to get Credit Card
+        // 3. Get the credit card number/create a query to get the Credit Card
         //SELECT CC.CreditCardId, CC.CardType, CC.CardNumber, CC.ExpMonth, CC.ExpYear
-        //    FROM Sales.CreditCard CC
-        //INNER JOIN Sales.SalesOrderHeader SOH ON CC.CreditCardID = SOH.CreditCardID
-        //    AND SOH.SalesOrderID = 73823
+        //FROM Sales.CreditCard CC
+        //  INNER JOIN Sales.SalesOrderHeader SOH ON CC.CreditCardID = SOH.CreditCardID
+        //  AND SOH.SalesOrderID = 73823
         //--result = ccId: 11978, CardType: Distinguish, CardNumber, ExpMonth, ExpYear
         //END
         // 4. Refactor to include variables...
@@ -109,11 +107,11 @@ namespace CsharpAdvanced
 
         //--Get the latest sales order header
         //SELECT TOP 1 @salesOrderID = SOH.SalesOrderID
-        //    FROM Sales.SalesOrderHeader SOH
-        //INNER JOIN Sales.Customer C ON SOH.CustomerID = C.CustomerID
-        //    INNER JOIN Person.Person P ON P.BusinessEntityID = C.CustomerID
-        //    WHERE P.FirstName LIKE @first AND P.LastName LIKE @last
-        //    ORDER BY SOH.OrderDate DESC;
+        //FROM Sales.SalesOrderHeader SOH
+        //  INNER JOIN Sales.Customer C ON SOH.CustomerID = C.CustomerID
+        //  INNER JOIN Person.Person P ON P.BusinessEntityID = C.CustomerID
+        //WHERE P.FirstName LIKE @first AND P.LastName LIKE @last
+        //ORDER BY SOH.OrderDate DESC;
         //--result = 73823
 
         //--Get credit card number
@@ -124,8 +122,8 @@ namespace CsharpAdvanced
         //    ' Exp: ' + CAST(CC.ExpMonth as varchar(2))
         //FROM Sales.CreditCard CC
         //    INNER JOIN Sales.SalesOrderHeader SOH ON CC.CreditCardID = SOH.CreditCardID
-        //    END
-        //ELSE
+        //  END
+        //  ELSE
         //    BEGIN
         //SET @CreditInfo = 'Customer not found.';
         //    --result = ccId: 11978, CardType: Distinguish, CardNumber, ExpMonth, ExpYear
@@ -150,7 +148,6 @@ namespace CsharpAdvanced
         //EXAMPLE SP....
         //CREATE PROCEDURE uspGetOrderTrackingForCustomer
         //--ADD PARAMETERS
-
         //@first Varchar(40),
         //@last Varchar(40),
         //@cardNumber Varchar(200) OUTPUT
@@ -164,8 +161,8 @@ namespace CsharpAdvanced
         //--Get the latest sales order header using customer name
         //SELECT TOP 1 @creditCardID = SOH.CreditCardID
         //    FROM Sales.SalesOrderHeader SOH
-        //  INNER JOIN Sales.Customer C ON SOH.CustomerID = C.CustomerID
-        //    INNER JOIN Person.Person P ON P.BusinessEntityID = C.CustomerID
+        //      INNER JOIN Sales.Customer C ON SOH.CustomerID = C.CustomerID
+        //      INNER JOIN Person.Person P ON P.BusinessEntityID = C.CustomerID
         //    WHERE P.FirstName LIKE @first AND P.LastName LIKE @last
         //    ORDER BY SOH.OrderDate DESC;
 
@@ -201,7 +198,8 @@ namespace CsharpAdvanced
         //...the query broke on the 'If' statement. one row was found, but the if statement was checking for a row count of less than zero
         // 7. alter the procedure to 'IF @@ROWCOUNT > 0'
         // 8. Re-run the execute query
-        //____WORKING WITH VARIABLES__________
+
+        //__________WORKING WITH VARIABLES__________
         // Variables are defined using the 'declare' statement & are prefixed with '@' --> DECLARE @count int; or DECLARE @city varchar(40) = 'KC';
         // Assigning Values: use 'set' --> SET @count = 42; OR SET @weight = @baseWeight * 1.05
         // Example 1...
@@ -229,7 +227,8 @@ namespace CsharpAdvanced
         //FROM Person.Person
         //WHERE BusinessEntityID = @personID
         //PRINT @firstName; --> returns: Julio
-        //________________PRINT COMMAND_________________
+
+        //________________USING THE PRINT COMMAND_________________
         // EX. 1: PRINT 'oh hey, hi' --> returns: oh hey, hi
         // EX. 2...
         //DECLARE @myVar VARCHAR(40) = 'oh hey, hi';
@@ -237,8 +236,9 @@ namespace CsharpAdvanced
         // EX. 3 as an expression...
         //DECLARE @row INT = 42;
         //PRINT 'The value of row is ' + CAST(@row as VARCHAR); --> returns: The value of row is 42
-        //___________________IF/THEN LOGIC____________________
-        // EX. 1 --weight is set to zero, so the If statement block will run
+
+        //________________USING IF/THEN LOGIC____________________
+        //___EX. 1 --weight is set to zero, so the If statement block will run
         //DECLARE @pricePerPound FLOAT;
         //DECLARE @weight FLOAT;
         //DECLARE @totalPrice FLOAT;
@@ -250,8 +250,8 @@ namespace CsharpAdvanced
         //SET @weight = 1;
         //END
         //    SET @pricePerPound = @totalPrice / @weight
-        //    PRINT 'Ok, Maaaaary...the price per pund is ' + CAST(@pricePerPound as NVARCHAR)
-        // EX. 2 --the weight is set to 2, so the IF block will be skipped and the ELSE block will execute
+        //    PRINT 'Ok, Maaaaary...the price per pound is ' + CAST(@pricePerPound as NVARCHAR)
+        //___EX. 2 --the weight is set to 2, so the IF block will be skipped and the ELSE block will execute
         //DECLARE @pricePerPound FLOAT;
         //DECLARE @weight FLOAT;
         //DECLARE @totalPrice FLOAT;
@@ -269,8 +269,8 @@ namespace CsharpAdvanced
         //    PRINT 'This is a valid weight, Maaaaaary. I will do all dah sumz now...';
         //END --this statement is also unnecessary and could be removed...
         //    SET @pricePerPound = @totalPrice / @weight
-        //    PRINT 'Ok, Maaaaary...the price per pund is ' + CAST(@pricePerPound as NVARCHAR)
-        // EX. 3 --using nested IF statements
+        //    PRINT 'Ok, Maaaaary...the price per pound is ' + CAST(@pricePerPound as NVARCHAR)
+        //___EX. 3 --using nested IF statements
         //DECLARE @pricePerPound FLOAT;
         //DECLARE @weight FLOAT;
         //DECLARE @totalPrice FLOAT;
@@ -303,8 +303,8 @@ namespace CsharpAdvanced
 
         //SET @pricePerPound = @totalPrice / @weight
         //PRINT 'Ok, Maaaaary...the price per pound is ' + CAST(@pricePerPound as NVARCHAR)
-        //__________________WHILE LOOPS__________________
-        // EX. 1...
+        //__________________USING WHILE LOOPS__________________
+        //___EX. 1...
         //DECLARE @i int = 1;
         //WHILE @i <= 10
         //BEGIN
@@ -312,7 +312,7 @@ namespace CsharpAdvanced
         //SET @i = @i + 1
         //END
         //_____________________
-        // EX. 2...prints the first day of each week for 2018
+        //___EX. 2...prints the first day of each week for 2018
         //--Setup Variables
         //DECLARE @myTable TABLE(WeekNumber int,
         //DateStarting smalldatetime)
@@ -332,7 +332,7 @@ namespace CsharpAdvanced
         //FROM @myTable
         //________________
         // DATEADD syntax --> SELECT DATEADD(wk, 1, '12/18/82'); --> returns 12/25/82...aka one week beyond 12/18/1982
-        // using BREAK & CONTINUE to control the behavior of the while loop...
+        //_____USING BREAK & CONTINUE to control the behavior of the while loop...
         //--Setup Variables
         //SET NOCOUNT ON --removes the '(1 row affected)' messsage
         //    DECLARE @myTable TABLE(WeekNumber int,
@@ -361,7 +361,7 @@ namespace CsharpAdvanced
         // 1. 'waitfor delay'
         // 2. 'waitfor time'
         // ...execution is blocked until the waitfor command completes
-        // EX. 1...
+        //___EX. 1...
         //PRINT CONVERT(VARCHAR, GETDATE(), 109); --prints the current date and time
         //WAITFOR DELAY '00:00:05' --HH:MM:SS
         //PRINT CONVERT(VARCHAR, GETDATE(), 109); --prints the current date and time after a 5 second delay
@@ -475,9 +475,9 @@ namespace CsharpAdvanced
         //SELECT
         //    ERROR_NUMBER() AS ErrorNumber --returns 8134
         //    , ERROR_SEVERITY() AS ErrorSeverity --returns 16
-        //, ERROR_STATE() AS ErrorState --returns 1
+        //    , ERROR_STATE() AS ErrorState --returns 1
         //    , ERROR_PROCEDURE() AS ErrorProcedure --returns null
-        //, ERROR_LINE() AS ErrorLine --returns 3
+        //    , ERROR_LINE() AS ErrorLine --returns 3
         //    , ERROR_MESSAGE() AS ErrorMessage; --returns 'divide by zero error encountered
         //END CATCH
         //____________
@@ -501,13 +501,13 @@ namespace CsharpAdvanced
         //PRINT N'Error Severity = ' + CAST(ERROR_SEVERITY() AS VARCHAR)
         //PRINT N'Error Message = ' + ERROR_MESSAGE()
         //PRINT N'Error Number = ' + CAST(ERROR_NUMBER() AS VARCHAR)
-        //PRINT N'Eror Line = ' + CAST(ERROR_LINE() AS VARCHAR)
+        //PRINT N'Error Line = ' + CAST(ERROR_LINE() AS VARCHAR)
         //END CATCH;
         //_________________
         //--Ex. 2...FORCING AN ERROR...
         //DECLARE @TotalHours FLOAT,
-        //@TotalEmployees FLOAT,
-        //    @AVGHours FLOAT
+        //        @TotalEmployees FLOAT,
+        //        @AVGHours FLOAT
 
         //    BEGIN TRY
         //    SELECT @TotalHours = SUM(VacationHours)
@@ -532,15 +532,15 @@ namespace CsharpAdvanced
         //PRINT N'Error Message = ' + ERROR_MESSAGE() --RETURNS DIVIDE BY ZERO ERROR ENCOUNTERED
 
         //PRINT N'Error Number = ' + CAST(ERROR_NUMBER() AS VARCHAR) --RETURNS 8134
-        //PRINT N'Eror Line = ' + CAST(ERROR_LINE() AS VARCHAR) --RETURNS 14
+        //PRINT N'Error Line = ' + CAST(ERROR_LINE() AS VARCHAR) --RETURNS 14
         //END CATCH;
         //______________ASSIGNMENT 2 UNSTRUCTURED ERROR HANDLING__________________________
         //--Write a script to detect a divide by zero error.
         //--1. Declare three variables, @a, @b, @c as float.
         //--2. initialize @a and @b to any number.
         //    DECLARE @a FLOAT = 42,
-        //@b FLOAT = 0,
-        //    @c FLOAT
+        //            @b FLOAT = 0,
+        //            @c FLOAT
         //--3. Set @c to @a divided by @b.
         //    IF @b = 0
         //SET @b = 2;
@@ -554,8 +554,8 @@ namespace CsharpAdvanced
         //--1. Declare three variables, @a, @b, @c as float.
         //--2. initialize @a and @b to any number.
         //    DECLARE @a FLOAT = 42;
-        //DECLARE @b FLOAT = 0;
-        //DECLARE @c FLOAT;
+        //    DECLARE @b FLOAT = 0;
+        //    DECLARE @c FLOAT;
         //--3. Set @c to @a divided by @b.
         //    SET @c = @a / @b;
         //IF @@ERROR = 0 GOTO PrintResults
@@ -613,7 +613,7 @@ namespace CsharpAdvanced
         //____________SECTION 7____________
         // Parts of a SP...
         // INPUTS: SP Name & Parameters
-        // EXECUTION: Commands--for example. SET NOCOUNT ON, Select Statement, From Statement, Parameter used as criteria
+        // EXECUTION: Commands--for example. SET NOCOUNT ON, SELECT Statement, FROM Statement, Parameter used as criteria
         // OUTPUT: Where Clause & result set returned
         // Notes: use CREATE PROCEDURE to create, ALTER PROCEDURE to modify, preface SP names with 'usp' -user stored procedure
         //...as opposed to those SPs that have been defined by the system.
@@ -630,7 +630,7 @@ namespace CsharpAdvanced
         //SELECT @first = FirstName
         //    , @last = LastName
         //FROM Person.Person --table
-        //    WHERE Person.BusinessEntityID = @businessEntityID--BusinessEntityID is the primary key of the Person table & will return one record upon match
+        //    WHERE Person.BusinessEntityID = @businessEntityID --BusinessEntityID is the primary key of the Person table & will return one record upon match
         //PRINT 'me llama ' + @first + ' ' + @last
         //    END --F5 to execute/create the SP
 
@@ -651,7 +651,7 @@ namespace CsharpAdvanced
         //    LatestRecordedPopulation
 
         //FROM Application.Countries --table
-        //    WHERE CountryID = @CountryID--BusinessEntityID is the primary key of the Person table & will return one record upon match
+        //    WHERE CountryID = @CountryID
 
         //END --F5 to run the SP
 
@@ -668,7 +668,7 @@ namespace CsharpAdvanced
         //EXECUTE Application.uspFindCountry 45
         //--Prove results are in the table
         //SELECT COUNT(1) as Proof FROM @Country
-        //    SELECT* FROM @Country --returns CountryName = Chile / LatestRecordedPopulation = 16601707
+        //    SELECT * FROM @Country --returns CountryName = Chile / LatestRecordedPopulation = 16601707
         //_____________USING OUTPUT IN PARAMETERS________________
         // 1. Define parameter with the 'OUTPUT' keyword
         // 2. The calling program must also use the 'OUTPUT' keyword
@@ -677,7 +677,7 @@ namespace CsharpAdvanced
         //--Calculate Area
         //CREATE PROCEDURE uspCalcArea
         //    @height FLOAT,
-        //@width FLOAT,
+        //    @width FLOAT,
         //    @area FLOAT OUTPUT
         //AS
         //    BEGIN
@@ -731,8 +731,8 @@ namespace CsharpAdvanced
         //--Calculate speed...
         //CREATE PROCEDURE uspCalcSpeed
         //    @distance float,
-        //@time float,
-        //@speed float OUTPUT
+        //    @time float,
+        //    @speed float OUTPUT
 
         //AS
         //    BEGIN TRY
