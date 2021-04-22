@@ -107,9 +107,8 @@ namespace CsharpAdvanced
         // whereas, aggregate functions can be used in the HAVING clause.
         // __EX.
         // SELECT City, Gender, SUM(Salary) AS TotalSalary, COUNT(ID) AS TotalEmployees FROM tblEmployee GROUP BY City, Gender HAVING SUM(Salary) > 5000;
-
+        // ___________________END OF YouTube VIDEO ON GROUP BY_______________________
         //
-
         //______________SQL ALIAS___________________
         // an alias is a name that you give a table
         // use cases: when you need to reference the same table name over and over again
@@ -119,9 +118,26 @@ namespace CsharpAdvanced
         // where i.FirstName = 'Natz'
         // order by o.JobTitle;
         //___________________________JOIN________________________
-        // use 'join' to query data from two or more tables.
-
-        //_________________________________________________________________
+        // https://www.youtube.com/watch?v=wW4xcQ3FFp4&list=PL08903FB7ACA1C2FB&index=13
+        // Joins in SQL Server are used to retrieve data from 2 or more related tables. In general tables are related to each other using foreign key constraints.
+        // Types of JOINS...
+        // 1. INNER JOIN: returns only the matching rows between both tables. Non-matching rows are eliminated. for example, if you are joining a department and
+        //      and employee table by department id and one of the employees hasn't been assigned to a department (the value in their departmentId field is NULL)...that employee record/information will not
+        //      be returned as part of the query.
+        // 2. OUTER JOIN: divided into left join, left outer join, right join, right outer join, full join, full outer join
+        //      LEFT JOIN returns all the matching rows + the non-matching rows from the left table (From the previous example...even the records for the employees who have not
+        //          been assigned to a department will be returned.)
+        //      NOTE: LEFT JOIN & LEFT OUTER JOIN can be used interchangeably...the query results are the same for both statements. i.e. the OUTER keyword is optional
+        //          similarly, a RIGHT JOIN will return all matching and non-matching rows from the table on the right side of the query. The 'left' table is nearly always
+        //          listed first in the query.
+        //      FULL JOIN returns all rows from both the left and right tables, including the non-matching rows.
+        // 3. CROSS JOIN produces the Cartesian product of the two tables involved in the join. For example, in the Employees table we have 10 rows
+        //          and 4 rows in the Departments table, so a cross join between the two tables will produce 40 rows.
+        //          Cartesian Product Calculation = # of rows in the first table multiplied by the # of rows in the second table.
+        //          i.e. Employee rows (10) X Department rows (4) = 40
+        //    NOTE: a cross join should not have an ON clause
+        // ____________END OF YouTube VIDEO___________________________
+        //
         // INNER JOIN : returns rows when there is at least one row in each table that match the join condition.
         // __________________________INNER JOIN SYNTAX...
         // EX. 1...
