@@ -7,6 +7,64 @@ namespace CsharpAdvanced
 {
     internal class StoredProcedures
     {
+        //_________________STORED PROCEDURES___________________
+        // https://www.youtube.com/watch?v=Qu3E-oncF3g&list=PL08903FB7ACA1C2FB&index=19
+        // A SP is a group of T-SQL (Transact SQL) statements. If you have a situation where you write the same query over and over,
+        //  you can save that specific query as a SP and call it by its name.
+        // 1. Use 'CREATE PROCEDURE' OR 'CREATE PROC' statement to create a SP followed by the name for the procedure
+        //      NOTE: when naming user defined SPs, MS recommends not to use 'sp_' as a prefix. All system stored procedures are prefixed with 'sp_'.
+        //          This will serve to avoid ambiguity between user defined and system SPs and any conflicts with future system SPs.
+        // _____EX. Syntax for creating a SP...
+        // CREATE PROCEDURE spGetEmployees
+        // AS
+        // BEGIN
+        //  SELECT Name, Gender FROM tblEmployee
+        // END
+        // Check to ensure the SP was created...expand the Programmability older, right click and refresh the Stored Procedures folder
+        // _________
+        // To execute the SP...
+        // 1. write 'spGetEmployees', highlight the name, click the Execute button
+        // 2. use the EXEC keyword + spGetEmployees
+        // 3. Execute spGetEmployees
+        //      NOTE: you may also right click on the procedure name, in Object Explorer (SSMS), and select 'EXECUTE STORED PROCEDURE'
+        // ____Creating a SP with Parameters_________
+        // Parameters and variables have an @ prefix in their name
+        // To view the definition of a SP...
+        // 1. write sp_helptext followed by the name of the SP
+        // 2. Right click the SP in Object Explorer, script procedure as, Create To, New Query Editor Window
+        //      NOTE: use ALTER PROCEDURE to change the SP, use DROP PROC 'SPName' to delete, use WITH ENCRYPTION to encrypt the text of a SP
+        //          it is not possible to view the text of an encrypted SP
+        // _______EX. Syntax for creating a SP with parameters...
+        // CREATE PROC spGetEmployeesByGenderAndDepartment
+        // @Gender nvarchar(20)
+        // @DepartmentId int
+        // AS
+        // BEGIN
+        //  SELECT Name, Gender, DepartmentId
+        // FROM tblEmployee
+        //  WHERE Gender = @Gender
+        //  AND DepartmentId = @DepartmentId
+        // END
+        //      Execute by...
+        // Option 1. spGetEmployeesByGenderAndDepartment 'Male', 1
+        // Option 2. spGetEmployeesByGenderAndDepartment @Gender = 'Male', @DepartmentId = 1
+        //      NOTE: the order of the parameters matters if you do not specify (as seen in option 2). Both queries will retrieve all male employees from department 1
+        //
+        // ____________Changing/Altering the definition of a SP________________
+        // ______EX. Syntax for modifying a SP
+        // ALTER PROCEDURE spGetEmployees
+        // AS
+        // BEGIN
+        //  SELECT Name, Gender
+        //  FROM tblEmployee
+        //      ORDER BY Name
+        // END
+        // ______________Dropping a SP_______________
+        // ______EX. Syntax to drop a SP...
+        // DROP PROC spName
+        //    NOTE: highlight and execute or press F5, then refresh the SP Folder to ensure the SP has been deleted.
+        //    Option 2. Navigate to the Stored Procedures folder, right click on the appropriate SP and select Delete.
+        // ________________end of video___________________________
         // ____What is a SP & why do we need them?_______
         // Elements of a SP...
         // inputs - name and parameters
