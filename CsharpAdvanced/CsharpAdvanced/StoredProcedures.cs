@@ -65,6 +65,40 @@ namespace CsharpAdvanced
         //    NOTE: highlight and execute or press F5, then refresh the SP Folder to ensure the SP has been deleted.
         //    Option 2. Navigate to the Stored Procedures folder, right click on the appropriate SP and select Delete.
         // ________________end of video___________________________
+        //
+        //_________________Stored Procedures - Output Parameters___________
+        // https://www.youtube.com/watch?v=bldBshxuhMk&list=PL08903FB7ACA1C2FB&index=20
+        // To create a SP with an output parameter, we use the keyword OUT or OUTPUT
+        // __EX.
+        // CREATE PROCEDURE spGetEmployeeCountByGender
+        // @Gender NVARCHAR(20),
+        // @EmployeeCount INT OUTPUT
+        // AS
+        // BEGIN
+        //      SELECT @EmployeeCount = COUNT(Id)
+        //      FROM tblEmployee
+        //      WHERE Gender = @Gender
+        // END
+        // ______
+        // To execute the stored procedure with output parameters...
+        //  NOTE: if you do not specify the OUTPUT keyword, when executing the SP, the @EmployeeTotal variable will be NULL.
+        // __EX.
+        // DECLARE @EmployeeTotal INT --this line creates a variable to receive the value
+        // EXECUTE spGetEmployeeCountByGender 'Male', @EmployeeTotal OUTPUT
+        //  IF(@EmployeeTotal IS NULL)
+        //      PRINT '@EmployeeTotal is null'
+        //  ELSE
+        //      PRINT '@EmployeeTotal is not null'
+        // PRINT @EmployeeTotal
+        //
+        // DECLARE @EmployeeTotal INT --this line creates a variable to hold the result--
+        // EXECUTE spGetEmployeeCountByGender @EmployeeCount = @EmployeeTotal OUT, @Gender = 'Male'
+        // PRINT @EmployeeTotal
+        // WIP @ 9:22 OF 18:19
+        // --
+
+        // ________________end of video___________________________
+        //
         // ____What is a SP & why do we need them?_______
         // Elements of a SP...
         // inputs - name and parameters
