@@ -66,9 +66,10 @@ namespace CsharpAdvanced
         //    Option 2. Navigate to the Stored Procedures folder, right click on the appropriate SP and select Delete.
         // ________________end of video___________________________
         //
-        //_________________Stored Procedures - Output Parameters___________
+        //_________________Stored Procedures - Output Parameters - Part 19___________
         // https://www.youtube.com/watch?v=bldBshxuhMk&list=PL08903FB7ACA1C2FB&index=20
-        // To create a SP with an output parameter, we use the keyword OUT or OUTPUT
+        // _____CREATING A SP WITH AN OUTPUT PARAMETER______
+        // note: To create a SP with an output parameter, we use the keyword OUT or OUTPUT
         // __EX.
         // CREATE PROCEDURE spGetEmployeeCountByGender
         // @Gender NVARCHAR(20),
@@ -80,25 +81,35 @@ namespace CsharpAdvanced
         //      WHERE Gender = @Gender
         // END
         // ______
-        // To execute the stored procedure with output parameters...
-        //  NOTE: if you do not specify the OUTPUT keyword, when executing the SP, the @EmployeeTotal variable will be NULL.
-        // __EX.
+        // ____EXECUTING A SP WITH OUTPUT PARAMETERS_____
+        //  NOTE: if you do not specify the OUTPUT or OUT keyword, when executing the SP, the @EmployeeTotal variable will be NULL.
+        //      As a safeguard, use an IF/ELSE statement to ensure a message will always be printed. see example below.
+        // __EX.1
         // DECLARE @EmployeeTotal INT --this line creates a variable to receive the value
         // EXECUTE spGetEmployeeCountByGender 'Male', @EmployeeTotal OUTPUT
-        //  IF(@EmployeeTotal IS NULL)
+        //  IF(@EmployeeTotal IS NULL) --the IF/ELSE statement is optional
         //      PRINT '@EmployeeTotal is null'
         //  ELSE
         //      PRINT '@EmployeeTotal is not null'
         // PRINT @EmployeeTotal
-        //
-        // DECLARE @EmployeeTotal INT --this line creates a variable to hold the result--
+        //__EX.2
+        // DECLARE @EmployeeTotal INT --this line creates a variable to hold the result
         // EXECUTE spGetEmployeeCountByGender @EmployeeCount = @EmployeeTotal OUT, @Gender = 'Male'
         // PRINT @EmployeeTotal
-        // WIP @ 9:22 OF 18:19
-        // --
+        //____USEFUL SYSTEM STORED PROCEDURES____________
+        // sp_help procedure_name: to view the information about the SP, like parameter names, data types, etc.
+        // sp_help can be used with any database object, like tables, views, SPs, triggers, etc.
+        // Alternatively, you can also press ALT + F1, when the name of the object is highlighted
+        // sp_helptext procedure_name: to view the text of the SP
+        // sp_depends procedure_name: to view the dependencies of the SP. This is very useful esp if you want to check if there are
+        //      any SPs that are referencing a table that you about to drop. sp_depends can also be used with other DB objects like tables.
+        // ________________end of Part 19 video___________________________
 
-        // ________________end of video___________________________
-        //
+        //_________________Stored Procedures - Output Parameters or return values - Part 20___________
+        // https://www.youtube.com/watch?v=st8RnNg_LLA&list=PL08903FB7ACA1C2FB&index=21
+        // --
+        // ________________end of Part 20 video___________________________
+
         // ____What is a SP & why do we need them?_______
         // Elements of a SP...
         // inputs - name and parameters
