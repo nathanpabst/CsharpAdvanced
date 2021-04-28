@@ -107,7 +107,34 @@ namespace CsharpAdvanced
 
         //_________________Stored Procedures - Output Parameters or return values - Part 20___________
         // https://www.youtube.com/watch?v=st8RnNg_LLA&list=PL08903FB7ACA1C2FB&index=21
-        // --
+        // Return Values: whenever you execute a SP it returns one value (an integer status). Typically 0 indicates success & non-zero indicates failure.
+        //      Return values can only be used with the INT data type and are used to convey success or failure
+        // Output Parameters...can be used with any data type, can contain multiple values, and are used to return values like, name, count, etc.
+        // __EX.1 USING OUTPUT PARAMETER
+        // CREATE PROC spGetTotalCount
+        // @TotalCount INT OUTPUT
+        // AS
+        // BEGIN
+        //      SELECT @TotalCount = COUNT(Id)
+        //      FROM tblEmployee
+        // END
+        // ___To Execute the SP...
+        // DECLARE @Total INT
+        // EXEC spGetTotalCount @Total OUT
+        // PRINT @Total --returns 10
+        //________end of example 1_____
+        // __EX.2 USING RETURN VALUE --The following use of a RETURN value will work because the value being returned is an integer.
+        //      NOTE: If you try to return a value type that is not an integer, you will receive a conversion error.
+        // CREATE PROC spGetTotalCount2
+        // AS
+        // BEGIN
+        //      RETURN (SELECT @TotalCount = COUNT(Id) FROM tblEmployee)
+        // END
+        //  ___To Execute the SP...
+        // DECLARE @Total INT
+        // EXEC @Total = spGetTotalCount2
+        // PRINT @Total --returns 10
+        //________end of example 2_____
         // ________________end of Part 20 video___________________________
 
         // ____What is a SP & why do we need them?_______
