@@ -137,6 +137,15 @@ namespace CsharpAdvanced
         //________end of example 2_____
         // ________________end of Part 20 video___________________________
 
+        //_________________Stored Procedures - Advantages of SPs - Part 21___________
+        // https://www.youtube.com/watch?v=uDcVd4vUU3s&list=PL08903FB7ACA1C2FB&index=22
+        // 1. Execution plan retention and re-usability - better performance
+        // 2. Reduces network traffic - better performance
+        // 3. Code re-usability and better maintainability (one location to make changes)
+        // 4. Better security - similar to views...only reveal the information that needs to be known
+        // 5. Avoids SQL Injection attacks --see his vid on youtube
+        // ________________end of Part 21 video___________________________
+
         // ____What is a SP & why do we need them?_______
         // Elements of a SP...
         // inputs - name and parameters
