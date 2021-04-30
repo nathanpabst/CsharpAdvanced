@@ -146,6 +146,28 @@ namespace CsharpAdvanced
         // 5. Avoids SQL Injection attacks --see his vid on youtube
         // ________________end of Part 21 video___________________________
 
+        //_________________Stored Procedures - Build-In String Functions in SQL Server - Part 22___________
+        // https://www.youtube.com/watch?v=qJFr-R76r9A&list=PL08903FB7ACA1C2FB&index=23
+        // To view a complete list of available function... navigate to the Programmability folder, expand the Functions folder, expand
+        // the System Functions folder, choose from the list of available functions.
+        // Commonly Used String functions...
+        // 1. ASCII (Character_Expression) - Returns the ASCII code of the given (first) character expression.
+        //      SELECT ASCII('ABC') --returns 65...the ASCII value of 'A'
+        // 2. CHAR (Integer_Expression)- Converts an int ASCII code to a character. The Integer_Expression should be between 0 and 255
+        //      SELECT CHAR(65) --returns uppercase 'A'
+        //      To print the alphabet (in uppercase letters)...
+        //          DECLARE @Start INT
+        //          SET @Start = 65 --char value of 'A'
+        //          WHILE(@Start <= 90)
+        //          BEGIN
+        //              SELECT CHAR(@Start)
+        //              SET @Start = @Start +1
+        //          END--
+        // WIP - 6:59 of 16:13 --
+        //
+        // --
+        // ________________end of Part 22 video___________________________
+
         // ____What is a SP & why do we need them?_______
         // Elements of a SP...
         // inputs - name and parameters
