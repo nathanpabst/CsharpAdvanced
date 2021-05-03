@@ -163,9 +163,18 @@ namespace CsharpAdvanced
         //              SELECT CHAR(@Start)
         //              SET @Start = @Start +1
         //          END--
-        // WIP - 6:59 of 16:13 --
-        //
-        // --
+        // 3. LTRIM (Character_Expression) - removes blanks on the left hand side of the given character expression
+        //      SELECT LTRIM(FirstName) as FirstName, MiddleName, LastName FROM tblEmployee;
+
+        // 4. RTRIM (Character_Expression) - removes blanks on the right hand side of the given character expression
+        //      SELECT RTRIM(FirstName) as FirstName, MiddleName, LastName FROM tblEmployee;
+        //      To remove excess space from both sides...
+        //          SELECT RTRIM(LTRIM(FirstName)) as FirstName FROM tblEmployee;
+        // 5. LOWER (Character_Expression) - converts all characters to lower case
+        // 6. UPPER (Character_Expression) - converts all characters to upper case
+        // 7. REVERSE ('Any_String_Expression') - reverses all the characters in the given string expression. i.e 'sam' would return as 'mas'
+        // 8. LEN (String_Expression) - returns the count of total characters, in the given string expression
+        //      excluding the blanks at the end of the expression. You can use LTRIM as well to get a count without any leading spaces.
         // ________________end of Part 22 video___________________________
 
         // ____What is a SP & why do we need them?_______
