@@ -177,6 +177,23 @@ namespace CsharpAdvanced
         //      excluding the blanks at the end of the expression. You can use LTRIM as well to get a count without any leading spaces.
         // ________________end of Part 22 video___________________________
 
+        //_______________Views in SQL Server - Part 39___________
+        // https://www.youtube.com/watch?v=VQpmOmZO2mo&list=PL08903FB7ACA1C2FB&index=40
+        // A View is a saved SQL query. Also considered as a virtual table
+        // __EX 1. Creating a View...
+        // CREATE VIEW vwEmployeesByDepartment
+        // AS
+        // SELECT Id, Name, Salary, Gender, DeptName
+        // FROM tblEmployee
+        // JOIN tblDepartment
+        // ON tblEmployee.DepartmentId = tblDepartment.DeptId
+        // F5 to execute, click on the Views folder in Object Explorer and refresh the folder
+        //____________
+        //
+        // WIP 4:01 of 14:50
+        // --
+        // ________________end of Part 39 video___________________________
+
         // ____What is a SP & why do we need them?_______
         // Elements of a SP...
         // inputs - name and parameters
