@@ -179,18 +179,41 @@ namespace CsharpAdvanced
 
         //_______________Views in SQL Server - Part 39___________
         // https://www.youtube.com/watch?v=VQpmOmZO2mo&list=PL08903FB7ACA1C2FB&index=40
-        // A View is a saved SQL query. Also considered as a virtual table
+        // A View does not store any data it is only a saved SQL query. Only the select query is saved in the DB. Views are also considered/know as virtual tables.
         // __EX 1. Creating a View...
         // CREATE VIEW vwEmployeesByDepartment
         // AS
         // SELECT Id, Name, Salary, Gender, DeptName
         // FROM tblEmployee
         // JOIN tblDepartment
-        // ON tblEmployee.DepartmentId = tblDepartment.DeptId
-        // F5 to execute, click on the Views folder in Object Explorer and refresh the folder
+        // ON tblEmployee.DepartmentId = tblDepartment.DeptId --Use F5 to execute, click on the Views folder in Object Explorer and refresh the folder
         //____________
+        // NOTE: to retrieve information from the view...SELECT * FROM vwEmployeesByDepartment
+        //  ...to retrieve a definition of a view... sp_helptext vwEmployeesByDepartment -> F5
+        //_____ADVANTAGES OF VIEWS__________
+        // Views can be used to reduce the complexity of the db schema. Ex. for non-IT users that will need to interact with the db
         //
-        // WIP 4:01 of 14:50
+        //
+        // Views can be used as a mechanism to implement row and column level security
+        // __EX. 1. only display the information needed...the IT dept manager does not need to see the salaries for employees outside her department.
+        // ...create a view containing only the necessary info for IT employees
+        // CREATE VIEW vwITEmployees
+        // AS
+        // SELECT Id, Name, Salary, Gender, DeptName
+        // FROM tblEmployee
+        // JOIN tblDepartment
+        // ON tblEmployee.DepartmentId = tblDepartment.DeptId
+        // WHERE tblDepartment.DeptName = 'IT'
+        //
+        //---------------------WIP 9:47 of 14:50--------------------------
+
+        // -- Views can be used to present aggregated data and hide detailed data
+        //
+        //
+        // To modify a view: ALTER VIEW statement
+        // To drop a view: DROP VIEW vwName
+        // --
+        // --WIP 9:47 of 14:50
         // --
         // ________________end of Part 39 video___________________________
 
