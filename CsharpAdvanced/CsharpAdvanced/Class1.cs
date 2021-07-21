@@ -351,9 +351,19 @@ namespace CsharpAdvanced
         // SELECT * FROM vwSummarizedData --returns DeptName and a count of employees in each department
         // ________________end of Part 39 video___________________________
 
-        //________________VIEW LIMITATIONS IN SQL SERVER - Part 42________
+        //________________UPDATING LIMITATIONS IN SQL SERVER - Part 40________
         // https://www.youtube.com/watch?v=xRIMMZsIt2k&list=PL08903FB7ACA1C2FB&index=41
-
-        //_________________end of Part 42 video___________________________
+        // It's possible to update, insert, and delete data from the base table through views. These statements are executed on the base table(s)
+        // __EX.1.
+        // UPDATE vwEmployeesData
+        // SET name = 'Michael!' WHERE id = 2
+        // __EX.2.
+        // DELETE FROM vwEmployeesData WHERE id = 2
+        // __EX.3.
+        // INSERT INTO vwEmployeesData VALUES (2, 'Michael!', 'male', 2)
+        // __IMPORTANT!!__Q: What happens when you update a view that is based upon multiple tables?
+        // A: If a view is based on multiple tables, and if you update the view, it may not update the underlying base tables correctly.
+        //      To correctly update a view that uses multiple tables, INSTEAD OF triggers are used.
+        //_________________end of Part 40 video___________________________
     }
 }
