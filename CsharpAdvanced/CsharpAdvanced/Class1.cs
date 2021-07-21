@@ -365,5 +365,37 @@ namespace CsharpAdvanced
         // A: If a view is based on multiple tables, and if you update the view, it may not update the underlying base tables correctly.
         //      To correctly update a view that uses multiple tables, INSTEAD OF triggers are used.
         //_________________end of Part 40 video___________________________
+
+        //________________INDEXED VIEWS IN SQL SERVER - Part 41_____________
+        // MIT...Indexed views are capable of storing data
+        // What is an Indexed View? OR What happens when you create an Index on a View?
+        // Standard or non-indexed views are merely stored SQL queries. data from these views is retrieved from the underlying base tables.
+        // So...these views are just virtual tables and do not store any data by default.
+        // However, when you create an index on a view, the view gets materialized. this means the view is now capable of storing data
+        // __EX.1
+        // CREATE VIEW vwPractice
+        // WITH SchemaBinding --guideline 1
+        // AS
+        // SELECT p.Name,
+        //  SUM(ISNULL(QuantitySold * UnitPrice), 0)) as TotalSales, --guideline 2...replacement value = 0
+        //  COUNT_BIG(*) as TotalTransactions --guideline 3
+        // FROM dbo.tblProductSales --guideline 4...schema name (dbo) and table name
+        // JOIN dbo.tblProduct --guideline 4
+        // ON dbo.tblProduct.ProductId = dbo.tblProductSales.ProductId
+        // GROUP BY Name;
+        // ...Execute the query using F5, refresh the Views folder, run the select query: SELECT * FROM vwPractice & execute
+        // __Creating an Index on the view...
+        // WIP 9:35 mark //
+        //
+        // __Guidelines for creating INDEXED VIEWS__
+        // 1. The view should be created with SchemaBinding option
+        // 2. If an aggregate function in the SELECT LIST references an expression and if there is a possibility for the expression to become NULL,
+        //      then a replacement value should be specified.
+        // 3. If GROUP BY is specified , the view select list must contain a COUNT_BIG(*) expression
+        // 4. The base tables in the view should be referenced with 2 part name
+        // complete list of guidelines...
+        // https://docs.microsoft.com/en-us/previous-versions/sql/sql-server-2008-r2/ms191432(v=sql.105)?redirectedfrom=MSDN
+        // //
+        //_________________end of Part 41 video___________________________
     }
 }
