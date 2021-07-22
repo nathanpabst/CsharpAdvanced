@@ -367,11 +367,16 @@ namespace CsharpAdvanced
         //_________________end of Part 40 video___________________________
 
         //________________INDEXED VIEWS IN SQL SERVER - Part 41_____________
+        // https://www.youtube.com/watch?v=mvW_TCQnrKw&list=PL08903FB7ACA1C2FB&index=43
         // MIT...Indexed views are capable of storing data
         // What is an Indexed View? OR What happens when you create an Index on a View?
         // Standard or non-indexed views are merely stored SQL queries. data from these views is retrieved from the underlying base tables.
-        // So...these views are just virtual tables and do not store any data by default.
-        // However, when you create an index on a view, the view gets materialized. this means the view is now capable of storing data
+        // So...these views are just virtual tables and do not store any data by default. Executing standard/non-indexed views can be 'expensive'/time-consuming
+        //      ,in terms of computing, if your tables have hundreds of thousands or millions of lines of data.
+        // However, when you create an index on a view, the view gets materialized. this means the view is now capable of storing data.
+        //  Anytime a transaction occurs or a row is entered into one of the base tables, the view is also updated.
+        //  Most suitable in a data warehousing environment (rather than an OLP system) when the data in the underlying tables isn't frequently being changed/modified.
+        //  The cost of maintaining indexed views is much more than the cost of maintaining table indexes.  //
         // __EX.1
         // CREATE VIEW vwPractice
         // WITH SchemaBinding --guideline 1
@@ -385,9 +390,12 @@ namespace CsharpAdvanced
         // GROUP BY Name;
         // ...Execute the query using F5, refresh the Views folder, run the select query: SELECT * FROM vwPractice & execute
         // __Creating an Index on the view...
-        // WIP 9:35 mark //
+        // __EX.1.
+        // CREATE UNIQUE CLUSTERED INDEX UIX_vwPractice_Name
+        // ON vwPractice(Name) --Name = column name
+        // __execute, navigate to the Indexes folder and view the index
         //
-        // __Guidelines for creating INDEXED VIEWS__
+        // _____Guidelines for creating INDEXED VIEWS_____________
         // 1. The view should be created with SchemaBinding option
         // 2. If an aggregate function in the SELECT LIST references an expression and if there is a possibility for the expression to become NULL,
         //      then a replacement value should be specified.
