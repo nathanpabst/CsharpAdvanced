@@ -405,5 +405,27 @@ namespace CsharpAdvanced
         // https://docs.microsoft.com/en-us/previous-versions/sql/sql-server-2008-r2/ms191432(v=sql.105)?redirectedfrom=MSDN
         // //
         //_________________end of Part 41 video___________________________
+
+        //________________VIEW LIMITATIONS IN SQL SERVER - Part 42_____________
+        // https://www.youtube.com/watch?v=NlJvzTpVX8Y&list=PL08903FB7ACA1C2FB&index=43
+        // View Limitations....
+        // 1. You cannot pass parameters to a view. Table-Valued functions are an excellent replacement for parameterized views.
+        //      You can filter results by using the WHERE clause. OR use an Inline Table Valued function as a replacement. See EX. 1.
+        // 2. Rules and Defaults cannot be associated with views.
+        // 3. The ORDER BY clause is invalid in views unless TOP or FOR XML is also specified.
+        // 4. Views cannot be based on temporary tables
+        // __EX. 1.
+        // CREATE FUNCTION fnEmployeeDetails(@Gender nvarchar(20))
+        // RETURN TABLE
+        // AS
+        // RETURN
+        // (SELECT Id, Name, Gender, DepartmentId
+        //      FROM tblEmployee WHERE Gender = @Gender)
+        //
+        // SELECT * FROM dbo.fnEmployeeDetails('Male') --execute the query
+        // //
+        // //
+
+        //_________________end of Part 42 video___________________________
     }
 }
