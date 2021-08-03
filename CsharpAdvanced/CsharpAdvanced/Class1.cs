@@ -423,9 +423,6 @@ namespace CsharpAdvanced
         //      FROM tblEmployee WHERE Gender = @Gender)
         //
         // SELECT * FROM dbo.fnEmployeeDetails('Male') --execute the query
-        // //
-        // //
-
         //_________________end of Part 42 video___________________________
     }
 }
