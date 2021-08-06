@@ -424,5 +424,38 @@ namespace CsharpAdvanced
         //
         // SELECT * FROM dbo.fnEmployeeDetails('Male') --execute the query
         //_________________end of Part 42 video___________________________
+
+        //________________SUB-QUERIES IN SQL SERVER - Part 59_____________
+        // NOTES: a sub-query is a select statement that returns a single value and can be nested inside a select, update, insert, or delete
+        //      statement. Its also possible to nest a sub-query inside another sub-query. sub-queries can be nested up to 32 levels.
+        //      sub-queries are always enclosed in parenthesis and are a.k.a inner queries. The query containing the sub-query is called the
+        //      outer query. The columns from a table that is present only inside a sub-query cannot be used in the SELECT list of the outer query.
+        // Products Table: Id, Name, Description
+        // ProductSales Table: ProductId, UnitPrice, QuantitySold
+        // EX. 1) - This query will return any product that has not sold...
+        // SELECT Id, Name, [Description]
+        // FROM tblProducts
+        // WHERE Id NOT IN (SELECT DISTINCT ProductId FROM tblProductSales)
+        // ____
+        // EX. 2) - using a JOIN statement instead of a sub-query to return a list of products that have not sold
+        // SELECT tblProducts.Id, Name, [Description]
+        // FROM tblProducts
+        // LEFT JOIN tblProductSales
+        // ON tblProducts.Id = tblProductSales.ProductId
+        // WHERE tblProductSales.ProductId IS NULL
+        // __
+        // EX. 3) - Retrieve name and quantity sold using a sub-query
+        // SELECT Name
+        // (SELECT SUM(QuantitySold) FROM tblProductSales WHERE ProductId = tblProducts.Id) as QtySold
+        // FROM tblProducts
+        // ORDER BY Name
+        // __
+        // EX. 4)  - Retrieve name and quantity sold using a join
+        // SELECT Name, SUM(QuantitySold) as QtySold
+        // FROM tblProducts
+        // LEFT JOIN tblProductSales
+        // ON tblProducts.Id = tblProductSales.ProductId
+        // GROUP BY Name
+        //_________________end of Part 59 video___________________________
     }
 }
